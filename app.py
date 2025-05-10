@@ -15,7 +15,7 @@ dfs = {sheet: pd.read_excel(xls_taeter, sheet_name=sheet, header=5) for sheet in
 dfs_opfer = {sheet: pd.read_excel(xls_opfer, sheet_name=sheet, header=5) for sheet in xls_opfer.sheet_names}
 
 # Dash App
-app = Dash(__name__)
+app = Dash(__name__)#Hier könnte etwas
 
 
 
