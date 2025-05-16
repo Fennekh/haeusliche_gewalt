@@ -8,6 +8,7 @@ xls_taeter = pd.ExcelFile("data/beschuldigte.xlsx")
 xls_opfer = pd.ExcelFile("data/geschaedigte.xlsx")
 delikte = pd.read_csv("data/delikte.csv")
 
+
 print(delikte)
 # Dictionary: Sheetname → DataFrame
 dfs = {sheet: pd.read_excel(xls_taeter, sheet_name=sheet, header=5) for sheet in xls_taeter.sheet_names}
