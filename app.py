@@ -2,7 +2,7 @@ import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-from layouts import tab_zeitliche_layout, tab_geschlecht_layout, tab_trend_layout
+from layouts import tab_zeitliche_entwicklung, tab_geschlechterverhaeltnis, tab_trend_analyse
 
 # Dash-Instanz
 app = dash.Dash(__name__, 
@@ -26,16 +26,16 @@ app.layout = html.Div([
 @app.callback(Output('tabs-content', 'children'), Input('tabs', 'value'))
 def render_content(tab):
     if tab == 'tab1':
-        return tab_zeitliche_layout.layout
+        return tab_zeitliche_entwicklung.layout
     elif tab == 'tab2':
-        return tab_geschlecht_layout.layout
+        return tab_geschlechterverhaeltnis.layout
     elif tab == 'tab3':
-        return tab_trend_layout.layout
+        return tab_trend_analyse.layout
 
 # Registriere die Callbacks aus allen Layout-Modulen
-tab_zeitliche_layout.register_callbacks(app)
-tab_geschlecht_layout.register_callbacks(app)
-tab_trend_layout.register_callbacks(app)
+tab_zeitliche_entwicklung.register_callbacks(app)
+tab_geschlechterverhaeltnis.register_callbacks(app)
+tab_trend_analyse.register_callbacks(app)
 
 # Starte die App
 if __name__ == '__main__':
