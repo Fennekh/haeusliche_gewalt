@@ -7,6 +7,9 @@ import plotly.graph_objects as go
 import pandas as pd
 from plotly.validators.scatter.marker import SymbolValidator
 from dash import dash_table
+import matplotlib.pyplot as plt
+import io
+import base64
 
 # Importieren der gemeinsamen Daten
 from layouts.data import load_data
@@ -21,6 +24,32 @@ color_all = "black"
 #Daten laden
 opfer = pd.read_csv("/Users/karinhugentobler/PycharmProjects/dashboard_haeusliche_gewalt/data/geschaedigte_tidy.csv")
 taeter = pd.read_csv("/Users/karinhugentobler/PycharmProjects/dashboard_haeusliche_gewalt/data/beschuldigte_tidy.csv")
+
+#Datenvorbereitung für Tabelle
+
+# Nur Beziehungsart = Alle und Geschlecht = Total verwenden
+taeter_filtered = taeter[(taeter["Beziehungsart"] == "Alle") & (taeter["Geschlecht"] == "Total")]
+
+# Gruppieren nach Delikt und Jahr
+taeter_grouped = taeter_filtered.groupby(['Delikt', 'Jahr'])['Anzahl_beschuldigter_Personen_Total'].sum().reset_index()
+
+# Pivot-Tabelle: Delikt als Zeile, Jahre als Spalten
+trend_pivot = taeter_grouped.pivot(index='Delikt', columns='Jahr', values='Anzahl_beschuldigter_Personen_Total')
+
+# Fehlende Werte auffüllen (z. B. Delikte, die in 2009 oder 2024 nicht gemeldet wurden)
+trend_pivot = trend_pivot.fillna(0)
+
+# Mini-Trendliste + aktuelle Zahlen + Veränderung
+trend_pivot['Anzahl'] = trend_pivot[2024]
+trend_pivot['Trend'] = trend_pivot.apply(lambda row: row.loc[2009:2024].tolist(), axis=1)
+trend_pivot['Veränderung (%)'] = ((trend_pivot[2024] - trend_pivot[2009]) / trend_pivot[2009].replace(0, 1)) * 100
+
+# Sortieren nach Anzahl (2024)
+trend_pivot_sorted = trend_pivot.sort_values(by='Anzahl', ascending=False).reset_index()
+
+
+
+#Datenvorbereitung Grafiken
 #Filtern nach Delikte gesamt
 taeter = taeter[taeter["Delikt"] == "Total Häusliche Gewalt"]
 opfer = opfer[opfer["Delikt"] == "Total Häusliche Gewalt"]
@@ -39,99 +68,84 @@ opfer_weiblich = opfer[opfer["Geschlecht"] == "weiblich"]
 opfer_total = opfer[opfer["Geschlecht"] == "Total"]
 
 
-#------
+
+
+
+#----
 
 # Layout für den ersten Tab (Zeitliche Entwicklung)
 layout = html.Div([
-    # Globaler Zeitregler (Slider)
-    html.Div([
-        html.H4("Zeitraum auswählen:", style={'marginBottom': 10}),
-        dcc.RangeSlider(
-            id='jahr-slider-tab1',  # Eindeutige ID
-            min=2009,
-            max=2024,
-            value=[2009, 2024],  # Standardmäßig den gesamten Zeitraum anzeigen
-            marks={year: str(year) for year in range(2009, 2025)},
-            step=1
-        )
-    ],  style={'width': '80%', 'margin': 'auto', 'marginBottom': 30, 'marginTop': 20}),
-
-    # Information zum aktuell ausgewählten Zeitraum
+    # Zeitraum-Information
     html.Div(id='zeitraum-info-tab1', style={'textAlign': 'center', 'marginBottom': 20}),
 
-    # Zeitliche Entwicklung nach Geschlecht
-    html.Div([
-        html.H3("Zeitliche Entwicklung von Opfern und Tätern nach Geschlecht",
-                style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
-        dbc.Row([
-
-        dbc.Col(dcc.Graph(id='zeitliche-entwicklung-straftaten'), width=8),
-        dbc.Col(html.Div([
-                    html.H3("Zeitliche Entwicklung von Opfern und Tätern nach Geschlecht"),
-                    html.P("In Fällen, in denen die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt, wird der betreffende Straftatbestand mit „mehrfach“ gekennzeichnet. "),
-                    html.H1("16'349"),
-                    html.P("Straftaten 2024")
-
-                ]), width=2, style={'marginTop': 20, 'marginLeft': 20}),
-
-
-        ]),
-        dbc.Row([
-
-            dbc.Col(
-            html.Div([
-                html.H3("Delikte", style={'marginTop': 30}),
-
-                dash_table.DataTable(
-                    id='daten-tabelle',
-                    columns=[  # Platzhalter-Spalten
-                        {'name': 'Delikt', 'id': 'Delikt'},
-                        {'name': 'Anzahl', 'id': 'Anzahl'},
-                        {'name': 'Trend als linie', 'id': 'Anzahl'},
-                        {'name': 'Veränderung Seit 2009 in prozent', 'id': 'Anzahl'},
-                    ],
-                    data=[],  # Leerer Start
-                    style_table={'overflowX': 'auto'},
-                    style_cell={'padding': '8px', 'textAlign': 'left'},
-                    style_header={
-                        'backgroundColor': 'white',
-                        'fontWeight': 'bold'
-                    },
-                    page_size=10  # Anzahl Zeilen pro Seite
-                )
-            ]), width=4 ),
-
-            dbc.Col(dcc.Graph(id='zeitliche-entwicklung-taeter-opfer'), width=4),
-
-            dbc.Col(html.Div([
-                html.H3("Zeitliche Entwicklung von Opfern und Tätern"),
-                html.P(
-                    "In Fällen, in denen die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt, wird der betreffende Straftatbestand mit „mehrfach“ gekennzeichnet."
-                ),
-                dbc.Row([
-                    dbc.Col([
-                        html.H2("16'349"),
-                        html.P("Opfer 2024")
-                    ]),
-                    dbc.Col([
-                        html.H2("5'671"),
-                        html.P("Täter")
-                    ])
-                ])
-            ]), width=2),
-
-
-
-        ])
-
+    # Überschrift & Zeitraum-Slider
+    dbc.Row([
+        dbc.Col([
+            html.H3("Zeitliche Entwicklung von Opfern und Tätern nach Geschlecht",
+                    style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20})
+        ], width=3),
+        dbc.Col([
+            html.H4("Zeitraum auswählen:", style={'marginBottom': 10}),
+            dcc.RangeSlider(
+                id='jahr-slider-tab1',
+                min=2009,
+                max=2024,
+                value=[2009, 2024],
+                marks={year: str(year) for year in range(2009, 2025)},
+                step=1,
+                tooltip={"placement": "bottom", "always_visible": False},
+                className='schwarzer-slider'  # Noch im CSS anpassen (To Do)
+            )
+        ], width=2)
     ]),
 
+    # Haupt-Grafik + Zusammenfassung
+    dbc.Row([
+        dbc.Col(
+            dcc.Graph(id='zeitliche-entwicklung-straftaten'),
+            width=8
+        ),
+        dbc.Col([
+            html.H4("Zusammenfassung"),
+            html.P("Mehrfach gemeldete Straftaten werden entsprechend gekennzeichnet."),
+            html.H2("16'349", style={'marginTop': 10}),
+            html.P("Straftaten 2024")
+        ], width=4, style={'marginTop': 20})
+    ]),
+
+    # Tabelle + weitere Visualisierungen
+    dbc.Row([
+
+
+        dbc.Col(
+            dcc.Graph(id='zeitliche-entwicklung-taeter-opfer'),
+            width=8
+        ),
+
+        dbc.Col([
+            html.H4("Zusätzliche Informationen"),
+            html.P("Mehrfach gemeldete Straftaten..."),
+            dbc.Row([
+                dbc.Col([
+                    html.H2("16'349"),
+                    html.P("Opfer 2024")
+                ]),
+                dbc.Col([
+                    html.H2("5'671"),
+                    html.P("Täter")
+                ])
+            ])
+        ], width=4)
+    ]),
+
+    # Fußnote
     html.Div([
         html.Hr(),
-        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009-2024)",
+        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
                style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888'})
     ])
 ])
+
 
 # Hier registrieren wir die Callbacks für diesen Tab
 def register_callbacks(app):

@@ -6,8 +6,8 @@ import plotly.graph_objects as go
 import pandas as pd
 
 # Farben
-color_women = "maroon"
-color_men = "royalblue"
+color_women = "#7B1E1E"
+color_men = "Royalblue"
 color_all = "black"
 
 # Daten laden und filtern
@@ -27,14 +27,18 @@ taeter_total = taeter[taeter["Geschlecht"] == "Total"]
 
 # Layout
 layout = html.Div([
-    html.H3("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'center', 'marginTop': 20}),
+    html.H3("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'left', 'marginTop': 20}),
+    dbc.Row([
+        dbc.Col(dcc.Graph(id='graph-taeter'),width=4),
+        dbc.Col(dcc.Graph(id='graph-opfer'),width=4),
+    ]),
+
     html.Div([
-        dcc.Graph(id='graph-opfer', style={'width': '48%', 'display': 'inline-block'}),
-        dcc.Graph(id='graph-taeter', style={'width': '48%', 'display': 'inline-block'})
+
     ], style={'textAlign': 'center'}),
     dbc.Row([
-        dbc.Col(dcc.Graph(id='zeitliche-entwicklung-taeter'), width=6),
-        dbc.Col(dcc.Graph(id='zeitliche-entwicklung-opfer'), width=6)
+        dbc.Col(dcc.Graph(id='zeitliche-entwicklung-taeter'), width=4),
+        dbc.Col(dcc.Graph(id='zeitliche-entwicklung-opfer'), width=4)
     ]),
     html.Div([
         html.Hr(),
@@ -45,23 +49,7 @@ layout = html.Div([
 
 # Callbacks
 def register_callbacks(app):
-    @app.callback(
-        Output('graph-opfer', 'figure'),
-        Input('graph-opfer', 'id')
-    )
-    def update_opfer_graph(_):
-        m = opfer_maenlich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum()
-        w = opfer_weiblich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum()
-        t = opfer_total.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum()
-        df = pd.DataFrame({'männlich': m, 'weiblich': w, 'total': t}).reset_index()
-        df['% männlich'] = df['männlich'] / df['total'] * 100
-        df['% weiblich'] = df['weiblich'] / df['total'] * 100
 
-        fig = go.Figure()
-        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männliche Opfer', marker_color=color_men)
-        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weibliche Opfer', marker_color=color_women)
-        fig.update_layout(barmode='stack', title="Opfer nach Geschlecht", yaxis_title="Prozent (%)", template="plotly_white")
-        return fig
 
     @app.callback(
         Output('graph-taeter', 'figure'),
@@ -76,10 +64,50 @@ def register_callbacks(app):
         df['% weiblich'] = df['weiblich'] / df['total'] * 100
 
         fig = go.Figure()
-        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männliche Täter', marker_color=color_men)
-        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weibliche Täter', marker_color=color_women)
-        fig.update_layout(barmode='stack', title="Täter nach Geschlecht", yaxis_title="Prozent (%)", template="plotly_white")
+        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männliche Täter', marker_color=color_men, marker=dict(
+                              line=dict(width=0),
+                          ),)
+        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weibliche Täter', marker_color=color_women,marker=dict(
+                              line=dict(width=0),
+                          ),)
+        fig.update_layout(barmode='stack',
+                          title="Täter:innen nach Geschlecht",
+                          yaxis_title="Prozent (%)",
+                          showlegend=False,
+                          template="plotly_white",
+                          bargap=0.1,
+                          )
         return fig
+
+
+    @app.callback(
+        Output('graph-opfer', 'figure'),
+        Input('graph-opfer', 'id')
+    )
+    def update_opfer_graph(_):
+        m = opfer_maenlich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum()
+        w = opfer_weiblich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum()
+        t = opfer_maenlich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum() + opfer_weiblich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum()
+        df = pd.DataFrame({'männlich': m, 'weiblich': w, 'total': t}).reset_index()
+        df['% männlich'] = df['männlich'] / df['total'] * 100
+        df['% weiblich'] = df['weiblich'] / df['total'] * 100
+
+        fig = go.Figure()
+        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männlich', marker_color=color_men, marker=dict(
+                              line=dict(width=0),
+                          ))
+        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weiblich', marker_color=color_women, marker=dict(
+                              line=dict(width=0),
+                          ),)
+        fig.update_layout(barmode='stack',
+                          title="Opfer nach Geschlecht",
+                          yaxis_title="Prozent (%)",
+                          showlegend=True,
+                          template="plotly_white",
+                          bargap=0.1,
+                          ),
+        return fig
+
 
     @app.callback(
         Output('zeitliche-entwicklung-taeter', 'figure'),
@@ -87,25 +115,8 @@ def register_callbacks(app):
     )
     def update_entwicklung_taeter(_):
         # Linie für gesammt Täter
-        fig.add_trace(go.Scatter(
-            x=taeter_total['Jahr'],
-            y=taeter_total['Anzahl_beschuldigter_Personen_Total'],
-            mode='lines+markers',
-            name='Beschuldigte gesamt',
-            marker=dict(symbol='star-diamond', size=10),
-            line=dict(width=1.5, color=color_all)
-
-        ))
-
-        fig.add_trace(go.Scatter(
-            x=opfer_total['Jahr'],
-            y=opfer_total['Anzahl_geschaedigter_Personen_Total'],
-            mode='lines+markers',
-            name='Geschädigte gesamt',
-            marker=dict(size=9),
-            line=dict(width=1.5, color=color_all, dash='dot')
-
-        ))
+        # Linie für gesammt Täter
+        fig = go.Figure()
 
         # Linie für männliche Täter
         fig.add_trace(go.Scatter(
@@ -115,7 +126,6 @@ def register_callbacks(app):
             name='Täter männlich',
             marker=dict(symbol='star-diamond', size=10),
             line=dict(width=1.5, color=color_men)
-
         ))
 
         # Linie für weibliche Täter
@@ -128,12 +138,23 @@ def register_callbacks(app):
             line=dict(width=1.5, color=color_women)  # Optional: gestrichelte Linie
         ))
 
+        fig.add_trace(go.Scatter(
+            x=taeter_total['Jahr'],
+            y=taeter_total['Anzahl_beschuldigter_Personen_Total'],
+            mode='lines+markers',
+            name='Beschuldigte gesamt',
+            marker=dict(symbol='star-diamond', size=10),
+            line=dict(width=1.5, color=color_all),
+            opacity=0.1,
+
+        ))
+
         # Layout anpassen
         fig.update_layout(
             template='plotly_white',
             hovermode='x unified',
             xaxis=dict(
-                range=[jahr_start - 0.2, jahr_ende + 0.2],
+                range=[2009 - 0.2, 2025 + 0.2],
                 tickmode='linear',
                 dtick=1  # Jährliche Ticks
             ),
@@ -144,7 +165,7 @@ def register_callbacks(app):
 
         # Layout anpassen
         fig.update_layout(
-            title=f"Entwicklung der Täterzahlen nach Geschlecht ({jahr_start}-{jahr_ende})",
+            title=f"Entwicklung der Täterzahlen nach Geschlecht 2009 bis 2025)",
             xaxis_title="Jahr",
             yaxis_title="Anzahl Personen",
             legend_title="Gruppe",
@@ -160,11 +181,38 @@ def register_callbacks(app):
     )
     def update_entwicklung_opfer(_):
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x=opfer_total['Jahr'], y=opfer_total['Anzahl_geschaedigter_Personen_Total'],
-                                 mode='lines+markers', name='Opfer gesamt', line=dict(color=color_all)))
         fig.add_trace(go.Scatter(x=opfer_maenlich['Jahr'], y=opfer_maenlich['Anzahl_geschaedigter_Personen_Total'],
-                                 mode='lines+markers', name='Opfer männlich', line=dict(color=color_men)))
+                                 mode='lines+markers', name='Opfer männlich', line=dict(width=1.5, color=color_men),marker=dict(size=10, color=color_men)))
         fig.add_trace(go.Scatter(x=opfer_weiblich['Jahr'], y=opfer_weiblich['Anzahl_geschaedigter_Personen_Total'],
-                                 mode='lines+markers', name='Opfer weiblich', line=dict(color=color_women)))
-        fig.update_layout(title="Opferzahlen im Zeitverlauf", xaxis_title="Jahr", yaxis_title="Anzahl", template="plotly_white")
+                                 mode='lines+markers', name='Opfer weiblich', line=dict(width=1.5, color=color_women),marker=dict(size=10)))
+        fig.add_trace(go.Scatter(x=opfer_total['Jahr'], y=opfer_total['Anzahl_geschaedigter_Personen_Total'],
+                                 mode='lines+markers', name='Opfer gesamt', line=dict(width=1.5, color=color_all),
+                                 marker=dict(size=10), opacity=0.1))
+        # Layout anpassen
+        fig.update_layout(
+            title='Opferzahlen nach Geschlecht (2009–2024)',
+            xaxis_title='Jahr',
+            yaxis_title='Anzahl geschaedigter Personen',
+            template='plotly_white',
+            hovermode='x unified',
+            xaxis=dict(
+                range=[2009 - 0.2, 2025 + 0.2],
+                tickmode='linear',
+                dtick=1  # Jährliche Ticks
+            ),
+
+            yaxis=dict(range=[0, 12000]),
+            legend_title='Geschlecht'
+        )
+
+        # Layout anpassen
+        fig.update_layout(
+            title=f"Entwicklung der Opfer nach Geschlecht (2009-2025)",
+            xaxis_title="Jahr",
+            yaxis_title="Anzahl Personen",
+            legend_title="Gruppe",
+            template="plotly_white",
+            hovermode="x unified"
+        )
+
         return fig
