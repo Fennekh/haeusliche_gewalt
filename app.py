@@ -5,16 +5,16 @@ from dash.dependencies import Input, Output
 from layouts import tab_zeitliche_entwicklung, tab_geschlechterverhaeltnis, tab_trend_analyse
 
 # Dash-Instanz
-app = dash.Dash(__name__, 
-                external_stylesheets=[dbc.themes.BOOTSTRAP], 
+app = dash.Dash(__name__,
+                external_stylesheets=[dbc.themes.BOOTSTRAP],
                 suppress_callback_exceptions=True)
 server = app.server
 
 # Layout mit Tabs
 app.layout = html.Div([
     html.H1("Statistik zu häuslicher Gewalt in der Schweiz",
-            style={'textAlign': 'center', 'color': '#505050', 'marginTop': 20, 'marginBottom': 20}),
-            
+            style={'textAlign': 'left', 'color': '#505050', 'marginTop': 20, 'marginBottom': 20, 'marginleft': 20}),
+
     dcc.Tabs(id="tabs", value='tab1', children=[
         dcc.Tab(label='Zeitliche Entwicklung', value='tab1'),
         dcc.Tab(label='Geschlechterverhältnis', value='tab2'),

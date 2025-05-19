@@ -2,10 +2,50 @@ import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
+import pandas as pd
+from plotly.validators.scatter.marker import SymbolValidator
+from dash import dash_table
+
+# Importieren der gemeinsamen Daten
+from layouts.data import load_data
+
+#Variabeln
+color_women= "maroon"
+color_men = "royalblue"
+color_all = "black"
+
+
+#------
+#Daten laden
+opfer = pd.read_csv("/Users/karinhugentobler/PycharmProjects/dashboard_haeusliche_gewalt/data/geschaedigte_tidy.csv")
+taeter = pd.read_csv("/Users/karinhugentobler/PycharmProjects/dashboard_haeusliche_gewalt/data/beschuldigte_tidy.csv")
+#Filtern nach Delikte gesamt
+taeter = taeter[taeter["Delikt"] == "Total Häusliche Gewalt"]
+opfer = opfer[opfer["Delikt"] == "Total Häusliche Gewalt"]
+
+#Filtern nach Beziehungsart alle
+taeter = taeter[taeter["Beziehungsart"] == "Alle"]
+opfer = opfer[opfer["Beziehungsart"] == "Alle"]
+
+#Filtern nach geschlecht
+taeter_maenlich = taeter[taeter["Geschlecht"] == "männlich"]
+taeter_weiblich = taeter[taeter["Geschlecht"] == "weiblich"]
+taeter_total = taeter[taeter["Geschlecht"] == "Total"]
+
+opfer_maenlich = opfer[opfer["Geschlecht"] == "männlich"]
+opfer_weiblich = opfer[opfer["Geschlecht"] == "weiblich"]
+opfer_total = opfer[opfer["Geschlecht"] == "Total"]
+#----
+
+# Altersgruppen festlegen
+age_order = [
+    '<10 Jahre', '10 - 19 Jahre', '20 - 29 Jahre', '30 - 39 Jahre',
+    '40 - 49 Jahre', '50 - 59 Jahre', '60 - 69 Jahre', '70 Jahre und +'
+]
+
+##
 
 # Daten aus der ursprünglichen Datei
 opfer_data = [
