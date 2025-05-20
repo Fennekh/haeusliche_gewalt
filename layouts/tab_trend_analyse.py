@@ -212,14 +212,14 @@ def register_callbacks(app):
             barmode='relative',
             xaxis=dict(
                 title='Anzahl Personen',
-                tickvals=[-1000, -500, 0, 500, 1000],  # anpassen je nach Skala
+                tickvals=[-1000, -500, 0, 500, 1000],
                 ticktext=[1000, 500, 0, 500, 1000]
             ),
 
             yaxis=dict(
                 title='Altersgruppe',
                 categoryorder='array',
-                categoryarray=age_order[::-1]  # ← Umdrehen der Altersgruppen
+                categoryarray=age_order[::-1]  # Umdrehen der Altersgruppen
             ),
             template='plotly_white',
             bargap=0.1,

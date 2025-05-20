@@ -82,10 +82,10 @@ layout = html.Div([
     dbc.Row([
         dbc.Col([
             html.H3("Zeitliche Entwicklung von Opfern und Tätern nach Geschlecht",
-                    style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20})
-        ], width=3),
+                    style={'textAlign': 'left', 'marginLeft': 20})
+        ], width=6),
         dbc.Col([
-            html.H4("Zeitraum auswählen:", style={'marginBottom': 10}),
+            html.H4("Zeitraum auswählen:"),
             dcc.RangeSlider(
                 id='jahr-slider-tab1',
                 min=2009,

@@ -27,7 +27,7 @@ taeter_weiblich = taeter[taeter["Geschlecht"] == "weiblich"]
 
 # Layout
 layout = html.Div([
-    html.H3("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'left', 'marginTop': 20}),
+    html.H3("Beziehung vom Opfern zu tätern", style={'textAlign': 'left', 'marginTop': 20}),
 
     dbc.Row([
         dbc.Col(dcc.Graph('graph-beziehung'), width=8),
@@ -50,17 +50,11 @@ def register_callbacks(app):
     )
     def update_beziehung_graph(_):
         # Beispiel-Daten
-        gruppen = ['männlich', 'weiblich']
+        gruppen = ['Total', 'weiblich']
         Beziehungsart = ['Partnerschaft',
    'ehemalige Partnerschaft',
    'Eltern-Kind-Beziehung',
    'andere Verwandtschaftsbeziehung']
-
-        # Fiktive Werte
-        werte = {
-            'männlich': [50, 80, 30, 60],
-            'weiblich': [40, 70, 20, 90]
-        }
 
         # Leere Scatter-Traces
         fig = go.Figure()
@@ -86,7 +80,8 @@ def register_callbacks(app):
             xaxis_title='Gruppe',
             yaxis_title='Altersgruppe',
             showlegend=True,
-            height=600
+            height=600,
+            template = 'plotly_white',
         )
 
         return fig

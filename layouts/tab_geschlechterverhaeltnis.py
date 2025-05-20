@@ -28,18 +28,26 @@ taeter_total = taeter[taeter["Geschlecht"] == "Total"]
 # Layout
 layout = html.Div([
     html.H3("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'left', 'marginTop': 20}),
+
+
     dbc.Row([
-        dbc.Col(dcc.Graph(id='graph-taeter'),width=4),
-        dbc.Col(dcc.Graph(id='graph-opfer'),width=4),
+        dbc.Col(dcc.Graph(id='graph-taeter'),width=5),
+        dbc.Col(dcc.Graph(id='graph-opfer'),width=5),
+
     ]),
 
     html.Div([
-
+dcc.RadioItems(
+        id='toggle-set',
+        options=[
+            {'label': 'Prozentuale Verteilung', 'value': 'set1'},
+            {'label': 'Absolute Zahlen', 'value': 'set2'}
+        ],
+        value='set1',
+        labelStyle={'display': 'inline-block', 'marginRight': '10px'}
+    ),
     ], style={'textAlign': 'center'}),
-    dbc.Row([
-        dbc.Col(dcc.Graph(id='zeitliche-entwicklung-taeter'), width=4),
-        dbc.Col(dcc.Graph(id='zeitliche-entwicklung-opfer'), width=4)
-    ]),
+
     html.Div([
         html.Hr(),
         html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
@@ -51,11 +59,7 @@ layout = html.Div([
 def register_callbacks(app):
 
 
-    @app.callback(
-        Output('graph-taeter', 'figure'),
-        Input('graph-taeter', 'id')
-    )
-    def update_taeter_graph(_):
+    def update_taeter_graph():
         m = taeter_maenlich.groupby('Jahr')['Anzahl_beschuldigter_Personen_Total'].sum()
         w = taeter_weiblich.groupby('Jahr')['Anzahl_beschuldigter_Personen_Total'].sum()
         t = taeter_total.groupby('Jahr')['Anzahl_beschuldigter_Personen_Total'].sum()
@@ -80,11 +84,7 @@ def register_callbacks(app):
         return fig
 
 
-    @app.callback(
-        Output('graph-opfer', 'figure'),
-        Input('graph-opfer', 'id')
-    )
-    def update_opfer_graph(_):
+    def update_opfer_graph():
         m = opfer_maenlich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum()
         w = opfer_weiblich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum()
         t = opfer_maenlich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum() + opfer_weiblich.groupby('Jahr')['Anzahl_geschaedigter_Personen_Total'].sum()
@@ -101,19 +101,14 @@ def register_callbacks(app):
                           ),)
         fig.update_layout(barmode='stack',
                           title="Opfer nach Geschlecht",
-                          yaxis_title="Prozent (%)",
+
                           showlegend=True,
                           template="plotly_white",
                           bargap=0.1,
                           ),
         return fig
 
-
-    @app.callback(
-        Output('zeitliche-entwicklung-taeter', 'figure'),
-        Input('zeitliche-entwicklung-taeter', 'id')
-    )
-    def update_entwicklung_taeter(_):
+    def update_entwicklung_taeter():
         # Linie für gesammt Täter
         # Linie für gesammt Täter
         fig = go.Figure()
@@ -146,6 +141,7 @@ def register_callbacks(app):
             marker=dict(symbol='star-diamond', size=10),
             line=dict(width=1.5, color=color_all),
             opacity=0.1,
+            showlegend=False,
 
         ))
 
@@ -170,16 +166,13 @@ def register_callbacks(app):
             yaxis_title="Anzahl Personen",
             legend_title="Gruppe",
             template="plotly_white",
-            hovermode="x unified"
+            hovermode="x unified",
+            showlegend = False,
         )
 
         return fig
 
-    @app.callback(
-        Output('zeitliche-entwicklung-opfer', 'figure'),
-        Input('zeitliche-entwicklung-opfer', 'id')
-    )
-    def update_entwicklung_opfer(_):
+    def update_entwicklung_opfer():
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=opfer_maenlich['Jahr'], y=opfer_maenlich['Anzahl_geschaedigter_Personen_Total'],
                                  mode='lines+markers', name='Opfer männlich', line=dict(width=1.5, color=color_men),marker=dict(size=10, color=color_men)))
@@ -216,3 +209,14 @@ def register_callbacks(app):
         )
 
         return fig
+
+    @app.callback(
+        Output('graph-taeter', 'figure'),
+        Output('graph-opfer', 'figure'),
+        Input('toggle-set', 'value')
+    )
+    def update_graphs(toggle_value):
+        if toggle_value == 'set1':
+            return update_taeter_graph(), update_opfer_graph()
+        else:
+            return update_entwicklung_taeter(), update_entwicklung_opfer()

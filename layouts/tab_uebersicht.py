@@ -47,8 +47,6 @@ trend_pivot['Veränderung (%)'] = ((trend_pivot[2024] - trend_pivot[2009]) / tre
 # Sortieren nach Anzahl (2024)
 trend_pivot_sorted = trend_pivot.sort_values(by='Anzahl', ascending=False).reset_index()
 
-
-
 #Datenvorbereitung Grafiken
 #Filtern nach Delikte gesamt
 taeter = taeter[taeter["Delikt"] == "Total Häusliche Gewalt"]
