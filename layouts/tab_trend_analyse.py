@@ -113,17 +113,15 @@ def register_callbacks(app):
             raise PreventUpdate
 
         df = opfer if perspektive == 'opfer' else taeter
-        df['Jahr'] = pd.to_numeric(df['Jahr'], errors='coerce')  # oder .astype(int) wenn du sicher bist
+        df['Jahr'] = pd.to_numeric(df['Jahr'], errors='coerce')  # oder .astype(int), wenn du sicher bist
 
         # Filtern
         df_filtered = df[
             (df['Geschlecht'] == geschlecht) &
             (df['Jahr'] >= jahr_start) &
             (df['Jahr'] <= jahr_ende)
-        ]
+            ]
 
-
-        print(df_filtered)
         # Farbschema je nach Geschlecht
         if geschlecht == 'männlich':
             color_scale = px.colors.sequential.Blues
@@ -131,22 +129,36 @@ def register_callbacks(app):
             color_scale = px.colors.sequential.Greys
         else:
             color_scale = px.colors.sequential.Reds
-        # Optional: nur so viele Farben wie Altersklassen
         farben = color_scale
 
         fig = go.Figure()
 
         for i, altersklasse in enumerate(age_order):
             if altersklasse in df_filtered.columns:
+                x_vals = df_filtered['Jahr']
+                y_vals = df_filtered[altersklasse]
+
+                # Hauptlinie
                 fig.add_trace(go.Scatter(
-                    x=df_filtered['Jahr'],
-                    y=df_filtered[altersklasse],
+                    x=x_vals,
+                    y=y_vals,
                     mode='lines+markers',
                     name=str(altersklasse),
-                    line=dict(color=farben[i])
+                    line=dict(color=farben[i]),
+                    showlegend=True
                 ))
 
-        print(df_filtered.columns)
+                # Beschriftung am Linienende
+                fig.add_trace(go.Scatter(
+                    x=[x_vals.iloc[-1]],
+                    y=[y_vals.iloc[-1]],
+                    text=[str(altersklasse)],
+                    mode='text',
+                    textposition='top left',
+                    textfont=dict(color=farben[i]),
+                    showlegend=False
+                ))
+
         fig.update_layout(
             title=f"Entwicklung der Altersgruppen bei {geschlecht.lower()}n {'Opfern' if perspektive == 'opfer' else 'Tätern'} ({jahr_start}-{jahr_ende})",
             xaxis_title="Jahr",
@@ -154,6 +166,7 @@ def register_callbacks(app):
             legend_title="Altersgruppe",
             template="plotly_white",
             hovermode="x unified"
+
         )
         return fig
 #-----

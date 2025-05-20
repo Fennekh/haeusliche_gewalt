@@ -22,8 +22,8 @@ color_all = "black"
 
 #------
 #Daten laden
-opfer = pd.read_csv("/Users/karinhugentobler/PycharmProjects/dashboard_haeusliche_gewalt/data/geschaedigte_tidy.csv")
-taeter = pd.read_csv("/Users/karinhugentobler/PycharmProjects/dashboard_haeusliche_gewalt/data/beschuldigte_tidy.csv")
+opfer = pd.read_csv("data/geschaedigte_tidy.csv")
+taeter = pd.read_csv("data/beschuldigte_tidy.csv")
 
 #Datenvorbereitung für Tabelle
 
@@ -65,12 +65,37 @@ opfer_maenlich = opfer[opfer["Geschlecht"] == "männlich"]
 opfer_weiblich = opfer[opfer["Geschlecht"] == "weiblich"]
 opfer_total = opfer[opfer["Geschlecht"] == "Total"]
 
+# --- Vorbereitung der Mini-Geschlechterbalken ---
+opfer_agg = opfer[(opfer["Geschlecht"].isin(["männlich", "weiblich"])) & (opfer["Beziehungsart"] == "Alle")]
+opfer_latest = opfer_agg[opfer_agg["Jahr"] == 2024]
+geschlecht_pivot = opfer_latest.pivot_table(index="Delikt", columns="Geschlecht", values="Anzahl_geschaedigter_Personen_Total", aggfunc="sum").fillna(0)
+
+geschlecht_balken = {}
+for delikt, row in geschlecht_pivot.iterrows():
+    fig, ax = plt.subplots(figsize=(2, 0.3))
+    total = row["männlich"] + row["weiblich"]
+    if total == 0:
+        ratio_m = ratio_w = 0.5
+    else:
+        ratio_m = row["männlich"] / total
+        ratio_w = row["weiblich"] / total
+
+    ax.barh([0], [ratio_m], color=color_men)
+    ax.barh([0], [ratio_w], left=[ratio_m], color=color_women)
+    ax.set_xlim(0, 1)
+    ax.axis('off')
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0)
+    plt.close(fig)
+    buf.seek(0)
+    img_b64 = base64.b64encode(buf.read()).decode('utf-8')
+    geschlecht_balken[delikt] = f"data:image/png;base64,{img_b64}"
+
 
 #------
 # Funktion zur Erstellung von Mini-Trendgrafiken als base64
 table_data = []
 for _, row in trend_pivot_sorted.iterrows():
-    # Trend als echtes HTML-Bild
     fig, ax = plt.subplots(figsize=(2, 0.5))
     ax.plot(row['Trend'], linewidth=1.5)
     ax.set_axis_off()
@@ -81,12 +106,12 @@ for _, row in trend_pivot_sorted.iterrows():
     img_base64 = base64.b64encode(buf.read()).decode('utf-8')
     trend_img = f"data:image/png;base64,{img_base64}"
 
-    # Zeile zur Liste hinzufügen
     table_data.append({
         'Delikt': row['Delikt'],
         'Anzahl': int(row['Anzahl']),
         'Trend_src': trend_img,
-        'Veränderung': f"{row['Veränderung (%)']:.1f} %"
+        'Veränderung': f"{row['Veränderung (%)']:.1f} %",
+        'Geschlechterverhältnis_src': geschlecht_balken.get(row['Delikt'], "")
     })
 
 
@@ -104,14 +129,18 @@ layout = html.Div([
     # Tabelle + weitere Visualisierungen
     dbc.Row([
         dbc.Col([
-            html.H4("Delikte", style={'marginTop': 30}),
+            html.H4("Übersicht Delikte", style={'marginTop': 30, 'marginLeft': 20}),
             html.Table([
                 html.Thead(
                     html.Tr([
                         html.Th("Delikt"),
                         html.Th("Anzahl 2024"),
                         html.Th("Trend 2009–2024"),
-                        html.Th("Veränderung (%)")
+                        html.Th("Veränderung (%)"),
+                        html.Th("Geschlechterverhältnis (Opfer)"),
+                        html.Th("Geschlechterverhältnis (Täter)"),
+                        html.Th("Häufigstes Alter (Opfer)"),
+                        html.Th("Häufigstes Alter (Täter)"),
                     ])
                 ),
                 html.Tbody([
@@ -119,11 +148,16 @@ layout = html.Div([
                         html.Td(row['Delikt']),
                         html.Td(row['Anzahl']),
                         html.Td(html.Img(src=row['Trend_src'], style={'height': '30px'})),
-                        html.Td(row['Veränderung'])
+                        html.Td(row['Veränderung']),
+                        html.Td(html.Img(src=row['Geschlechterverhältnis_src'], style={'height': '20px'})),
+                        html.Td(html.Img(src=row['Geschlechterverhältnis_src'], style={'height': '20px'})),
+                        html.Td("20-30 Jahre"),
+                        html.Td("40-50 Jahre"),
+
+
                     ]) for row in table_data
                 ])
-            ], style={'width': '100%', 'borderCollapse': 'collapse'})
-        ], width=10),
+            ], style={'width': '95%', 'borderCollapse': 'collapse',  'margin': 20})
 
     ]),
 
@@ -133,6 +167,7 @@ layout = html.Div([
         html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
                style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888'})
     ])
+])
 ])
 
 

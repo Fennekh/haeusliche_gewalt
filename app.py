@@ -3,6 +3,24 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from layouts import tab_zeitliche_entwicklung, tab_geschlechterverhaeltnis, tab_trend_analyse, tab_beziehungen, tab_uebersicht
+import plotly.io as pio
+import plotly.graph_objects as go
+
+# Roboto-Template definieren
+pio.templates["roboto"] = go.layout.Template(
+    layout=dict(
+        font=dict(
+            family="roboto",
+            size=14,
+            color="black"
+        )
+    )
+)
+
+# Roboto als Standard setzen
+pio.templates.default = "roboto"
+
+
 
 # Dash-Instanz
 app = dash.Dash(__name__,
@@ -12,15 +30,16 @@ server = app.server
 
 # Layout mit Tabs
 app.layout = html.Div([
-    html.H1("Statistik zu häuslicher Gewalt in der Schweiz",
-            style={'textAlign': 'left', 'color': '#505050', 'marginTop': 20, 'marginBottom': 20, 'marginleft': 20}),
+    html.H3("Statistik zu häuslicher Gewalt in der Schweiz",
+            style={'textAlign': 'left', 'color': '#505050', 'fontWeight': 'light', 'marginTop': 20, 'marginBottom': 20, 'marginLeft': 20}),
 
-    dcc.Tabs(id="tabs", value='tab1', children=[
-        dcc.Tab(label='Gesammt', value='tab1'),
-        dcc.Tab(label='Geschlechterverhältnis', value='tab2'),
-        dcc.Tab(label='Altersverteilung', value='tab3'),
+    dcc.Tabs(id="tabs", value='tab1',
+             className="tab-container", children=[
+        dcc.Tab(label='Entwicklung Gesamt', value='tab1'),
+        dcc.Tab(label='Entwicklung Geschlechterverhältnis', value='tab2'),
         dcc.Tab(label='Beziehungen', value='tab4'),
-        dcc.Tab(label='Übersicht', value='tab5'),
+        dcc.Tab(label='Altersverteilung', value='tab3'),
+        dcc.Tab(label='Übersicht Delikte', value='tab5'),
     ]),
     html.Div(id='tabs-content')
 ])

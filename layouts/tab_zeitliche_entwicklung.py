@@ -9,7 +9,24 @@ from plotly.validators.scatter.marker import SymbolValidator
 from dash import dash_table
 import matplotlib.pyplot as plt
 import io
-import base64
+import plotly.io as pio
+
+# Roboto-Template definieren (bei allen seiten machen?)
+pio.templates["roboto"] = go.layout.Template(
+    layout=dict(
+        font=dict(
+            family="roboto",
+            size=14,
+            color="black"
+        )
+    )
+)
+
+# Roboto als Standard setzen
+pio.templates.default = "roboto"
+
+
+
 
 # Importieren der gemeinsamen Daten
 from layouts.data import load_data
@@ -22,8 +39,8 @@ color_all = "black"
 
 #------
 #Daten laden
-opfer = pd.read_csv("/Users/karinhugentobler/PycharmProjects/dashboard_haeusliche_gewalt/data/geschaedigte_tidy.csv")
-taeter = pd.read_csv("/Users/karinhugentobler/PycharmProjects/dashboard_haeusliche_gewalt/data/beschuldigte_tidy.csv")
+opfer = pd.read_csv("data/geschaedigte_tidy.csv")
+taeter = pd.read_csv("data/beschuldigte_tidy.csv")
 
 #Datenvorbereitung für Tabelle
 
@@ -75,29 +92,6 @@ opfer_total = opfer[opfer["Geschlecht"] == "Total"]
 
 # Layout für den ersten Tab (Zeitliche Entwicklung)
 layout = html.Div([
-    # Zeitraum-Information
-    html.Div(id='zeitraum-info-tab1', style={'textAlign': 'center', 'marginBottom': 20}),
-
-    # Überschrift & Zeitraum-Slider
-    dbc.Row([
-        dbc.Col([
-            html.H3("Zeitliche Entwicklung von Opfern und Tätern nach Geschlecht",
-                    style={'textAlign': 'left', 'marginLeft': 20})
-        ], width=6),
-        dbc.Col([
-            html.H4("Zeitraum auswählen:"),
-            dcc.RangeSlider(
-                id='jahr-slider-tab1',
-                min=2009,
-                max=2024,
-                value=[2009, 2024],
-                marks={year: str(year) for year in range(2009, 2025)},
-                step=1,
-                tooltip={"placement": "bottom", "always_visible": False},
-                className='schwarzer-slider'  # Noch im CSS anpassen (To Do)
-            )
-        ], width=2)
-    ]),
 
     # Haupt-Grafik + Zusammenfassung
     dbc.Row([
@@ -106,10 +100,16 @@ layout = html.Div([
             width=8
         ),
         dbc.Col([
-            html.H4("Zusammenfassung"),
-            html.P("Mehrfach gemeldete Straftaten werden entsprechend gekennzeichnet."),
-            html.H2("16'349", style={'marginTop': 10}),
-            html.P("Straftaten 2024")
+            html.H1("Was ist Häusliche Gewalt?"),
+            html.P("Unter häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt innerhalb einer Familie oder in einer aktuellen oder aufgelösten Paarbeziehung."),
+            html.P([
+                "Der ", html.B("Strafbestand wir mit Mehrfach gekennzeichnet"),
+                " wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt",
+
+                " gekennzeichnet."
+            ]),
+            html.H1("21'127", style={'marginTop': 10}),
+            html.P("Straftaten Häusliche Gewalt 2024")
         ], width=4, style={'marginTop': 20})
     ]),
 
@@ -123,20 +123,36 @@ layout = html.Div([
         ),
 
         dbc.Col([
-            html.H4("Zusätzliche Informationen"),
-            html.P("Mehrfach gemeldete Straftaten..."),
+            html.H4("Wie viele Personen sind betroffen?"),
+            html.P("Unter den betroffenen finden sich sowohl Täterinnen und Opfer"),
             dbc.Row([
                 dbc.Col([
-                    html.H2("16'349"),
-                    html.P("Opfer 2024")
+                    html.H2("11'041"),
+                    html.P("Täter:innen im Jahr 2024")
                 ]),
                 dbc.Col([
-                    html.H2("5'671"),
-                    html.P("Täter")
+                    html.H2("11'849"),
+                    html.P("Opfer im Jahr 2024")
                 ])
             ])
         ], width=4)
     ]),
+    # Überschrift & Zeitraum-Slider
+    dbc.Row([
+        dbc.Col([
+            dcc.RangeSlider(
+                id='jahr-slider-tab1',
+                min=2009,
+                max=2024,
+                value=[2009, 2024],
+                marks={year: str(year) for year in range(2009, 2025)},
+                step=1,
+                tooltip={"placement": "bottom", "always_visible": False},
+            )
+        ], style={'opacity': '0.5'}, width=2)
+    ]),
+    # Zeitraum-Information
+    html.Div(id='zeitraum-info-tab1', style={'textAlign': 'center', 'marginBottom': 20}),
 
     # Fußnote
     html.Div([
@@ -243,7 +259,15 @@ def register_callbacks(app):
         # Erstelle die Figur
         fig = go.Figure()
 
+        fig.add_trace(go.Scatter(
+            x=opfer_total['Jahr'],
+            y=opfer_total['Anzahl_geschaedigter_Personen_Total'],
+            mode='lines+markers',
+            name='Geschädigte gesamt',
+            marker=dict(size=9),
+            line=dict(width=1.5, color=color_all, dash='dot')
 
+        ))
         # Linie für gesammt Täter
         fig.add_trace(go.Scatter(
             x=taeter_total['Jahr'],
@@ -252,16 +276,6 @@ def register_callbacks(app):
             name='Beschuldigte gesamt',
             marker=dict(symbol='star-diamond', size=10),
             line=dict(width=1.5, color=color_all)
-
-        ))
-
-        fig.add_trace(go.Scatter(
-            x=opfer_total['Jahr'],
-            y=opfer_total['Anzahl_geschaedigter_Personen_Total'],
-            mode='lines+markers',
-            name='Geschädigte gesamt',
-            marker=dict(size=9),
-            line=dict(width=1.5, color=color_all, dash='dot')
 
         ))
 

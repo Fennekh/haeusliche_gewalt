@@ -6,8 +6,8 @@ import plotly.graph_objects as go
 import pandas as pd
 
 # Farben
-color_women = "#7B1E1E"
-color_men = "Royalblue"
+color_women = "#811616"
+color_men = "#0a0a35"
 color_all = "black"
 
 # Daten laden und filtern
@@ -25,15 +25,69 @@ taeter_maenlich = taeter[taeter["Geschlecht"] == "männlich"]
 taeter_weiblich = taeter[taeter["Geschlecht"] == "weiblich"]
 taeter_total = taeter[taeter["Geschlecht"] == "Total"]
 
+##DAtenaufbereitung beziehung
+# Daten einlesen (ersetze Pfad bei Bedarf)
+df = pd.read_csv("data/geschaedigte_tidy.csv")
+df_be = pd.read_csv("data/beschuldigte_tidy.csv")
+
+# Daten bereinigen
+df["Beziehungsart"] = df["Beziehungsart"].str.strip()
+df_be["Beziehungsart"] = df_be["Beziehungsart"].str.strip()
+relevante_beziehungen = [
+    "Partnerschaft",
+    "ehemalige Partnerschaft",
+    "Eltern-Kind-Beziehung",
+    "andere Verwandtschaftsbeziehung"
+]
+#für beschädigte
+df = df[
+    (df["Delikt"] == "Total Häusliche Gewalt") &
+    (df["Beziehungsart"].isin(relevante_beziehungen)) &
+    (df["Geschlecht"].isin(["männlich", "weiblich"]))
+]
+df = df[["Jahr", "Geschlecht", "Beziehungsart", "Anzahl_geschaedigter_Personen_Total"]].dropna()
+df["Anzahl_geschaedigter_Personen_Total"] = df["Anzahl_geschaedigter_Personen_Total"].astype(float)
+df["Jahr"] = df["Jahr"].astype(int)
+
+#für beschuligte
+df_be = df_be[
+    (df_be["Delikt"] == "Total Häusliche Gewalt") &
+    (df_be["Beziehungsart"].isin(relevante_beziehungen)) &
+    (df_be["Geschlecht"].isin(["männlich", "weiblich"]))
+]
+df_be = df_be[["Jahr", "Geschlecht", "Beziehungsart", "Anzahl_beschuldigter_Personen_Total"]].dropna()
+df_be["Anzahl_beschuldigter_Personen_Total"] = df_be["Anzahl_beschuldigter_Personen_Total"].astype(float)
+df_be["Jahr"] = df_be["Jahr"].astype(int)
+
+
+
+# Prozentanteil berechnen
+df["Prozentanteil"] = df.groupby(["Jahr", "Geschlecht"])["Anzahl_geschaedigter_Personen_Total"].transform(lambda x: 100 * x / x.sum())
+# Nur ein Jahr verwenden (z.B. 2024)
+df_year = df[df["Jahr"] == 2024]
+df_maennlich = df_year[df_year["Geschlecht"] == "männlich"]
+df_weiblich = df_year[df_year["Geschlecht"] == "weiblich"]
+
+# Prozentanteil berechnen
+df_be["Prozentanteil"] = df_be.groupby(["Jahr", "Geschlecht"])["Anzahl_beschuldigter_Personen_Total"].transform(lambda x: 100 * x / x.sum())
+# Nur ein Jahr verwenden (z.B. 2024)
+df_be_year = df_be[df_be["Jahr"] == 2024]
+df_be_maennlich = df_be_year[df_be_year["Geschlecht"] == "männlich"]
+df_be_weiblich = df_be_year[df_be_year["Geschlecht"] == "weiblich"]
+
+
+
+
 # Layout
 layout = html.Div([
-    html.H3("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'left', 'marginTop': 20}),
+
+    html.H3("Wie hat sich das Geschlechter verhältnis verändert?", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+    html.H6("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
 
 
     dbc.Row([
-        dbc.Col(dcc.Graph(id='graph-taeter'),width=5),
-        dbc.Col(dcc.Graph(id='graph-opfer'),width=5),
-
+        dbc.Col(dcc.Graph(id='graph-taeter'),width=6),
+        dbc.Col(dcc.Graph(id='graph-opfer'),width=6),
     ]),
 
     html.Div([
@@ -47,6 +101,8 @@ dcc.RadioItems(
         labelStyle={'display': 'inline-block', 'marginRight': '10px'}
     ),
     ], style={'textAlign': 'center'}),
+
+
 
     html.Div([
         html.Hr(),
@@ -68,11 +124,37 @@ def register_callbacks(app):
         df['% weiblich'] = df['weiblich'] / df['total'] * 100
 
         fig = go.Figure()
-        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männliche Täter', marker_color=color_men, marker=dict(
-                              line=dict(width=0),
-                          ),)
-        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weibliche Täter', marker_color=color_women,marker=dict(
-                              line=dict(width=0),
+        fig.add_bar(x=df['Jahr'], y=df['% männlich'],
+                    name='Männliche Täter',
+                    marker_color=color_men,
+                    marker=dict(
+                        line=dict(width=0),
+                        color=color_all,  # Hintergrundfarbe
+                        pattern=dict(
+                            shape="x",  # Musterform
+                            fgcolor='white',  # Musterfarbe
+                            size=20,
+                            solidity=0.05,
+                            fgopacity=0.2
+                        ),
+                    ),)
+
+        fig.add_bar(x=df['Jahr'],
+                    y=df['% weiblich'],
+                    name='Weibliche Täter',
+                    marker_color=color_women,
+                    marker=dict(
+                        line=dict(width=0),
+                        color=color_all,  # Hintergrundfarbe
+                        pattern=dict(
+                            shape="x",  # Musterform
+                            fgcolor='white',  # Musterfarbe
+                            size=20,
+                            solidity=0.05,
+                            fgopacity=0.2
+                        )
+
+
                           ),)
         fig.update_layout(barmode='stack',
                           title="Täter:innen nach Geschlecht",
@@ -93,11 +175,33 @@ def register_callbacks(app):
         df['% weiblich'] = df['weiblich'] / df['total'] * 100
 
         fig = go.Figure()
-        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männlich', marker_color=color_men, marker=dict(
-                              line=dict(width=0),
+        fig.add_bar(x=df['Jahr'], y=df['% männlich'],
+                    name='Männlich',
+                    marker_color=color_men,
+                    marker=dict(
+                        line=dict(width=0),
+                        color=color_all,  # Hintergrundfarbe
+                        pattern=dict(
+                            shape=".",  # Musterform
+                            fgcolor='white',  # Musterfarbe
+                            size=13,
+                            solidity=0.5,
+                            fgopacity=0.08
+                        )
                           ))
-        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weiblich', marker_color=color_women, marker=dict(
-                              line=dict(width=0),
+        fig.add_bar(x=df['Jahr'], y=df['% weiblich'],
+                    name='Weiblich',
+                    marker_color=color_women,
+                    marker=dict(
+                        line=dict(width=0),
+                        color=color_all,  # Hintergrundfarbe
+                        pattern=dict(
+                            shape=".",  # Musterform
+                            fgcolor='white',  # Musterfarbe
+                            size=13,
+                            solidity=0.5,
+                            fgopacity=0.08
+                        )
                           ),)
         fig.update_layout(barmode='stack',
                           title="Opfer nach Geschlecht",
@@ -209,6 +313,10 @@ def register_callbacks(app):
         )
 
         return fig
+
+
+
+
 
     @app.callback(
         Output('graph-taeter', 'figure'),
