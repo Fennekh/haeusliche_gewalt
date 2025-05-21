@@ -5,11 +5,31 @@ from dash import dcc, html, dash_table
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
+import plotly.io as pio
 
-# Farben
+
+#------ Variabeln überall gleich
+
+#Variabeln
 color_women = "#811616"
 color_men = "#0a0a35"
 color_all = "black"
+
+# Roboto-Template definieren (bei allen seiten machen?)
+pio.templates["roboto"] = go.layout.Template(
+    layout=dict(
+        font=dict(
+            family="roboto",
+            size=14,
+            color="black"
+        )
+    )
+)
+
+# Roboto als Standard setzen
+pio.templates.default = "roboto"
+#------
+
 
 # CSV einlesen
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
@@ -185,8 +205,11 @@ def register_callbacks(app):
         age_order = ['<10 Jahre', '10 - 19 Jahre', '20 - 29 Jahre', '30 - 39 Jahre',
                      '40 - 49 Jahre', '50 - 59 Jahre', '60 - 69 Jahre', '70 Jahre und +']
 
-        df = opfer if perspektive == 'taeter' else taeter
+        df = opfer if perspektive == 'opfer' else taeter
         # Daten für ein Jahr filtern
+
+        pattern = "/" if perspektive == 'taeter' else "\\"
+
         df_year = df[df['Jahr'] == jahr]
 
         # Frauen- und Männerdaten extrahieren
@@ -213,7 +236,17 @@ def register_callbacks(app):
             x=x_women,
             orientation='h',
             name='Weiblich',
-            marker_color='maroon'
+            marker=dict(
+
+                pattern=dict(
+                    shape=pattern,  # diagonales Muster
+                    bgcolor=color_women,  # deutlichere Kontrastfarbe
+                    size=20,
+                    solidity=0.05,
+                    fgopacity=0.4
+
+                )
+            )
         ))
 
         fig.add_trace(go.Bar(
@@ -221,7 +254,17 @@ def register_callbacks(app):
             x=x_men,
             orientation='h',
             name='Männlich',
-            marker_color='royalblue'
+            marker=dict(
+
+                pattern=dict(
+                    shape=pattern,  # diagonales Muster
+                    bgcolor=color_men,  # deutlichere Kontrastfarbe
+                    size=20,
+                    solidity=0.05,
+                    fgopacity=0.4
+
+                )
+            )
         ))
 
         # Layout

@@ -10,14 +10,31 @@ from dash import dash_table
 import matplotlib.pyplot as plt
 import io
 import base64
+import plotly.io as pio
 
-# Importieren der gemeinsamen Daten
-from layouts.data import load_data
+
+
+#------ Variabeln überall gleich
 
 #Variabeln
-color_women= "maroon"
-color_men = "royalblue"
+color_women = "#811616"
+color_men = "#0a0a35"
 color_all = "black"
+
+# Roboto-Template definieren (bei allen seiten machen?)
+pio.templates["roboto"] = go.layout.Template(
+    layout=dict(
+        font=dict(
+            family="roboto",
+            size=14,
+            color="black"
+        )
+    )
+)
+
+# Roboto als Standard setzen
+pio.templates.default = "roboto"
+#------
 
 
 #------

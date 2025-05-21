@@ -4,11 +4,33 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import pandas as pd
+import plotly.io as pio
 
-# Farben
+
+
+#------ Variabeln überall gleich
+
+#Variabeln
 color_women = "#811616"
 color_men = "#0a0a35"
 color_all = "black"
+
+# Roboto-Template definieren (bei allen seiten machen?)
+pio.templates["roboto"] = go.layout.Template(
+    layout=dict(
+        font=dict(
+            family="roboto",
+            size=14,
+            color="black"
+        )
+    )
+)
+
+# Roboto als Standard setzen
+pio.templates.default = "roboto"
+#------
+
+
 
 # Daten laden und filtern
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
@@ -131,11 +153,11 @@ def register_callbacks(app):
                         line=dict(width=0),
                         color=color_all,  # Hintergrundfarbe
                         pattern=dict(
-                            shape="x",  # Musterform
+                            shape="/",  # Musterform
                             fgcolor='white',  # Musterfarbe
                             size=20,
                             solidity=0.05,
-                            fgopacity=0.2
+                            fgopacity=0.4
                         ),
                     ),)
 
@@ -147,11 +169,11 @@ def register_callbacks(app):
                         line=dict(width=0),
                         color=color_all,  # Hintergrundfarbe
                         pattern=dict(
-                            shape="x",  # Musterform
+                            shape="/",  # Musterform
                             fgcolor='white',  # Musterfarbe
                             size=20,
                             solidity=0.05,
-                            fgopacity=0.2
+                            fgopacity=0.4
                         )
 
 
@@ -182,11 +204,11 @@ def register_callbacks(app):
                         line=dict(width=0),
                         color=color_all,  # Hintergrundfarbe
                         pattern=dict(
-                            shape=".",  # Musterform
+                            shape="\\",  # Musterform
                             fgcolor='white',  # Musterfarbe
-                            size=13,
-                            solidity=0.5,
-                            fgopacity=0.08
+                            size=20,
+                            solidity=0.05,
+                            fgopacity=0.4
                         )
                           ))
         fig.add_bar(x=df['Jahr'], y=df['% weiblich'],
@@ -196,11 +218,11 @@ def register_callbacks(app):
                         line=dict(width=0),
                         color=color_all,  # Hintergrundfarbe
                         pattern=dict(
-                            shape=".",  # Musterform
+                            shape="\\",  # Musterform
                             fgcolor='white',  # Musterfarbe
-                            size=13,
-                            solidity=0.5,
-                            fgopacity=0.08
+                            size=20,
+                            solidity=0.05,
+                            fgopacity=0.4
                         )
                           ),)
         fig.update_layout(barmode='stack',

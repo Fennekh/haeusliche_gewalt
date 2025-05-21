@@ -11,6 +11,13 @@ import matplotlib.pyplot as plt
 import io
 import plotly.io as pio
 
+#------ Variabeln überall gleich
+
+#Variabeln
+color_women = "#811616"
+color_men = "#0a0a35"
+color_all = "black"
+
 # Roboto-Template definieren (bei allen seiten machen?)
 pio.templates["roboto"] = go.layout.Template(
     layout=dict(
@@ -24,17 +31,9 @@ pio.templates["roboto"] = go.layout.Template(
 
 # Roboto als Standard setzen
 pio.templates.default = "roboto"
+#------
 
 
-
-
-# Importieren der gemeinsamen Daten
-from layouts.data import load_data
-
-#Variabeln
-color_women= "maroon"
-color_men = "royalblue"
-color_all = "black"
 
 
 #------

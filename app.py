@@ -55,14 +55,14 @@ def render_content(tab):
     elif tab == 'tab4':
         return tab_beziehungen.layout
     elif tab == 'tab5':
-        return tab_uebersicht.layout
+        return tab_uebersicht_delikte.layout
 
 # Registriere die Callbacks aus allen Layout-Modulen
 tab_zeitliche_entwicklung.register_callbacks(app)
 tab_geschlechterverhaeltnis.register_callbacks(app)
 tab_altersverteilung.register_callbacks(app)
 tab_beziehungen.register_callbacks(app)
-tab_uebersicht.register_callbacks(app)
+tab_uebersicht_delikte.register_callbacks(app)
 
 
 # Starte die App

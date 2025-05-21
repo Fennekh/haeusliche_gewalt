@@ -4,11 +4,31 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import pandas as pd
+import plotly.io as pio
+from matplotlib.pyplot import legend
 
-# Farben
+#------ Variabeln überall gleich
+
+#Variabeln
 color_women = "#811616"
 color_men = "#0a0a35"
 color_all = "black"
+
+# Roboto-Template definieren (bei allen seiten machen?)
+pio.templates["roboto"] = go.layout.Template(
+    layout=dict(
+        font=dict(
+            family="roboto",
+            size=14,
+            color="black"
+        )
+    )
+)
+
+# Roboto als Standard setzen
+pio.templates.default = "roboto"
+#------
+
 
 # Daten laden und filtern
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
@@ -124,20 +144,41 @@ def register_callbacks(app):
             x=df_maennlich["Beziehungsart"],
             y=df_maennlich["Prozentanteil"],
             name="männlich",
-            marker=dict(color=color_men)
+            marker=dict(
+
+                pattern=dict(
+                    shape="\\",  # diagonales Muster
+                    bgcolor=color_men,  # deutlichere Kontrastfarbe
+                    size=20,
+                    solidity=0.05,
+                    fgopacity=0.6
+
+                )
+            )
         ))
         fig.add_trace(go.Bar(
             x=df_weiblich["Beziehungsart"],
             y=df_weiblich["Prozentanteil"],
             name="weiblich",
-            marker=dict(color=color_women)
+            marker=dict(
+
+                pattern=dict(
+                    shape="\\",  # diagonales Muster
+                    bgcolor=color_women,  # deutlichere Kontrastfarbe
+                    size=20,
+                    solidity=0.05,
+                    fgopacity=0.6
+
+                )
+            )
         ))
 
         fig.update_layout(
             barmode="group",
             title="Opfer (2024)",
             #xaxis_title="Beziehungsart",
-            yaxis_title="Anteil in %"
+            yaxis_title="Anteil in %",
+
         )
 
         return fig
@@ -152,20 +193,43 @@ def register_callbacks(app):
             x=df_be_maennlich["Beziehungsart"],
             y=df_be_maennlich["Prozentanteil"],
             name="männlich",
-            marker = dict(color=color_men)
+
+            marker=dict(
+                pattern=dict(
+                    bgcolor=color_men,
+                    shape="/",  # diagonales Muster
+                    fgcolor='white',
+                    size=20,
+                    solidity=0.05,
+                    fgopacity=0.4
+                )
+            )
         ))
+
         fig.add_trace(go.Bar(
             x=df_be_weiblich["Beziehungsart"],
             y=df_be_weiblich["Prozentanteil"],
             name="weiblich",
-            marker=dict(color=color_women)
+            marker=dict(
+
+                pattern=dict(
+                    shape="/",  # diagonales Muster
+                    bgcolor=color_women,  # deutlichere Kontrastfarbe
+                    size=20,
+                    solidity=0.05,
+                    fgopacity=0.4
+
+                )
+            )
+
         ))
 
         fig.update_layout(
             barmode="group",
-            title="Täter:innen (2024)",
+            title="Beziehungsverhältnis von Täter:innen zu Opfer (2024)",
             #xaxis_title="Beziehungsart",
             yaxis_title="Anteil in %",
+            showlegend=False,
 
         )
 
