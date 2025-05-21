@@ -234,6 +234,14 @@ def register_callbacks(app):
                 tickmode='linear',
                 dtick=1  # Jährliche Ticks
             ),
+            legend=dict(
+                orientation="h",  # horizontale Ausrichtung
+                yanchor="bottom",  # vertikale Verankerung unten
+                y=1.02,  # etwas über dem Plot (1 = genau oben, 1.02 = leicht darüber)
+                xanchor="right",  # horizontale Verankerung rechts
+                x=0.31  # ganz rechts
+            )
+
         )
 
         return fig
@@ -291,7 +299,15 @@ def register_callbacks(app):
             ),
 
             yaxis=dict(range=[0, 12000]),
-            legend_title='Geschlecht'
+            legend_title='Geschlecht',
+            legend = dict(
+                orientation="v",  # horizontale Ausrichtung
+                yanchor="bottom",  # vertikale Verankerung unten
+                y=0.4,  # etwas über dem Plot (1 = genau oben, 1.02 = leicht darüber)
+                xanchor="right",  # horizontale Verankerung rechts
+                x=0.25  # ganz rechts
+            )
+
         )
 
         # Layout anpassen
@@ -299,7 +315,7 @@ def register_callbacks(app):
             title=f"Zeitliche Entwicklung von Opfern und Tätern ({jahr_start}-{jahr_ende})",
             xaxis_title="Jahr",
             yaxis_title="Anzahl Personen",
-            legend_title="Gruppe",
+            legend_title="",
             template="plotly_white",
             hovermode="x unified"
         )
