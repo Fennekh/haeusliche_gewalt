@@ -100,7 +100,7 @@ layout = html.Div([
             width=8
         ),
         dbc.Col([
-            html.H1("Was ist Häusliche Gewalt?"),
+            html.H4("Was ist Häusliche Gewalt?"),
             html.P("Unter häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt innerhalb einer Familie oder in einer aktuellen oder aufgelösten Paarbeziehung."),
             html.P([
                 "Der ", html.B("Strafbestand wir mit Mehrfach gekennzeichnet"),
@@ -124,7 +124,7 @@ layout = html.Div([
 
         dbc.Col([
             html.H4("Wie viele Personen sind betroffen?"),
-            html.P("Unter den betroffenen finden sich sowohl Täterinnen und Opfer"),
+            html.P(["Unter den betroffenen finden sich sowohl Täterinnen und Opfer.", html.B(" Die Dunkelziffer wird sehr hoch geschätzt"), " Bei Tätlichkeiten und Körperverletzungen werden beispielsweise 28,9 Prozent, bei sexueller Gewalt 10,5 Prozent der Fälle angezeigt."]),
             dbc.Row([
                 dbc.Col([
                     html.H2("11'041"),

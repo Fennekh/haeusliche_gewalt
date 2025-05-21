@@ -2,7 +2,7 @@ import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-from layouts import tab_zeitliche_entwicklung, tab_geschlechterverhaeltnis, tab_trend_analyse, tab_beziehungen, tab_uebersicht
+from layouts import tab_zeitliche_entwicklung, tab_geschlechterverhaeltnis, tab_altersverteilung, tab_beziehungen, tab_uebersicht_delikte
 import plotly.io as pio
 import plotly.graph_objects as go
 
@@ -51,7 +51,7 @@ def render_content(tab):
     elif tab == 'tab2':
         return tab_geschlechterverhaeltnis.layout
     elif tab == 'tab3':
-        return tab_trend_analyse.layout
+        return tab_altersverteilung.layout
     elif tab == 'tab4':
         return tab_beziehungen.layout
     elif tab == 'tab5':
@@ -60,7 +60,7 @@ def render_content(tab):
 # Registriere die Callbacks aus allen Layout-Modulen
 tab_zeitliche_entwicklung.register_callbacks(app)
 tab_geschlechterverhaeltnis.register_callbacks(app)
-tab_trend_analyse.register_callbacks(app)
+tab_altersverteilung.register_callbacks(app)
 tab_beziehungen.register_callbacks(app)
 tab_uebersicht.register_callbacks(app)
 
