@@ -7,8 +7,8 @@ from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
 
 # Farben
-color_women = "#7B1E1E"
-color_men = "Royalblue"
+color_women = "#811616"
+color_men = "#0a0a35"
 color_all = "black"
 
 # CSV einlesen
@@ -28,7 +28,7 @@ age_order = [
 
 for col in age_order:
     if col in taeter.columns:
-        taeter[col] = pd.to_numeric(opfer[col], errors='coerce')
+        taeter[col] = pd.to_numeric(taeter[col], errors='coerce')
 for col in age_order:
     if col in opfer.columns:
         opfer[col] = pd.to_numeric(opfer[col], errors='coerce')
@@ -85,9 +85,8 @@ layout = html.Div([
         ], style={'textAlign': 'left', 'marginBottom': 20}),
 
         dbc.Row([
-            dbc.Col(dcc.Graph(id='altersgruppen-trend'), width=6),
-            dbc.Col(dcc.Graph(id='alterspyramide-opfer'), width=3),
-            dbc.Col(dcc.Graph(id='alterspyramide-taeter'), width=3)
+            dbc.Col(dcc.Graph(id='altersgruppen-trend'), width=8),
+            dbc.Col(dcc.Graph(id='alterspyramide'), width=4)
         ])
     ]),
 
@@ -112,7 +111,7 @@ def register_callbacks(app):
         if jahr_start > jahr_ende:
             raise PreventUpdate
 
-        df = opfer if perspektive == 'opfer' else taeter
+        df = opfer if perspektive == 'taeter' else taeter
         df['Jahr'] = pd.to_numeric(df['Jahr'], errors='coerce')  # oder .astype(int), wenn du sicher bist
 
         # Filtern
@@ -147,23 +146,27 @@ def register_callbacks(app):
                     line=dict(color=farben[i]),
                     showlegend=True
                 ))
+        #Beschriftung Linien
+                fig.add_annotation(
+                    x=x_vals.iloc[-1],
+                    y=y_vals.iloc[-1],
+                    text=str(altersklasse),
+                    showarrow=False,
+                    xanchor="left",
+                    yanchor="middle",
+                    xshift=4,  # Verschiebt den Text 4 Pixel nach rechts
+                    font=dict(color=farben[i])
+                )
 
-                # Beschriftung am Linienende
-                fig.add_trace(go.Scatter(
-                    x=[x_vals.iloc[-1]],
-                    y=[y_vals.iloc[-1]],
-                    text=[str(altersklasse)],
-                    mode='text',
-                    textposition='top left',
-                    textfont=dict(color=farben[i]),
-                    showlegend=False
-                ))
+
 
         fig.update_layout(
             title=f"Entwicklung der Altersgruppen bei {geschlecht.lower()}n {'Opfern' if perspektive == 'opfer' else 'Tätern'} ({jahr_start}-{jahr_ende})",
             xaxis_title="Jahr",
             yaxis_title="Anzahl Personen",
+            xaxis=dict(range= [2009,2025+2]),
             legend_title="Altersgruppe",
+            showlegend=False,
             template="plotly_white",
             hovermode="x unified"
 
@@ -174,15 +177,17 @@ def register_callbacks(app):
 
 
     @app.callback(
-        Output('alterspyramide-taeter', 'figure'),
-        [Input('jahr-start-dropdown-tab3', 'value')]
+        Output('alterspyramide', 'figure'),
+        [Input('trend-selector', 'value'),
+        Input('jahr-start-dropdown-tab3', 'value')]
     )
-    def update_alterspyramide_taeter(jahr):
+    def update_alterspyramide(perspektive,jahr):
         age_order = ['<10 Jahre', '10 - 19 Jahre', '20 - 29 Jahre', '30 - 39 Jahre',
                      '40 - 49 Jahre', '50 - 59 Jahre', '60 - 69 Jahre', '70 Jahre und +']
 
+        df = opfer if perspektive == 'taeter' else taeter
         # Daten für ein Jahr filtern
-        df_year = taeter[taeter['Jahr'] == jahr]
+        df_year = df[df['Jahr'] == jahr]
 
         # Frauen- und Männerdaten extrahieren
         df_weiblich = df_year[df_year['Geschlecht'] == 'weiblich']
@@ -251,7 +256,7 @@ def register_callbacks(app):
 
     @app.callback(
         Output('alterspyramide-opfer', 'figure'),
-        [Input('jahr-start-dropdown-tab3', 'value')]
+        [Input('jahr-end-dropdown-tab3', 'value')]
     )
     def update_alterspyramid_opfer(jahr):
         age_order = ['<10 Jahre', '10 - 19 Jahre', '20 - 29 Jahre', '30 - 39 Jahre',
