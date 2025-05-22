@@ -136,22 +136,8 @@ layout = html.Div([
             ])
         ], width=4)
     ]),
-    # Überschrift & Zeitraum-Slider
-    dbc.Row([
-        dbc.Col([
-            dcc.RangeSlider(
-                id='jahr-slider-tab1',
-                min=2009,
-                max=2024,
-                value=[2009, 2024],
-                marks={year: str(year) for year in range(2009, 2025)},
-                step=1,
-                tooltip={"placement": "bottom", "always_visible": False},
-            )
-        ], style={'opacity': '0.5'}, width=2)
-    ]),
-    # Zeitraum-Information
-    html.Div(id='zeitraum-info-tab1', style={'textAlign': 'center', 'marginBottom': 20}),
+
+
 
     # Fußnote
     html.Div([
@@ -166,14 +152,13 @@ layout = html.Div([
 def register_callbacks(app):
     @app.callback(
         Output('zeitliche-entwicklung-straftaten', 'figure'),
-        [Input('zeitliche-entwicklung-straftaten', 'id'),
-         Input('jahr-slider-tab1', 'value')]
+        Input('zeitliche-entwicklung-straftaten', 'id')
     )
-    def update_zeitliche_entwicklung_straftaten(_, jahr_bereich):
-        jahr_start, jahr_ende = jahr_bereich
+    def update_zeitliche_entwicklung_straftaten(_):
+
 
         # Daten nach Zeitraum filtern
-        opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= jahr_start) & (opfer_total['Jahr'] <= jahr_ende)]
+        opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= 2009) & (opfer_total['Jahr'] <= 2024)]
 
         # Opfer über Zeit Visualisierung erstellen
         # Erstelle die Grafik
@@ -191,7 +176,7 @@ def register_callbacks(app):
         marker = dict(
             color=color_all,  # Hintergrundfarbe
             pattern=dict(
-                shape="x",  # Musterform
+                shape="",  # Musterform
                 fgcolor='white',  # Musterfarbe
                 size=20,
                 solidity=0.05,
@@ -230,7 +215,7 @@ def register_callbacks(app):
             template='plotly_white',
             bargap=0.5,
             xaxis = dict(
-                range=[jahr_start - 0.5, jahr_ende + 0.5],
+                range=[2009 - 0.5, 2024 + 0.5],
                 tickmode='linear',
                 dtick=1  # Jährliche Ticks
             ),
@@ -249,16 +234,15 @@ def register_callbacks(app):
     # Grafik Zeitliche Entwilcung Opfer
     @app.callback(
         Output('zeitliche-entwicklung-taeter-opfer', 'figure'),
-        [Input('zeitliche-entwicklung-taeter-opfer', 'id'),
-         Input('jahr-slider-tab1', 'value')]
+        Input('zeitliche-entwicklung-taeter-opfer', 'id')
     )
 
-    def update_zeitliche_entwicklung(_, jahr_bereich):
-        jahr_start, jahr_ende = jahr_bereich
+    def update_zeitliche_entwicklung(_):
+
 
         # Daten nach Zeitraum filtern
-        opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= jahr_start) & (opfer_total['Jahr'] <= jahr_ende)]
-        taeter_gefiltert = taeter_total[(taeter_total['Jahr'] >= jahr_start) & (taeter_total['Jahr'] <= jahr_ende)]
+        opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= 2009) & (opfer_total['Jahr'] <= 2024)]
+        taeter_gefiltert = taeter_total[(taeter_total['Jahr'] >= 2009) & (taeter_total['Jahr'] <= 2024)]
 
 
 
@@ -293,7 +277,7 @@ def register_callbacks(app):
             template='plotly_white',
             hovermode='x unified',
             xaxis=dict(
-                range=[jahr_start-0.2, jahr_ende+0.2],
+                range=[2009-0.2, 2024+0.2],
                 tickmode='linear',
                 dtick=1  # Jährliche Ticks
             ),
@@ -312,7 +296,7 @@ def register_callbacks(app):
 
         # Layout anpassen
         fig.update_layout(
-            title=f"Zeitliche Entwicklung von Opfern und Tätern ({jahr_start}-{jahr_ende})",
+            title=f"Zeitliche Entwicklung von Opfern und Tätern (2009-2025)",
             xaxis_title="Jahr",
             yaxis_title="Anzahl Personen",
             legend_title="",
@@ -323,14 +307,3 @@ def register_callbacks(app):
         return fig
 
 
-    # Callback für die Anzeige des ausgewählten Zeitraums
-    @app.callback(
-        Output('zeitraum-info-tab1', 'children'),
-        [Input('jahr-slider-tab1', 'value')]
-    )
-    def update_zeitraum_info_tab1(jahr_bereich):
-        jahr_start, jahr_ende = jahr_bereich
-        if jahr_start == jahr_ende:
-            return f"Ausgewähltes Jahr: {jahr_start}"
-        else:
-            return f"Ausgewählter Zeitraum: {jahr_start} - {jahr_ende}"

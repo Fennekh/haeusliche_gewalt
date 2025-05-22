@@ -110,17 +110,7 @@ layout = html.Div([
         dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked'), width=6),
     ]),
 
-    html.Div([
-        dcc.RadioItems(
-                id='toggle-set',
-                options=[
-                    {'label': 'Prozentuale Verteilung', 'value': 'set1'},
-                    {'label': 'Absolute Zahlen', 'value': 'set2'}
-                ],
-                value='set1',
-                labelStyle={'display': 'inline-block', 'marginRight': '10px'}
-            ),
-            ], style={'textAlign': 'center'}),
+
 
     html.Div([
         html.Hr(),

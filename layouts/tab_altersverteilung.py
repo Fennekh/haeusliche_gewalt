@@ -63,60 +63,82 @@ layout = html.Div([
 
     html.Div([
         html.H3("Entwicklung der Altersgruppen über die Jahre", style={'textAlign': 'left', 'marginTop': 30}),
-        html.Div([
-            html.Div([
-                dcc.Dropdown(
-                    id='jahr-start-dropdown-tab3',
-                    options=[{'label': str(j), 'value': j} for j in range(2009, 2025)],
-                    value=2009,
-                    clearable=False,
-                    style={'width': '150px', 'marginRight': '10px'}
-                ),
-                dcc.Dropdown(
-                    id='jahr-end-dropdown-tab3',
-                    options=[{'label': str(j), 'value': j} for j in range(2009, 2025)],
-                    value=2024,
-                    clearable=False,
-                    style={'width': '150px'}
-                )
-            ], style={'display': 'flex'}),
 
-            dcc.RadioItems(
-                id='trend-selector',
-                options=[
-                    {'label': 'Opfer', 'value': 'opfer'},
-                    {'label': 'Täter', 'value': 'taeter'}
-                ],
-                value='opfer',
-                labelStyle={'marginRight': 20},
-                style={'display': 'inline-block', 'marginRight': 30}
-            ),
-
-            dcc.Dropdown(
-                id='gender-selector-trend',
-                options=[
-                    {'label': 'Männlich', 'value': 'männlich'},
-                    {'label': 'Weiblich', 'value': 'weiblich'},
-                    {'label': 'Total', 'value': 'Total'}
-                ],
-                value='Total',
-                style={'width': '200px', 'display': 'inline-block'}
-            )
-        ], style={'textAlign': 'left', 'marginBottom': 20}),
-
+        # Linke und rechte Spalte
         dbc.Row([
-            dbc.Col(dcc.Graph(id='altersgruppen-trend'), width=8),
-            dbc.Col(dcc.Graph(id='alterspyramide'), width=4)
-        ])
-    ]),
+            # Linke Spalte: Filter + Trend-Grafik
+            dbc.Col([
+                # Alle Filter in einer horizontalen Reihe
+                html.Div([
+                    dcc.Dropdown(
+                        id='jahr-start-dropdown-tab3',
+                        options=[{'label': str(j), 'value': j} for j in range(2009, 2025)],
+                        value=2009,
+                        clearable=False,
+                        style={'width': '150px', 'marginRight': '10px'}
+                    ),
+                    dcc.Dropdown(
+                        id='jahr-end-dropdown-tab3',
+                        options=[{'label': str(j), 'value': j} for j in range(2009, 2025)],
+                        value=2024,
+                        clearable=False,
+                        style={'width': '150px', 'marginRight': '10px'}
+                    ),
+                    dcc.RadioItems(
+                        id='trend-selector',
+                        options=[
+                            {'label': 'Opfer', 'value': 'opfer'},
+                            {'label': 'Täter', 'value': 'taeter'}
+                        ],
+                        value='opfer',
+                        labelStyle={'display': 'inline-block', 'marginRight': 20},
+                        style={'marginRight': '30px'}
+                    ),
+                    dcc.Dropdown(
+                        id='gender-selector-trend',
+                        options=[
+                            {'label': 'Männlich', 'value': 'männlich'},
+                            {'label': 'Weiblich', 'value': 'weiblich'},
+                            {'label': 'Alle Geschlechter', 'value': 'Total'}
+                        ],
+                        value='Total',
+                        style={'width': '200px'}
+                    )
+                ], style={'display': 'flex', 'flexWrap': 'wrap', 'gap': '10px', 'marginBottom': 20}),
 
+                # Trend-Grafik
+                dcc.Graph(id='altersgruppen-trend',  style={
+        'height': '80vh',      # dynamisch über Viewport
+        'minHeight': '500px'    # Mindesthöhe festlegen
+    })
+            ], width=8),
+
+            # Rechte Spalte: Dropdown + Pyramide
+            dbc.Col([
+                html.Div([
+                    dcc.Dropdown(
+                        id='jahr-pyramide-dropdown-tab3',
+                        options=[{'label': str(j), 'value': j} for j in range(2009, 2025)],
+                        value=2024,
+                        clearable=False,
+                        style={'width': '100%'}
+                    )
+                ], style={'marginBottom': '10px'}),
+
+                dcc.Graph(id='alterspyramide')
+            ], width=4)
+        ], style={'alignItems': 'flex-start'})
+    ]),
 
     html.Div([
         html.Hr(),
-        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009-2024)",
+        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
                style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888'})
     ])
 ])
+
+
+
 
 #----
 def register_callbacks(app):
@@ -131,7 +153,7 @@ def register_callbacks(app):
         if jahr_start > jahr_ende:
             raise PreventUpdate
 
-        df = opfer if perspektive == 'taeter' else taeter
+        df = opfer if perspektive == 'opfer' else taeter
         df['Jahr'] = pd.to_numeric(df['Jahr'], errors='coerce')  # oder .astype(int), wenn du sicher bist
 
         # Filtern
@@ -144,11 +166,14 @@ def register_callbacks(app):
         # Farbschema je nach Geschlecht
         if geschlecht == 'männlich':
             color_scale = px.colors.sequential.Blues
+
         elif geschlecht == 'Total':
             color_scale = px.colors.sequential.Greys
+            max_range = 4000
         else:
             color_scale = px.colors.sequential.Reds
         farben = color_scale
+        max_range = 4000
 
         fig = go.Figure()
 
@@ -164,7 +189,11 @@ def register_callbacks(app):
                     mode='lines+markers',
                     name=str(altersklasse),
                     line=dict(color=farben[i]),
-                    showlegend=True
+                    showlegend=True,
+                    hoverlabel=dict(
+                        font=dict(size=12),
+                    ),
+                    hovertemplate=f'%{{y:.0f}} Personen<br>{altersklasse}<br>%{{x}}<extra></extra>'
                 ))
         #Beschriftung Linien
                 fig.add_annotation(
@@ -175,7 +204,8 @@ def register_callbacks(app):
                     xanchor="left",
                     yanchor="middle",
                     xshift=4,  # Verschiebt den Text 4 Pixel nach rechts
-                    font=dict(color=farben[i])
+                    font=dict(color=color_all),
+
                 )
 
 
@@ -184,11 +214,19 @@ def register_callbacks(app):
             title=f"Entwicklung der Altersgruppen bei {geschlecht.lower()}n {'Opfern' if perspektive == 'opfer' else 'Tätern'} ({jahr_start}-{jahr_ende})",
             xaxis_title="Jahr",
             yaxis_title="Anzahl Personen",
-            xaxis=dict(range= [2009,2025+2]),
+            yaxis = dict(range=[0, max_range]),
+            xaxis=dict(range= [2009,2024+2]),
             legend_title="Altersgruppe",
             showlegend=False,
             template="plotly_white",
-            hovermode="x unified"
+            hoverlabel=dict(
+                bgcolor="white",
+                font_size=18,
+
+
+
+            )
+
 
         )
         return fig
@@ -199,7 +237,7 @@ def register_callbacks(app):
     @app.callback(
         Output('alterspyramide', 'figure'),
         [Input('trend-selector', 'value'),
-        Input('jahr-start-dropdown-tab3', 'value')]
+        Input('jahr-pyramide-dropdown-tab3', 'value')]
     )
     def update_alterspyramide(perspektive,jahr):
         age_order = ['<10 Jahre', '10 - 19 Jahre', '20 - 29 Jahre', '30 - 39 Jahre',
@@ -275,8 +313,9 @@ def register_callbacks(app):
             barmode='relative',
             xaxis=dict(
                 title='Anzahl Personen',
-                tickvals=[-1000, -500, 0, 500, 1000],
-                ticktext=[1000, 500, 0, 500, 1000]
+                tickvals=[-2500, -2000, -1500,-1000, -500, 0, 500, 1000,1500,2000,2500],
+                ticktext=[2500, 2000, 1500,1000, 500, 0, 500, 1000,1500,2000,2500],
+                range = [-2700, 2700]
             ),
 
             yaxis=dict(
@@ -301,7 +340,7 @@ def register_callbacks(app):
 
     @app.callback(
         Output('alterspyramide-opfer', 'figure'),
-        [Input('jahr-end-dropdown-tab3', 'value')]
+        [Input('jahr-pyramide-dropdown-tab3', 'value')]
     )
     def update_alterspyramid_opfer(jahr):
         age_order = ['<10 Jahre', '10 - 19 Jahre', '20 - 29 Jahre', '30 - 39 Jahre',

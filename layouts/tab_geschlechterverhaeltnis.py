@@ -113,16 +113,19 @@ layout = html.Div([
     ]),
 
     html.Div([
-dcc.RadioItems(
-        id='toggle-set',
-        options=[
-            {'label': 'Prozentuale Verteilung', 'value': 'set1'},
-            {'label': 'Absolute Zahlen', 'value': 'set2'}
-        ],
-        value='set1',
-        labelStyle={'display': 'inline-block', 'marginRight': '10px'}
-    ),
-    ], style={'textAlign': 'center'}),
+        dbc.ButtonGroup(
+            [
+                dbc.Button("Prozentuale Verteilung", id="btn-set1", n_clicks=0, className="toggle-btn"),
+                dbc.Button("Absolute Zahlen", id="btn-set2", n_clicks=0, className="toggle-btn"),
+            ],
+            size="md",
+            className="mb-4",
+            style={"justifyContent": "center", "display": "flex", "gap": "10px", 'padding': '6px 12px',
+    'fontSize': '14px',
+    'width': 'auto',   # <- wichtig!
+    'display': 'inline-block'}
+        )
+    ], style={'textAlign': 'left'}),
 
 
 
@@ -338,15 +341,13 @@ def register_callbacks(app):
 
 
 
-
-
     @app.callback(
         Output('graph-taeter', 'figure'),
         Output('graph-opfer', 'figure'),
-        Input('toggle-set', 'value')
+        Input('btn-set1', 'n_clicks'),
+        Input('btn-set2', 'n_clicks'),
     )
-    def update_graphs(toggle_value):
-        if toggle_value == 'set1':
-            return update_taeter_graph(), update_opfer_graph()
-        else:
+    def update_graphs(n1, n2):
+        if n2 > n1:
             return update_entwicklung_taeter(), update_entwicklung_opfer()
+        return update_taeter_graph(), update_opfer_graph()
