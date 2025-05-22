@@ -39,7 +39,7 @@ def häufigstes_alter(df, alters_cols, label):
                     top_age = age
         top_info[delikt] = {f"Häufigstes Alter ({label})": top_age, f"Anzahl ({label})": max_count}
     return top_info
-
+#
 def häufigste_beziehung(df, jahr, label, wert_col):
     top_bez = {}
     gefiltert = df[(df["Jahr"] == jahr) & (df["Beziehungsart"] != "Alle")]
