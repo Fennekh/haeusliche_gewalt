@@ -17,8 +17,8 @@ import plotly.io as pio
 #------ Variabeln überall gleich
 
 #Variabeln
-color_women = "#811616"
-color_men = "#0a0a35"
+color_women = "#cb4d1d"
+color_men = "#4992b2"
 color_all = "black"
 
 # Roboto-Template definieren (bei allen seiten machen?)

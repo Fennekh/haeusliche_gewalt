@@ -11,8 +11,8 @@ import plotly.io as pio
 #------ Variabeln überall gleich
 
 #Variabeln
-color_women = "#811616"
-color_men = "#0a0a35"
+color_women = "#cb4d1d"
+color_men = "#4992b2"
 color_all = "black"
 
 # Roboto-Template definieren (bei allen seiten machen?)
@@ -151,9 +151,9 @@ def register_callbacks(app):
                     marker_color=color_men,
                     marker=dict(
                         line=dict(width=0),
-                        color=color_all,  # Hintergrundfarbe
+                        color=color_men,  # Hintergrundfarbe
                         pattern=dict(
-                            shape="/",  # Musterform
+                            shape="",  # Musterform
                             fgcolor='white',  # Musterfarbe
                             size=20,
                             solidity=0.05,
@@ -167,9 +167,9 @@ def register_callbacks(app):
                     marker_color=color_women,
                     marker=dict(
                         line=dict(width=0),
-                        color=color_all,  # Hintergrundfarbe
+                        color=color_women,  # Hintergrundfarbe
                         pattern=dict(
-                            shape="/",  # Musterform
+                            shape="",  # Musterform
                             fgcolor='white',  # Musterfarbe
                             size=20,
                             solidity=0.05,
@@ -202,9 +202,9 @@ def register_callbacks(app):
                     marker_color=color_men,
                     marker=dict(
                         line=dict(width=0),
-                        color=color_all,  # Hintergrundfarbe
+                        color=color_men,  # Hintergrundfarbe
                         pattern=dict(
-                            shape="\\",  # Musterform
+                            shape="",  # Musterform
                             fgcolor='white',  # Musterfarbe
                             size=20,
                             solidity=0.05,
@@ -216,9 +216,9 @@ def register_callbacks(app):
                     marker_color=color_women,
                     marker=dict(
                         line=dict(width=0),
-                        color=color_all,  # Hintergrundfarbe
+                        color=color_women,  # Hintergrundfarbe
                         pattern=dict(
-                            shape="\\",  # Musterform
+                            shape="",  # Musterform
                             fgcolor='white',  # Musterfarbe
                             size=20,
                             solidity=0.05,

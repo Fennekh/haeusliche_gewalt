@@ -97,7 +97,6 @@ df_be_weiblich = df_be_year[df_be_year["Geschlecht"] == "weiblich"]
 
 
 
-
 # Layout
 layout = html.Div([
 
@@ -107,8 +106,8 @@ layout = html.Div([
     html.H6("Prozentuale verteilung nach Beziehungsart", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
 
     dbc.Row([
-        dbc.Col(dcc.Graph(id='graph-beziehung-taeter'),width=6),
-        dbc.Col(dcc.Graph(id='graph-beziehung-opfer'), width=6),
+        dbc.Col(dcc.Graph(id='graph-beziehung-opfer-stacked'), width=6),
+        dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked'), width=6),
     ]),
 
     html.Div([
@@ -132,110 +131,74 @@ layout = html.Div([
 
 # Callbacks
 def register_callbacks(app):
-
-
     @app.callback(
-        Output('graph-beziehung-opfer', 'figure'),
-        Input('graph-beziehung-opfer', 'id')
+        Output('graph-beziehung-opfer-stacked', 'figure'),
+        Input('graph-beziehung-opfer-stacked', 'id')
     )
-    def update_beziehungs_opfer_graph(_):
+    def update_beziehung_opfer_stacked(_):
+
+        grouped = df_year.groupby(['Geschlecht', 'Beziehungsart'])['Prozentanteil'].sum().reset_index()
+        # Sortiere nach bezieungsart
+        grouped['Beziehungsart'] = pd.Categorical(grouped['Beziehungsart'], categories=relevante_beziehungen,
+                                                  ordered=True)
+        grouped = grouped.sort_values('Beziehungsart')
+
+        pivot_df = grouped.pivot(index='Geschlecht', columns='Beziehungsart', values='Prozentanteil').fillna(0)
+
         fig = go.Figure()
-        fig.add_trace(go.Bar(
-            x=df_maennlich["Beziehungsart"],
-            y=df_maennlich["Prozentanteil"],
-            name="männlich",
-            marker=dict(
-
-                pattern=dict(
-                    shape="\\",  # diagonales Muster
-                    bgcolor=color_men,  # deutlichere Kontrastfarbe
-                    size=20,
-                    solidity=0.05,
-                    fgopacity=0.6
-
-                )
-            )
-        ))
-        fig.add_trace(go.Bar(
-            x=df_weiblich["Beziehungsart"],
-            y=df_weiblich["Prozentanteil"],
-            name="weiblich",
-            marker=dict(
-
-                pattern=dict(
-                    shape="\\",  # diagonales Muster
-                    bgcolor=color_women,  # deutlichere Kontrastfarbe
-                    size=20,
-                    solidity=0.05,
-                    fgopacity=0.6
-
-                )
-            )
-        ))
+        grautoene = ["black", "#3b3b3b", "#666666", "#adacac"]
+        for i, beziehungsart in enumerate(pivot_df.columns):
+            fig.add_trace(go.Bar(
+                name=beziehungsart,
+                x=pivot_df.index,
+                y=pivot_df[beziehungsart],
+                marker_color=grautoene[i % len(grautoene)]  # Zyklisch, falls mehr Kategorien
+            ))
 
         fig.update_layout(
-            barmode="group",
-            title="Opfer (2024)",
-            #xaxis_title="Beziehungsart",
-            yaxis_title="Anteil in %",
-
+            barmode='stack',
+            title='Opferbeziehungen nach Geschlecht (2024, gestapelt)',
+            yaxis_title='Anteil in %',
+            xaxis_title='Geschlecht',
+            legend_title='Beziehungsart'
         )
 
         return fig
 
     @app.callback(
-        Output('graph-beziehung-taeter', 'figure'),
-        Input('graph-beziehung-taeter', 'id')
+        Output('graph-beziehung-taeter-stacked', 'figure'),
+        Input('graph-beziehung-taeter-stacked', 'id')
     )
-    def update_beziehungs_taeter_graph(_):
+    def update_beziehung_taeter_stacked(_):
+        grouped = df_be_year.groupby(['Geschlecht', 'Beziehungsart'])['Prozentanteil'].sum().reset_index()
+
+
+        # Sortiere das gruppierte DataFrame
+        grouped['Beziehungsart'] = pd.Categorical(grouped['Beziehungsart'], categories=relevante_beziehungen, ordered=True)
+        grouped = grouped.sort_values('Beziehungsart')
+
+        pivot_df = grouped.pivot(index='Geschlecht', columns='Beziehungsart', values='Prozentanteil').fillna(0)
+
+
         fig = go.Figure()
-        fig.add_trace(go.Bar(
-            x=df_be_maennlich["Beziehungsart"],
-            y=df_be_maennlich["Prozentanteil"],
-            name="männlich",
-
-            marker=dict(
-                pattern=dict(
-                    bgcolor=color_men,
-                    shape="/",  # diagonales Muster
-                    fgcolor='white',
-                    size=20,
-                    solidity=0.05,
-                    fgopacity=0.4
-                )
-            )
-        ))
-
-        fig.add_trace(go.Bar(
-            x=df_be_weiblich["Beziehungsart"],
-            y=df_be_weiblich["Prozentanteil"],
-            name="weiblich",
-            marker=dict(
-
-                pattern=dict(
-                    shape="/",  # diagonales Muster
-                    bgcolor=color_women,  # deutlichere Kontrastfarbe
-                    size=20,
-                    solidity=0.05,
-                    fgopacity=0.4
-
-                )
-            )
-
-        ))
+        grautoene = ["black","#3b3b3b", "#666666", "#adacac"]
+        for i, beziehungsart in enumerate(pivot_df.columns):
+            fig.add_trace(go.Bar(
+                name=beziehungsart,
+                x=pivot_df.index,
+                y=pivot_df[beziehungsart],
+                marker_color=grautoene[i % len(grautoene)]  # Zyklisch, falls mehr Kategorien
+            ))
 
         fig.update_layout(
-            barmode="group",
-            title="Beziehungsverhältnis von Täter:innen zu Opfer (2024)",
-            #xaxis_title="Beziehungsart",
-            yaxis_title="Anteil in %",
-            showlegend=False,
-
+            barmode='stack',
+            title='Täter:innen-Beziehungen nach Geschlecht (2024, gestapelt)',
+            yaxis_title='Anteil in %',
+            xaxis_title='Geschlecht',
+            legend_title='Beziehungsart'
         )
 
         return fig
-
-
 
     @app.callback(
         Output('graph-taeter_bez', 'figure'),

@@ -11,8 +11,8 @@ import plotly.io as pio
 #------ Variabeln überall gleich
 
 #Variabeln
-color_women = "#811616"
-color_men = "#0a0a35"
+color_women = "#cb4d1d"
+color_men = "#4992b2"
 color_all = "black"
 
 # Roboto-Template definieren (bei allen seiten machen?)
@@ -236,10 +236,11 @@ def register_callbacks(app):
             x=x_women,
             orientation='h',
             name='Weiblich',
+            marker_color= color_women,
             marker=dict(
 
                 pattern=dict(
-                    shape=pattern,  # diagonales Muster
+                    shape="",  # diagonales Muster
                     bgcolor=color_women,  # deutlichere Kontrastfarbe
                     size=20,
                     solidity=0.05,
@@ -254,10 +255,11 @@ def register_callbacks(app):
             x=x_men,
             orientation='h',
             name='Männlich',
+            marker_color=color_men,
             marker=dict(
 
                 pattern=dict(
-                    shape=pattern,  # diagonales Muster
+                    shape="",  # diagonales Muster
                     bgcolor=color_men,  # deutlichere Kontrastfarbe
                     size=20,
                     solidity=0.05,
