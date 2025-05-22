@@ -104,13 +104,7 @@ df_be_weiblich = df_be_year[df_be_year["Geschlecht"] == "weiblich"]
 layout = html.Div([
 
     html.H3("Wie hat sich das Geschlechter verhältnis verändert?", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
-    html.H6("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
 
-
-    dbc.Row([
-        dbc.Col(dcc.Graph(id='graph-taeter'),width=6),
-        dbc.Col(dcc.Graph(id='graph-opfer'),width=6),
-    ]),
 
     html.Div([
         dbc.ButtonGroup(
@@ -121,11 +115,25 @@ layout = html.Div([
             size="md",
             className="mb-4",
             style={"justifyContent": "center", "display": "flex", "gap": "10px", 'padding': '6px 12px',
-    'fontSize': '14px',
-    'width': 'auto',   # <- wichtig!
-    'display': 'inline-block'}
+                   'fontSize': '14px',
+                   'width': 'auto',  # <- wichtig!
+                   'display': 'inline-block'}
         )
     ], style={'textAlign': 'left'}),
+
+html.H6("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+
+    dbc.Row([
+        dbc.Col(dcc.Graph(id='graph-taeter', style={
+        'height': '65vh',
+        'minHeight': '300px'
+    }),width=6),
+        dbc.Col(dcc.Graph(id='graph-opfer',style={
+        'height': '65vh',
+        'minHeight': '300px'
+    }),width=6),
+    ]),
+
 
 
 

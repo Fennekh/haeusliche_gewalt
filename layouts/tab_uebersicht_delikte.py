@@ -2,300 +2,217 @@ import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-from plotly.validators.scatter.marker import SymbolValidator
-from dash import dash_table
-import matplotlib.pyplot as plt
-import io
 import base64
-import plotly.io as pio
 
-
-
-#------ Variabeln überall gleich
-
-#Variabeln
+# --- Farben und Template ---
 color_women = "#cb4d1d"
 color_men = "#4992b2"
 color_all = "black"
 
-# Roboto-Template definieren (bei allen seiten machen?)
-pio.templates["roboto"] = go.layout.Template(
-    layout=dict(
-        font=dict(
-            family="roboto",
-            size=14,
-            color="black"
-        )
-    )
-)
-
-# Roboto als Standard setzen
-pio.templates.default = "roboto"
-#------
-
-
-#------
-#Daten laden
+# --- Daten laden ---
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
 taeter = pd.read_csv("data/beschuldigte_tidy.csv")
 
-#----Datenvorbereitung für Tabelle
-# Liste der Altersgruppen aus den Spaltennamen
+# --- Altersgruppen ---
 altersgruppen = [
     '<10 Jahre', '10 - 19 Jahre', '20 - 29 Jahre', '30 - 39 Jahre',
     '40 - 49 Jahre', '50 - 59 Jahre', '60 - 69 Jahre', '70 Jahre und +'
 ]
 
-# Daten filtern auf Jahr 2024
-opfer_2024 = opfer[opfer["Jahr"] == 2024].copy()
-taeter_2024 = taeter[taeter["Jahr"] == 2024].copy()
+# --- Funktionen ---
+def häufigstes_alter(df, alters_cols, label):
+    top_info = {}
+    df = df[df["Jahr"] == 2024].copy()
+    for col in alters_cols:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+    for delikt in df["Delikt"].unique():
+        subset = df[df["Delikt"] == delikt]
+        max_count = 0
+        top_age = "–"
+        for _, row in subset.iterrows():
+            for age in alters_cols:
+                count = row[age]
+                if count > max_count:
+                    max_count = count
+                    top_age = age
+        top_info[delikt] = {f"Häufigstes Alter ({label})": top_age, f"Anzahl ({label})": max_count}
+    return top_info
 
-# Altersgruppen-Spalten in Zahlen umwandeln (für Berechnungen)
-for col in altersgruppen:
-    opfer_2024[col] = pd.to_numeric(opfer_2024[col], errors="coerce")
-    taeter_2024[col] = pd.to_numeric(taeter_2024[col], errors="coerce")
+def häufigste_beziehung(df, jahr, label, wert_col):
+    top_bez = {}
+    gefiltert = df[(df["Jahr"] == jahr) & (df["Beziehungsart"] != "Alle")]
+    for delikt in gefiltert["Delikt"].unique():
+        delikt_df = gefiltert[gefiltert["Delikt"] == delikt]
+        top_row = delikt_df.loc[delikt_df[wert_col].idxmax()]
+        top_bez[delikt] = {
+            f"Häufigste Beziehung ({label})": top_row["Beziehungsart"],
+            f"Anzahl Beziehung ({label})": top_row[wert_col]
+        }
+    return top_bez
 
-# Zeilenweise: häufigstes Alter und entsprechende Anzahl bestimmen
-opfer_2024["Häufigstes Alter (Opfer)"] = opfer_2024[altersgruppen].idxmax(axis=1)
-opfer_2024["Anzahl (Opfer)"] = opfer_2024[altersgruppen].max(axis=1)
+def geschlechter_balken_plotly(m, w):
+    total = m + w
+    ratio_m = m / total if total > 0 else 0
+    ratio_w = w / total if total > 0 else 0
 
-taeter_2024["Häufigstes Alter (Täter)"] = taeter_2024[altersgruppen].idxmax(axis=1)
-taeter_2024["Anzahl (Täter)"] = taeter_2024[altersgruppen].max(axis=1)
+    fig = go.Figure(data=[
+        go.Bar(
+            x=[ratio_m],
+            y=[""],
+            orientation='h',
+            marker_color=color_men,
+            showlegend=False,
+            hoverinfo='skip'
+        ),
+        go.Bar(
+            x=[ratio_w],
+            y=[""],
+            orientation='h',
+            base=[ratio_m],
+            marker_color=color_women,
+            showlegend=False,
+            hoverinfo='skip'
+        )
+    ])
 
-# Für jedes Delikt: die Zeile mit der höchsten Altersgruppen-Anzahl behalten
-opfer_top_alter = opfer_2024.loc[
-    opfer_2024.groupby("Delikt")["Anzahl (Opfer)"].idxmax()
-][["Delikt", "Häufigstes Alter (Opfer)", "Anzahl (Opfer)"]]
+    fig.update_layout(
+        barmode='stack',  # <<< das macht den Unterschied
+        xaxis=dict(range=[0, 1], visible=False, fixedrange=True),
+        yaxis=dict(visible=False, fixedrange=True),
+        margin=dict(l=0, r=0, t=0, b=0),
+        height=24,
+        width=200,
+        plot_bgcolor='white',
+        paper_bgcolor='white'
+    )
 
-taeter_top_alter = taeter_2024.loc[
-    taeter_2024.groupby("Delikt")["Anzahl (Täter)"].idxmax()
-][["Delikt", "Häufigstes Alter (Täter)", "Anzahl (Täter)"]]
-
-# Zusammenführen für Anzeige oder weitere Nutzung
-top_alter_pro_delikt = pd.merge(opfer_top_alter, taeter_top_alter, on="Delikt", how="outer")
-#---- Datenvorbereitung Alter
-
-# In ein Nachschlage-Dict umwandeln
-top_alter_dict = top_alter_pro_delikt.set_index("Delikt").to_dict("index")
-
-
-#--- Beziehungen
-# --- Häufigste Beziehungsart für Opfer und Täter:innen (nach Anzahl) ---
-
-# Daten für 2024 vorbereiten
-opfer_2024 = opfer[
-    (opfer["Jahr"] == 2024) &
-    (opfer["Beziehungsart"] != "Alle")
-]
-taeter_2024 = taeter[
-    (taeter["Jahr"] == 2024) &
-    (taeter["Beziehungsart"] != "Alle")
-]
-# Opfer: häufigste Beziehungsart pro Delikt
-opfer_2024_grouped = opfer_2024.groupby(["Delikt", "Beziehungsart"])["Anzahl_geschaedigter_Personen_Total"].sum().reset_index()
-opfer_top_beziehung = opfer_2024_grouped.loc[
-    opfer_2024_grouped.groupby("Delikt")["Anzahl_geschaedigter_Personen_Total"].idxmax()
-].rename(columns={
-    "Beziehungsart": "Häufigste Beziehung (Opfer)",
-    "Anzahl_geschaedigter_Personen_Total": "Anzahl Beziehung (Opfer)"
-})
-
-# Täter:innen: häufigste Beziehungsart pro Delikt
-taeter_2024_grouped = taeter_2024.groupby(["Delikt", "Beziehungsart"])["Anzahl_beschuldigter_Personen_Total"].sum().reset_index()
-taeter_top_beziehung = taeter_2024_grouped.loc[
-    taeter_2024_grouped.groupby("Delikt")["Anzahl_beschuldigter_Personen_Total"].idxmax()
-].rename(columns={
-    "Beziehungsart": "Häufigste Beziehung (Täter)",
-    "Anzahl_beschuldigter_Personen_Total": "Anzahl Beziehung (Täter)"
-})
-
-# Zusammenführen für gemeinsame Nutzung
-top_beziehung_pro_delikt = pd.merge(opfer_top_beziehung, taeter_top_beziehung, on="Delikt", how="outer")
-
-# In ein Dictionary für Nachschlagen umwandeln
-top_beziehung_dict = top_beziehung_pro_delikt.set_index("Delikt").to_dict("index")
+    # to_image erwartet kaleido installiert
+    return base64.b64encode(fig.to_image(format='png')).decode('utf-8')
 
 
-
-
-#Datenvorbereitung -- geschlecht
-# Nur Beziehungsart = Alle und Geschlecht = Total verwenden
+# --- Trenddaten ---
 taeter_filtered = taeter[(taeter["Beziehungsart"] == "Alle") & (taeter["Geschlecht"] == "Total")]
+trend_data = taeter_filtered[taeter_filtered["Jahr"].between(2009, 2024)]
+trend_summary = []
 
-# Gruppieren nach Delikt und Jahr
-taeter_grouped = taeter_filtered.groupby(['Delikt', 'Jahr'])['Anzahl_beschuldigter_Personen_Total'].sum().reset_index()
+for delikt in trend_data["Delikt"].unique():
+    delikt_data = trend_data[trend_data["Delikt"] == delikt].sort_values("Jahr")
+    jahre = delikt_data["Jahr"].tolist()
+    werte = delikt_data["Anzahl_beschuldigter_Personen_Total"].tolist()
+    anzahl_2024 = delikt_data[delikt_data["Jahr"] == 2024]["Anzahl_beschuldigter_Personen_Total"].sum()
+    anzahl_2009 = delikt_data[delikt_data["Jahr"] == 2009]["Anzahl_beschuldigter_Personen_Total"].sum()
+    veraenderung = ((anzahl_2024 - anzahl_2009) / max(anzahl_2009, 1)) * 100
 
-# Pivot-Tabelle: Delikt als Zeile, Jahre als Spalten
-trend_pivot = taeter_grouped.pivot(index='Delikt', columns='Jahr', values='Anzahl_beschuldigter_Personen_Total')
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=jahre, y=werte, mode='lines', line=dict(color=color_all, width=2)))
+    fig.update_layout(
+        xaxis=dict(visible=False),
+        yaxis=dict(visible=False),
+        margin=dict(l=0, r=0, t=0, b=0),
+        height=30,
+        width=150,
+        plot_bgcolor='white',
+        paper_bgcolor='white'
+    )
+    img_bytes = fig.to_image(format="png")
+    img_base64 = base64.b64encode(img_bytes).decode("utf-8")
 
-# Fehlende Werte auffüllen (z. B. Delikte, die in 2009 oder 2024 nicht gemeldet wurden)
-trend_pivot = trend_pivot.fillna(0)
-
-# Mini-Trendliste + aktuelle Zahlen + Veränderung
-trend_pivot['Anzahl'] = trend_pivot[2024]
-trend_pivot['Trend'] = trend_pivot.apply(lambda row: row.loc[2009:2024].tolist(), axis=1)
-trend_pivot['Veränderung (%)'] = ((trend_pivot[2024] - trend_pivot[2009]) / trend_pivot[2009].replace(0, 1)) * 100
-
-# Sortieren nach Anzahl (2024)
-trend_pivot_sorted = trend_pivot.sort_values(by='Anzahl', ascending=False).reset_index()
-
-
-# --- Vorbereitung der Mini-Geschlechterbalken ---
-opfer_agg = opfer[(opfer["Geschlecht"].isin(["männlich", "weiblich"])) & (opfer["Beziehungsart"] == "Alle")]
-opfer_latest = opfer_agg[opfer_agg["Jahr"] == 2024]
-geschlecht_pivot = opfer_latest.pivot_table(index="Delikt", columns="Geschlecht", values="Anzahl_geschaedigter_Personen_Total", aggfunc="sum").fillna(0)
-
-geschlecht_balken = {}
-for delikt, row in geschlecht_pivot.iterrows():
-    fig, ax = plt.subplots(figsize=(2, 0.3))
-    total = row["männlich"] + row["weiblich"]
-    if total == 0:
-        ratio_m = ratio_w = 0.5
-    else:
-        ratio_m = row["männlich"] / total
-        ratio_w = row["weiblich"] / total
-
-    ax.barh([0], [ratio_m], color=color_men)
-    ax.barh([0], [ratio_w], left=[ratio_m], color=color_women)
-    ax.set_xlim(0, 1)
-    ax.axis('off')
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0)
-    plt.close(fig)
-    buf.seek(0)
-    img_b64 = base64.b64encode(buf.read()).decode('utf-8')
-    geschlecht_balken[delikt] = f"data:image/png;base64,{img_b64}"
-
-
-# --- Vorbereitung der Mini-Geschlechterbalken für Täter:innen ---
-taeter_agg = taeter[(taeter["Geschlecht"].isin(["männlich", "weiblich"])) & (taeter["Beziehungsart"] == "Alle")]
-taeter_latest = taeter_agg[taeter_agg["Jahr"] == 2024]
-geschlecht_pivot_taeter = taeter_latest.pivot_table(
-    index="Delikt",
-    columns="Geschlecht",
-    values="Anzahl_beschuldigter_Personen_Total",
-    aggfunc="sum"
-).fillna(0)
-
-geschlecht_balken_taeter = {}
-for delikt, row in geschlecht_pivot_taeter.iterrows():
-    fig, ax = plt.subplots(figsize=(2, 0.3))
-    total = row["männlich"] + row["weiblich"]
-    if total == 0:
-        ratio_m = ratio_w = 0.5
-    else:
-        ratio_m = row["männlich"] / total
-        ratio_w = row["weiblich"] / total
-
-    ax.barh([0], [ratio_m], color=color_men)
-    ax.barh([0], [ratio_w], left=[ratio_m], color=color_women)
-    ax.set_xlim(0, 1)
-    ax.axis('off')
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0)
-    plt.close(fig)
-    buf.seek(0)
-    img_b64 = base64.b64encode(buf.read()).decode('utf-8')
-    geschlecht_balken_taeter[delikt] = f"data:image/png;base64,{img_b64}"
-
-
-
-
-#------
-# Funktion zur Erstellung von Mini-Trendgrafiken als base64
-table_data = []
-for _, row in trend_pivot_sorted.iterrows():
-    fig, ax = plt.subplots(figsize=(2, 0.5))
-    ax.plot(row['Trend'], linewidth=1.5,color=color_all)
-    ax.set_axis_off()
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0)
-    plt.close(fig)
-    buf.seek(0)
-    img_base64 = base64.b64encode(buf.read()).decode('utf-8')
-    trend_img = f"data:image/png;base64,{img_base64}"
-    delikt = row['Delikt']
-    top_alter_info = top_alter_dict.get(delikt, {})
-    top_beziehung = top_beziehung_dict.get(row['Delikt'], {})
-
-
-    table_data.append({
-        'Delikt': delikt,
-        'Anzahl': int(row['Anzahl']),
-        'Trend_src': trend_img,
-        'Veränderung': f"{row['Veränderung (%)']:.1f} %",
-        'Geschlechterverhältnis_src': geschlecht_balken.get(delikt, ""),
-        'Geschlechterverhältnis_taeter_src': geschlecht_balken_taeter.get(delikt, ""),
-        'Häufigstes_Alter_Opfer': top_alter_info.get("Häufigstes Alter (Opfer)", "–"),
-        'Häufigstes_Alter_Taeter': top_alter_info.get("Häufigstes Alter (Täter)", "–"),
-        'Häufigste_Beziehungsart_Taeter': top_beziehung.get("Häufigste Beziehung (Täter)", "–"),
-        'Häufigste_Beziehungsart_Opfer': top_beziehung.get("Häufigste Beziehung (Opfer)", "–"),
-
+    trend_summary.append({
+        "Delikt": delikt,
+        "Anzahl": int(anzahl_2024),
+        "Veränderung": f"{veraenderung:.1f} %",
+        "Trend_img": f"data:image/png;base64,{img_base64}"
     })
 
+# --- Alters- und Beziehungsinfos ---
+top_alter_opfer = häufigstes_alter(opfer, altersgruppen, "Opfer")
+top_alter_taeter = häufigstes_alter(taeter, altersgruppen, "Täter")
+top_beziehung_opfer = häufigste_beziehung(opfer, 2024, "Opfer", "Anzahl_geschaedigter_Personen_Total")
+top_beziehung_taeter = häufigste_beziehung(taeter, 2024, "Täter", "Anzahl_beschuldigter_Personen_Total")
 
-#----
+# --- Geschlechterverhältnisse ---
+opfer_2024 = opfer[(opfer["Jahr"] == 2024) & (opfer["Geschlecht"].isin(["männlich", "weiblich"])) & (opfer["Beziehungsart"] == "Alle")]
+geschlecht_pivot = opfer_2024.groupby(["Delikt", "Geschlecht"]).sum().unstack(fill_value=0)
 
-# Layout für den ersten Tab (Zeitliche Entwicklung)
+taeter_2024 = taeter[(taeter["Jahr"] == 2024) & (taeter["Geschlecht"].isin(["männlich", "weiblich"])) & (taeter["Beziehungsart"] == "Alle")]
+geschlecht_pivot_taeter = taeter_2024.groupby(["Delikt", "Geschlecht"]).sum().unstack(fill_value=0)
+
+# --- Zusammenführen ---
+trend_summary.sort(key=lambda x: x["Anzahl"], reverse=True)
+table_data = []
+for item in trend_summary:
+    delikt = item["Delikt"]
+    alt_info = {**top_alter_opfer.get(delikt, {}), **top_alter_taeter.get(delikt, {})}
+    bez_info = {**top_beziehung_opfer.get(delikt, {}), **top_beziehung_taeter.get(delikt, {})}
+
+    m = geschlecht_pivot.loc[delikt]["Anzahl_geschaedigter_Personen_Total"]["männlich"] if delikt in geschlecht_pivot.index else 0
+    w = geschlecht_pivot.loc[delikt]["Anzahl_geschaedigter_Personen_Total"]["weiblich"] if delikt in geschlecht_pivot.index else 0
+    img_gender_opfer = geschlechter_balken_plotly(m, w)
+
+    m_t = geschlecht_pivot_taeter.loc[delikt]["Anzahl_beschuldigter_Personen_Total"]["männlich"] if delikt in geschlecht_pivot_taeter.index else 0
+    w_t = geschlecht_pivot_taeter.loc[delikt]["Anzahl_beschuldigter_Personen_Total"]["weiblich"] if delikt in geschlecht_pivot_taeter.index else 0
+    img_gender_taeter = geschlechter_balken_plotly(m_t, w_t)
+
+    table_data.append({
+        "Delikt": delikt,
+        "Anzahl": item["Anzahl"],
+        "Trend_src": item["Trend_img"],
+        "Veränderung": item["Veränderung"],
+        "Geschlechterverhältnis_src": f"data:image/png;base64,{img_gender_opfer}",
+        "Geschlechterverhältnis_taeter_src": f"data:image/png;base64,{img_gender_taeter}",
+        "Häufigstes_Alter_Opfer": alt_info.get("Häufigstes Alter (Opfer)", "–"),
+        "Häufigstes_Alter_Taeter": alt_info.get("Häufigstes Alter (Täter)", "–"),
+        "Häufigste_Beziehungsart_Opfer": bez_info.get("Häufigste Beziehung (Opfer)", "–"),
+        "Häufigste_Beziehungsart_Taeter": bez_info.get("Häufigste Beziehung (Täter)", "–")
+    })
+
+# --- Dash Layout ---
 layout = html.Div([
-    # Zeitraum-Information
-    html.Div(id='zeitraum-info-tab1', style={'textAlign': 'center', 'marginBottom': 20}),
-
-
-
-
-
-    # Tabelle + weitere Visualisierungen
-    dbc.Row([
-        dbc.Col([
-            html.H4("Übersicht Delikte (Stand 2024)", style={'marginTop': 30, 'marginLeft': 20}),
-            html.Table([
-                html.Thead(
-                    html.Tr([
-                        html.Th("Delikt"),
-                        html.Th("Straftaten 2024"),
-                        html.Th("Trend 2009–2024"),
-                        html.Th("Veränderung (%)"),
-                        html.Th("Geschlechterverhältnis (Täter:innen)"),
-                        html.Th("Geschlechterverhältnis (Opfer)"),
-                        html.Th("Häufigste Beziehungsart (Täter:innen)"),
-                        html.Th("Häufigste Beziehungsart (Opfer)"),
-                        html.Th("Häufigstes Alter (Täter:innen)"),
-                        html.Th("Häufigstes Alter (Opfer)"),
-
-                    ])
-                ),
-                html.Tbody([
-                    html.Tr([
-                        html.Td(row['Delikt']),
-                        html.Td(row['Anzahl']),
-                        html.Td(html.Img(src=row['Trend_src'], style={'height': '30px'})),
-                        html.Td(row['Veränderung']),
-                        html.Td(html.Img(src=row['Geschlechterverhältnis_taeter_src'], style={'height': '20px'})),
-                        html.Td(html.Img(src=row['Geschlechterverhältnis_src'], style={'height': '20px'})),
-                        html.Td(row['Häufigste_Beziehungsart_Taeter']),
-                        html.Td(row['Häufigste_Beziehungsart_Opfer']),
-                        html.Td(row['Häufigstes_Alter_Taeter']),
-                        html.Td(row['Häufigstes_Alter_Opfer']),
-
-
-
-                    ]) for row in table_data
-                ])
-            ], style={'width': '95%', 'borderCollapse': 'collapse',  'margin': 20})
-
-    ]),
-
-    # Fußnote
+    html.H4("Übersicht Delikte (Stand 2024)", style={'marginTop': 30, 'marginLeft': 20}),
+    html.Table([
+        html.Thead(html.Tr([
+            html.Th("Delikt"),
+            html.Th("Straftaten 2024", style={'textAlign': 'right'}),
+            html.Th("Trend 2009–2024"),
+            html.Th("Veränderung (%)", style={'textAlign': 'right'}),
+            html.Th("Geschlechterverhältnis (Täter:innen)"),
+            html.Th("Geschlechterverhältnis (Opfer)"),
+            html.Th("Häufigste Beziehungsart (Täter:innen)"),
+            html.Th("Häufigste Beziehungsart (Opfer)"),
+            html.Th("Häufigstes Alter (Täter:innen)"),
+            html.Th("Häufigstes Alter (Opfer)")
+        ])),
+        html.Tbody([
+            html.Tr([
+                html.Td(row['Delikt']),
+                html.Td(f"{row['Anzahl']:,}", style={'textAlign': 'right'}),
+                html.Td(html.Img(src=row['Trend_src'], style={'height': '30px'})),
+                html.Td(row['Veränderung'], style={'textAlign': 'right'}),
+                html.Td(html.Img(src=row['Geschlechterverhältnis_taeter_src'], style={'height': '20px'})),
+                html.Td(html.Img(src=row['Geschlechterverhältnis_src'], style={'height': '20px'})),
+                html.Td(row['Häufigste_Beziehungsart_Taeter']),
+                html.Td(row['Häufigste_Beziehungsart_Opfer']),
+                html.Td(row['Häufigstes_Alter_Taeter']),
+                html.Td(row['Häufigstes_Alter_Opfer'])
+            ], style={'borderBottom': '1px solid #ddd', 'lineHeight': '1.8'})
+            for row in table_data
+        ])
+    ], style={
+        'width': '95%',
+        'margin': 20,
+        'fontSize': '12px',
+        'borderCollapse': 'collapse'
+    }),
     html.Div([
         html.Hr(),
+        html.P("Sexueller Übergriff und sexuelle Nötigung (Art. 189) war bis 30. Juni 2024 Sexuelle Nötigung (Art. 189).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
+        html.P("Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6 war bis 30. Juni 2024 Schändung (Art. 191).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
+        html.P("Ausnützung einer Notlage oder Abhängigkeit (Art. 193) war bis 30. Juni 2024 Ausnützung der Notlage (Art. 193).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
         html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
-               style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888'})
+               style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888', 'marginLeft': 20}),
     ])
-])
 ])
 
 

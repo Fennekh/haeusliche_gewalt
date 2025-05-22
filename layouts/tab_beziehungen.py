@@ -102,12 +102,18 @@ layout = html.Div([
 
 
 
-    html.H3("In welcher Beziehung stehen Opfer und Täter in Beziehung?", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+    html.H3("In welcher Beziehung stehen Opfer und Täter:innen?", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
     html.H6("Prozentuale verteilung nach Beziehungsart", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
 
     dbc.Row([
-        dbc.Col(dcc.Graph(id='graph-beziehung-opfer-stacked'), width=6),
-        dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked'), width=6),
+        dbc.Col(dcc.Graph(id='graph-beziehung-opfer-stacked', style={
+        'height': '65vh',
+        'minHeight': '300px'
+    }), width=6),
+        dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked', style={
+        'height': '65vh',
+        'minHeight': '300px'
+    }), width=6),
     ]),
 
 

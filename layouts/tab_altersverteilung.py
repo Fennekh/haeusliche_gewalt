@@ -62,7 +62,9 @@ for col in age_order:
 layout = html.Div([
 
     html.Div([
-        html.H3("Entwicklung der Altersgruppen über die Jahre", style={'textAlign': 'left', 'marginTop': 30}),
+        html.H3("Wie ist die Altersverteilung über Täter:Innen und Opfer", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+        html.H6("Entwicklung Anzahl Betroffene",
+                style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
 
         # Linke und rechte Spalte
         dbc.Row([
@@ -75,7 +77,7 @@ layout = html.Div([
                         options=[{'label': str(j), 'value': j} for j in range(2009, 2025)],
                         value=2009,
                         clearable=False,
-                        style={'width': '150px', 'marginRight': '10px'}
+                        style={'width': '150px', }
                     ),
                     dcc.Dropdown(
                         id='jahr-end-dropdown-tab3',
@@ -88,10 +90,10 @@ layout = html.Div([
                         id='trend-selector',
                         options=[
                             {'label': 'Opfer', 'value': 'opfer'},
-                            {'label': 'Täter', 'value': 'taeter'}
+                            {'label': 'Täter:innen', 'value': 'taeter'}
                         ],
                         value='opfer',
-                        labelStyle={'display': 'inline-block', 'marginRight': 20},
+                        labelStyle={'display': 'inline-block', 'marginLeft': '20px'},
                         style={'marginRight': '30px'}
                     ),
                     dcc.Dropdown(
@@ -104,12 +106,12 @@ layout = html.Div([
                         value='Total',
                         style={'width': '200px'}
                     )
-                ], style={'display': 'flex', 'flexWrap': 'wrap', 'gap': '10px', 'marginBottom': 20}),
+                ], style={'display': 'flex', 'flexWrap': 'wrap', 'gap': '10px', }),
 
                 # Trend-Grafik
                 dcc.Graph(id='altersgruppen-trend',  style={
-        'height': '80vh',      # dynamisch über Viewport
-        'minHeight': '500px'    # Mindesthöhe festlegen
+        'height': '65vh',
+        'minHeight': '300px'
     })
             ], width=8),
 
@@ -121,13 +123,16 @@ layout = html.Div([
                         options=[{'label': str(j), 'value': j} for j in range(2009, 2025)],
                         value=2024,
                         clearable=False,
-                        style={'width': '100%'}
+                        style={'width': '100%', 'marginBottom': '20px'}
                     )
                 ], style={'marginBottom': '10px'}),
 
-                dcc.Graph(id='alterspyramide')
+                dcc.Graph(id='alterspyramide',style={
+        'height': '65vh',
+        'minHeight': '300px'
+    })
             ], width=4)
-        ], style={'alignItems': 'flex-start'})
+        ], style={'alignItems': 'flex-start', 'marginLeft': '20px'}),
     ]),
 
     html.Div([
@@ -245,6 +250,7 @@ def register_callbacks(app):
 
         df = opfer if perspektive == 'opfer' else taeter
         # Daten für ein Jahr filtern
+        titel_perspektive =   "Opfer" if perspektive == 'opfer' else "Täter:innen"
 
         pattern = "/" if perspektive == 'taeter' else "\\"
 
@@ -309,7 +315,7 @@ def register_callbacks(app):
 
         # Layout
         fig.update_layout(
-            title=f"Alterspyramide Taeter:innen – Jahr {jahr}",
+            title=f"Alterspyramide {titel_perspektive} – Jahr {jahr}",
             barmode='relative',
             xaxis=dict(
                 title='Anzahl Personen',
@@ -325,7 +331,12 @@ def register_callbacks(app):
             ),
             template='plotly_white',
             bargap=0.1,
-            height=500
+            legend = dict(
+                x=1,  # Rechts (1 = 100 %)
+                y=1,  # Oben (1 = 100 %)
+                xanchor="right",
+                yanchor="top"
+            )
         )
 
         return fig
