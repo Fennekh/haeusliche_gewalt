@@ -136,7 +136,7 @@ layout = html.Div([
             ]),
 
 html.P([html.B(" Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschätzt."),
-        " Bei Tätlichkeiten und Körperverletzungen werden beispielsweise 28,9 Prozent, bei sexueller Gewalt 10,5 Prozent der Fälle angezeigt."]),
+        " Bei Tätlichkeiten und Körperverletzungen werden beispielsweise 28,9 Prozent, bei sexueller Gewalt 10,5 Prozent der Fälle angezeigt.(Uni St.Gallen 2023)"]),
 
         ],  width=4, style={'marginTop': 40})
     ]),
