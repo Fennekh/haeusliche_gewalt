@@ -103,7 +103,7 @@ df_be_weiblich = df_be_year[df_be_year["Geschlecht"] == "weiblich"]
 # Layout
 layout = html.Div([
 
-    html.H3("Wie hat sich das Geschlechter verhältnis verändert?", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+    html.H3("Wie hat sich das Geschlechterverhältnis verändert?", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
 
 
     html.Div([
@@ -121,7 +121,7 @@ layout = html.Div([
         )
     ], style={'textAlign': 'left'}),
 
-html.H6("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+#html.H6("Geschlechterverhältnis im Zeitverlauf", style={'textAlign': 'left', 'marginTop': 0, 'marginLeft': 20}),
 
     dbc.Row([
         dbc.Col(dcc.Graph(id='graph-taeter', style={
@@ -190,7 +190,7 @@ def register_callbacks(app):
 
                           ),)
         fig.update_layout(barmode='stack',
-                          title="Täter:innen nach Geschlecht",
+                          title='Täter:innen nach Geschlecht (2009–2024, Anteile in %)',
                           yaxis_title="Prozent (%)",
                           showlegend=False,
                           template="plotly_white",
@@ -237,7 +237,7 @@ def register_callbacks(app):
                         )
                           ),)
         fig.update_layout(barmode='stack',
-                          title="Opfer nach Geschlecht",
+                          title='Opfer nach Geschlecht (2009–2024, Anteile in %)',
 
                           showlegend=True,
                           template="plotly_white",
@@ -298,7 +298,7 @@ def register_callbacks(app):
 
         # Layout anpassen
         fig.update_layout(
-            title=f"Entwicklung der Täterzahlen nach Geschlecht 2009 bis 2025)",
+            title="Täter:innen nach Geschlecht (2009–2024, Anzahl Personen)",
             xaxis_title="Jahr",
             yaxis_title="Anzahl Personen",
             legend_title="Gruppe",
@@ -320,7 +320,7 @@ def register_callbacks(app):
                                  marker=dict(size=10), opacity=0.1))
         # Layout anpassen
         fig.update_layout(
-            title='Opferzahlen nach Geschlecht (2009–2024)',
+            title='Täter:innen nach Geschlecht (2009–2024, Anzahl Personen)',
             xaxis_title='Jahr',
             yaxis_title='Anzahl geschaedigter Personen',
             template='plotly_white',
@@ -337,7 +337,7 @@ def register_callbacks(app):
 
         # Layout anpassen
         fig.update_layout(
-            title=f"Entwicklung der Opfer nach Geschlecht (2009-2025)",
+            title="Opfer nach Geschlecht (2009–2024, Anzahl Personen)",
             xaxis_title="Jahr",
             yaxis_title="Anzahl Personen",
             legend_title="Gruppe",

@@ -63,8 +63,7 @@ layout = html.Div([
 
     html.Div([
         html.H3("Wie ist die Altersverteilung über Täter:Innen und Opfer", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
-        html.H6("Entwicklung Anzahl Betroffene",
-                style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+        #html.H6("Entwicklung Anzahl Betroffene",style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
 
         # Linke und rechte Spalte
         dbc.Row([
@@ -86,6 +85,18 @@ layout = html.Div([
                         clearable=False,
                         style={'width': '150px', 'marginRight': '10px'}
                     ),
+
+                    dcc.Dropdown(
+                        id='gender-selector-trend',
+                        options=[
+                            {'label': 'Männlich', 'value': 'männlich'},
+                            {'label': 'Weiblich', 'value': 'weiblich'},
+                            {'label': 'Alle Geschlechter', 'value': 'Total'}
+                        ],
+                        value='Total',
+                        style={'width': '200px'}
+                    ),
+
                     dcc.RadioItems(
                         id='trend-selector',
                         options=[
@@ -96,16 +107,6 @@ layout = html.Div([
                         labelStyle={'display': 'inline-block', 'marginLeft': '20px'},
                         style={'marginRight': '30px'}
                     ),
-                    dcc.Dropdown(
-                        id='gender-selector-trend',
-                        options=[
-                            {'label': 'Männlich', 'value': 'männlich'},
-                            {'label': 'Weiblich', 'value': 'weiblich'},
-                            {'label': 'Alle Geschlechter', 'value': 'Total'}
-                        ],
-                        value='Total',
-                        style={'width': '200px'}
-                    )
                 ], style={'display': 'flex', 'flexWrap': 'wrap', 'gap': '10px', }),
 
                 # Trend-Grafik
@@ -216,7 +217,7 @@ def register_callbacks(app):
 
 
         fig.update_layout(
-            title=f"Entwicklung der Altersgruppen bei {geschlecht.lower()}n {'Opfern' if perspektive == 'opfer' else 'Tätern'} ({jahr_start}-{jahr_ende})",
+            title=f"Entwicklung der Altersgruppen bei {geschlecht.lower()} {'Opfer' if perspektive == 'opfer' else 'Täter:innen'} ({jahr_start}-{jahr_ende})",
             xaxis_title="Jahr",
             yaxis_title="Anzahl Personen",
             yaxis = dict(range=[0, max_range]),
@@ -325,7 +326,7 @@ def register_callbacks(app):
             ),
 
             yaxis=dict(
-                title='Altersgruppe',
+                title='',
                 categoryorder='array',
                 categoryarray=age_order[::-1]  # Umdrehen der Altersgruppen
             ),

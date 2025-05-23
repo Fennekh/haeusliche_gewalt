@@ -91,16 +91,17 @@ opfer_total = opfer[opfer["Geschlecht"] == "Total"]
 
 # Layout für den ersten Tab (Zeitliche Entwicklung)
 layout = html.Div([
-
+    html.H3("Wie verändert sich die Anzahl Straftaten und Betroffene in Häuslicher Gewalt?",
+            style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20,'paddingBottom': 0}),
     # Haupt-Grafik + Zusammenfassung
     dbc.Row([
         dbc.Col(
             dcc.Graph(id='zeitliche-entwicklung-straftaten'),
-            width=8
+            width=8,
         ),
         dbc.Col([
             html.H4("Was ist Häusliche Gewalt?"),
-            html.P("Unter häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt innerhalb einer Familie oder in einer aktuellen oder aufgelösten Paarbeziehung."),
+            html.P("Unter Häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt innerhalb einer Familie oder in einer aktuellen oder aufgelösten Paarbeziehung."),
             html.P([
                 "Der ", html.B("Strafbestand wir mit Mehrfach gekennzeichnet"),
                 " wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt",
@@ -109,7 +110,7 @@ layout = html.Div([
             ]),
             html.H1("21'127", style={'marginTop': 10}),
             html.P("Straftaten Häusliche Gewalt 2024")
-        ], width=4, style={'marginTop': 20})
+        ], width=4, style={'marginTop': 40})
     ]),
 
     # Tabelle + weitere Visualisierungen
@@ -123,7 +124,6 @@ layout = html.Div([
 
         dbc.Col([
             html.H4("Wie viele Personen sind betroffen?"),
-            html.P(["Unter den betroffenen finden sich sowohl Täterinnen und Opfer.", html.B(" Die Dunkelziffer wird sehr hoch geschätzt"), " Bei Tätlichkeiten und Körperverletzungen werden beispielsweise 28,9 Prozent, bei sexueller Gewalt 10,5 Prozent der Fälle angezeigt."]),
             dbc.Row([
                 dbc.Col([
                     html.H2("11'041"),
@@ -133,8 +133,12 @@ layout = html.Div([
                     html.H2("11'849"),
                     html.P("Opfer im Jahr 2024")
                 ])
-            ])
-        ], width=4)
+            ]),
+
+html.P([html.B(" Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschätzt."),
+        " Bei Tätlichkeiten und Körperverletzungen werden beispielsweise 28,9 Prozent, bei sexueller Gewalt 10,5 Prozent der Fälle angezeigt."]),
+
+        ],  width=4, style={'marginTop': 40})
     ]),
 
 
@@ -209,22 +213,42 @@ def register_callbacks(app):
         # Layout anpassen
         fig.update_layout(
             barmode='overlay',
-            title='Anzahl Registrierter Straftaten',
-            xaxis_title='Jahr',
-            yaxis_title='Anzahl Straftaten',
+
+            title=dict(
+                text="Anzahl registrierte Straftaten Häuslicher Gewalt 2009-2024",
+                font=dict(size=16),  # kleiner
+                pad=dict(t=0, b=0)  # Padding oben/unten auf 0 setzen
+            ),
+
+            xaxis_title='',
+            yaxis_title='',
             template='plotly_white',
             bargap=0.5,
-            xaxis = dict(
+
+            xaxis=dict(
                 range=[2009 - 0.5, 2024 + 0.5],
                 tickmode='linear',
-                dtick=1  # Jährliche Ticks
+                dtick=1, # Jährliche Ticks
+
+                linecolor='black',  # X-Achsenlinie dunkelgrau
+                linewidth=1,
+                showline=True,  # Zeige X-Achsenlinie
+                gridcolor='#e5e5e5', # Hellgraue vertikale Gitterlinien
+                showgrid = False,
             ),
+            yaxis=dict(
+                gridcolor='#e5e5e5',  # Hellgraue horizontale Gitterlinien
+                zeroline=False,
+
+            ),
+
+
             legend=dict(
-                orientation="h",  # horizontale Ausrichtung
+                orientation="v",  # horizontale Ausrichtung
                 yanchor="bottom",  # vertikale Verankerung unten
-                y=1.02,  # etwas über dem Plot (1 = genau oben, 1.02 = leicht darüber)
-                xanchor="right",  # horizontale Verankerung rechts
-                x=0.31  # ganz rechts
+                y=0.8,
+                xanchor="left",
+                x=0.018  # ganz rechts
             )
 
         )
@@ -279,26 +303,41 @@ def register_callbacks(app):
             xaxis=dict(
                 range=[2009-0.2, 2024+0.2],
                 tickmode='linear',
-                dtick=1  # Jährliche Ticks
+                dtick=1,  # Jährliche Ticks
+                showgrid = False,
+                linecolor = 'black',  # X-Achsenlinie dunkelgrau
+                linewidth = 1,
+                showline = True,  # Zeige X-Achsenlinie
+                gridcolor = '#e5e5e5',
+                title=""
+
+
             ),
 
-            yaxis=dict(range=[0, 12000]),
+            yaxis=dict(
+                range=[0, 12500],
+                title=""
+                       ),
+
             legend_title='Geschlecht',
             legend = dict(
                 orientation="v",  # horizontale Ausrichtung
                 yanchor="bottom",  # vertikale Verankerung unten
-                y=0.4,  # etwas über dem Plot (1 = genau oben, 1.02 = leicht darüber)
+                y=0.4,
                 xanchor="right",  # horizontale Verankerung rechts
-                x=0.25  # ganz rechts
+                x=0.18,  # ganz rechts
+
+
             )
 
         )
 
         # Layout anpassen
         fig.update_layout(
-            title=f"Zeitliche Entwicklung von Opfern und Tätern (2009-2025)",
-            xaxis_title="Jahr",
-            yaxis_title="Anzahl Personen",
+
+            title=f"Anzahl betroffene Personen Häuslicher Gewalt 2009-2024",
+            xaxis_title="",
+            yaxis_title="",
             legend_title="",
             template="plotly_white",
             hovermode="x unified"

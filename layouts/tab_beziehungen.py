@@ -103,16 +103,20 @@ layout = html.Div([
 
 
     html.H3("In welcher Beziehung stehen Opfer und Täter:innen?", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
-    html.H6("Prozentuale verteilung nach Beziehungsart", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+    #html.H6("Prozentuale verteilung nach Beziehungsart", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
 
     dbc.Row([
         dbc.Col(dcc.Graph(id='graph-beziehung-opfer-stacked', style={
         'height': '65vh',
-        'minHeight': '300px'
+        'minHeight': '300px',
+        'textAlign': 'left',
     }), width=6),
         dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked', style={
         'height': '65vh',
-        'minHeight': '300px'
+        'minHeight': '300px',
+        'textAlign': 'left',
+
+
     }), width=6),
     ]),
 
@@ -153,10 +157,17 @@ def register_callbacks(app):
 
         fig.update_layout(
             barmode='stack',
-            title='Opferbeziehungen nach Geschlecht (2024, gestapelt)',
+
             yaxis_title='Anteil in %',
-            xaxis_title='Geschlecht',
-            legend_title='Beziehungsart'
+            xaxis_title='',
+            legend_title='Beziehungsart',
+            title=dict(
+                text='Opfer nach Beziehungsart zur Täterschaft (2024, Anteile in %)',
+                x=0.03,  # ganz links
+                xanchor="left",  # Ankerpunkt ist links
+
+            )
+
         )
 
         return fig
@@ -188,10 +199,16 @@ def register_callbacks(app):
 
         fig.update_layout(
             barmode='stack',
-            title='Täter:innen-Beziehungen nach Geschlecht (2024, gestapelt)',
             yaxis_title='Anteil in %',
-            xaxis_title='Geschlecht',
-            legend_title='Beziehungsart'
+            xaxis_title='',
+
+            legend_title='Beziehungsart',
+            title = dict(
+                text='Täter:innen nach Beziehungsart zu Opfer (2024, Anteile in %)',
+                x=0.02,  # ganz links
+                xanchor="left",  # Ankerpunkt ist links
+
+            )
         )
 
         return fig

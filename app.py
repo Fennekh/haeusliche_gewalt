@@ -25,13 +25,13 @@ pio.templates.default = "roboto"
 # Dash-Instanz
 app = dash.Dash(__name__,
                 external_stylesheets=[dbc.themes.BOOTSTRAP],
-                suppress_callback_exceptions=True)
+                suppress_callback_exceptions=True, title='Statistik Häusliche Gewalt')
 server = app.server
 
 # Layout mit Tabs
 app.layout = html.Div([
-    html.H3("Statistik zu häuslicher Gewalt in der Schweiz",
-            style={'textAlign': 'left', 'color': '#505050', 'fontWeight': 'light', 'marginTop': 20, 'marginBottom': 20, 'marginLeft': 20}),
+    html.H5("Statistik zu Häuslicher Gewalt in der Schweiz",
+            style={'textAlign': 'left', 'color': 'black', 'fontWeight': 'regular', 'marginTop': 20, 'marginBottom': 20, 'marginLeft': 20}),
 
     dcc.Tabs(id="tabs", value='tab1',
              className="tab-container", children=[
