@@ -229,8 +229,6 @@ def register_callbacks(app):
                 bgcolor="white",
                 font_size=18,
 
-
-
             )
 
 
@@ -316,7 +314,7 @@ def register_callbacks(app):
 
         # Layout
         fig.update_layout(
-            title=f"Alterspyramide {titel_perspektive} – Jahr {jahr}",
+            title=f"Altersverteilung von Anzahl {titel_perspektive} ({jahr})",
             barmode='relative',
             xaxis=dict(
                 title='Anzahl Personen',
