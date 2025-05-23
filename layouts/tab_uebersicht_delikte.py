@@ -30,27 +30,45 @@ def häufigstes_alter(df, alters_cols, label):
     for delikt in df["Delikt"].unique():
         subset = df[df["Delikt"] == delikt]
         max_count = 0
-        top_age = "–"
+        top_ages = set()
         for _, row in subset.iterrows():
             for age in alters_cols:
                 count = row[age]
                 if count > max_count:
                     max_count = count
-                    top_age = age
-        top_info[delikt] = {f"Häufigstes Alter ({label})": top_age, f"Anzahl ({label})": max_count}
+                    top_ages = {age}
+                elif count == max_count:
+                    top_ages.add(age)
+        if len(top_ages) > 1:
+            top_age_label = "Mehrere"
+        elif top_ages:
+            top_age_label = list(top_ages)[0]
+        else:
+            top_age_label = "–"
+        top_info[delikt] = {
+            f"Häufigstes Alter ({label})": top_age_label,
+            f"Anzahl ({label})": max_count
+        }
     return top_info
-#
+
 def häufigste_beziehung(df, jahr, label, wert_col):
     top_bez = {}
     gefiltert = df[(df["Jahr"] == jahr) & (df["Beziehungsart"] != "Alle")]
     for delikt in gefiltert["Delikt"].unique():
         delikt_df = gefiltert[gefiltert["Delikt"] == delikt]
-        top_row = delikt_df.loc[delikt_df[wert_col].idxmax()]
+        max_val = delikt_df[wert_col].max()
+        top_rows = delikt_df[delikt_df[wert_col] == max_val]
+        if len(top_rows) > 1:
+            beziehungsart = "Mehrere"
+        else:
+            beziehungsart = top_rows.iloc[0]["Beziehungsart"]
         top_bez[delikt] = {
-            f"Häufigste Beziehung ({label})": top_row["Beziehungsart"],
-            f"Anzahl Beziehung ({label})": top_row[wert_col]
+            f"Häufigste Beziehung ({label})": beziehungsart,
+            f"Anzahl Beziehung ({label})": max_val
         }
     return top_bez
+
+
 
 def geschlechter_balken_plotly(m, w):
     total = m + w
@@ -88,7 +106,7 @@ def geschlechter_balken_plotly(m, w):
         paper_bgcolor='white'
     )
 
-    # to_image erwartet kaleido installiert
+    # to_image
     return base64.b64encode(fig.to_image(format='png')).decode('utf-8')
 
 
@@ -170,13 +188,14 @@ for item in trend_summary:
 
 # --- Dash Layout ---
 layout = html.Div([
-    html.H4("Übersicht Delikte (Stand 2024)", style={'marginTop': 30, 'marginLeft': 20}),
+    html.H4("Übersicht Delikte Häusliche Gewalt (Stand 2024, aufsteigend Anzahl Straftaten)", style={'marginTop': 30, 'marginLeft': 20}),
     html.Table([
         html.Thead(html.Tr([
             html.Th("Delikt"),
-            html.Th("Straftaten 2024", style={'textAlign': 'right'}),
-            html.Th("Trend 2009–2024"),
-            html.Th("Veränderung (%)", style={'textAlign': 'right'}),
+            html.Th("Anzahl Straftaten 2024", style={'textAlign': 'right', 'width': '100px'}),
+
+            html.Th("Trendlinie Straftaten (2009–2024)"),
+            html.Th("Veränderung Straftaten (%)", style={'textAlign': 'right', 'width': '100px'}),
             html.Th("Geschlechterverhältnis (Täter:innen)"),
             html.Th("Geschlechterverhältnis (Opfer)"),
             html.Th("Häufigste Beziehungsart (Täter:innen)"),
@@ -210,9 +229,25 @@ layout = html.Div([
         html.P("Sexueller Übergriff und sexuelle Nötigung (Art. 189) war bis 30. Juni 2024 Sexuelle Nötigung (Art. 189).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
         html.P("Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6 war bis 30. Juni 2024 Schändung (Art. 191).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
         html.P("Ausnützung einer Notlage oder Abhängigkeit (Art. 193) war bis 30. Juni 2024 Ausnützung der Notlage (Art. 193).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
-        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
+        html.P("",
                style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888', 'marginLeft': 20}),
-    ])
+    ]),
+
+    html.Div([
+        html.Hr(),
+        html.P(
+            "",
+            style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
+        html.P(
+            "",
+            style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
+        html.P(
+            "",
+            style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
+        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
+               style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888', 'marginLeft': 20}),
+    ]),
+
 ])
 
 
