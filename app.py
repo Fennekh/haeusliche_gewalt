@@ -38,8 +38,8 @@ app.layout = html.Div([
         dcc.Tab(label='Entwicklung Gesamt', value='tab1'),
         dcc.Tab(label='Entwicklung Geschlechterverhältnis', value='tab2'),
         dcc.Tab(label='Beziehungen', value='tab4'),
-        dcc.Tab(label='Altersverteilung', value='tab3'),
-        dcc.Tab(label='Übersicht Delikte', value='tab5'),
+        dcc.Tab(label='Entwicklung Altersverteilung', value='tab3'),
+        dcc.Tab(label='Übersicht einzelne Delikte', value='tab5'),
     ]),
     html.Div(id='tabs-content')
 ])
@@ -67,4 +67,4 @@ tab_uebersicht_delikte.register_callbacks(app)
 
 # Starte die App
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
