@@ -30,7 +30,7 @@ server = app.server
 
 # Layout mit Tabs
 app.layout = html.Div([
-    html.H5("Statistik zu Häuslicher Gewalt in der Schweiz",
+    html.H5("Statistik zu Häuslicher Gewalt in der Schweiz 2009-2024",
             style={'textAlign': 'left', 'color': 'black', 'fontWeight': 'regular', 'marginTop': 20, 'marginBottom': 20, 'marginLeft': 20}),
 
     dcc.Tabs(id="tabs", value='tab1',
