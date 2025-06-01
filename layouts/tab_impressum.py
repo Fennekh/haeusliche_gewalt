@@ -1,0 +1,348 @@
+import dash
+from dash import dcc, html
+import dash_bootstrap_components as dbc
+from dash.dependencies import Input, Output
+import plotly.express as px
+import plotly.graph_objects as go
+import pandas as pd
+from plotly.validators.scatter.marker import SymbolValidator
+from dash import dash_table
+import matplotlib.pyplot as plt
+import io
+import plotly.io as pio
+
+#------ Variabeln überall gleich
+
+#Variabeln
+color_women = "#811616"
+color_men = "#0a0a35"
+color_all = "black"
+
+# Roboto-Template definieren (bei allen seiten machen?)
+pio.templates["roboto"] = go.layout.Template(
+    layout=dict(
+        font=dict(
+            family="roboto",
+            size=14,
+            color="black"
+        )
+    )
+)
+
+# Roboto als Standard setzen
+pio.templates.default = "roboto"
+#------
+
+
+
+
+#------
+#Daten laden
+opfer = pd.read_csv("data/geschaedigte_tidy.csv")
+taeter = pd.read_csv("data/beschuldigte_tidy.csv")
+
+#Datenvorbereitung für Tabelle
+
+# Nur Beziehungsart = Alle und Geschlecht = Total verwenden
+taeter_filtered = taeter[(taeter["Beziehungsart"] == "Alle") & (taeter["Geschlecht"] == "Total")]
+
+# Gruppieren nach Delikt und Jahr
+taeter_grouped = taeter_filtered.groupby(['Delikt', 'Jahr'])['Anzahl_beschuldigter_Personen_Total'].sum().reset_index()
+
+# Pivot-Tabelle: Delikt als Zeile, Jahre als Spalten
+trend_pivot = taeter_grouped.pivot(index='Delikt', columns='Jahr', values='Anzahl_beschuldigter_Personen_Total')
+
+# Fehlende Werte auffüllen (z. B. Delikte, die in 2009 oder 2024 nicht gemeldet wurden)
+trend_pivot = trend_pivot.fillna(0)
+
+# Mini-Trendliste + aktuelle Zahlen + Veränderung
+trend_pivot['Anzahl'] = trend_pivot[2024]
+trend_pivot['Trend'] = trend_pivot.apply(lambda row: row.loc[2009:2024].tolist(), axis=1)
+trend_pivot['Veränderung (%)'] = ((trend_pivot[2024] - trend_pivot[2009]) / trend_pivot[2009].replace(0, 1)) * 100
+
+# Sortieren nach Anzahl (2024)
+trend_pivot_sorted = trend_pivot.sort_values(by='Anzahl', ascending=False).reset_index()
+
+
+
+#Datenvorbereitung Grafiken
+#Filtern nach Delikte gesamt
+taeter = taeter[taeter["Delikt"] == "Total Häusliche Gewalt"]
+opfer = opfer[opfer["Delikt"] == "Total Häusliche Gewalt"]
+
+#Filtern nach Beziehungsart alle
+taeter = taeter[taeter["Beziehungsart"] == "Alle"]
+opfer = opfer[opfer["Beziehungsart"] == "Alle"]
+
+#Filtern nach geschlecht
+taeter_maenlich = taeter[taeter["Geschlecht"] == "männlich"]
+taeter_weiblich = taeter[taeter["Geschlecht"] == "weiblich"]
+taeter_total = taeter[taeter["Geschlecht"] == "Total"]
+
+opfer_maenlich = opfer[opfer["Geschlecht"] == "männlich"]
+opfer_weiblich = opfer[opfer["Geschlecht"] == "weiblich"]
+opfer_total = opfer[opfer["Geschlecht"] == "Total"]
+
+
+
+
+
+#----
+
+# Layout für den ersten Tab (Zeitliche Entwicklung)
+layout = html.Div([
+    html.H3("Wie verändert sich die Anzahl Straftaten und Betroffene in Häuslicher Gewalt?",
+            style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20,'paddingBottom': 0}),
+    # Haupt-Grafik + Zusammenfassung
+    dbc.Row([
+        dbc.Col(
+            dcc.Graph(id='zeitliche-entwicklung-straftaten'),
+            width=8,
+        ),
+        dbc.Col([
+            html.H4("Was ist Häusliche Gewalt?"),
+            html.P("Unter Häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt innerhalb einer Familie oder in einer aktuellen oder aufgelösten Paarbeziehung."),
+            html.P([
+                "Der ", html.B("Strafbestand wir mit Mehrfach gekennzeichnet"),
+                " wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt",
+
+                " gekennzeichnet."
+            ]),
+            html.H1("21'127", style={'marginTop': 10}),
+            html.P("Straftaten Häusliche Gewalt 2024")
+        ], width=4, style={'marginTop': 40})
+    ]),
+
+    # Tabelle + weitere Visualisierungen
+    dbc.Row([
+
+
+        dbc.Col(
+            dcc.Graph(id='zeitliche-entwicklung-taeter-opfer'),
+            width=8
+        ),
+
+        dbc.Col([
+            html.H4("Wie viele Personen sind betroffen?"),
+            dbc.Row([
+                dbc.Col([
+                    html.H2("11'041"),
+                    html.P("Täter:innen im Jahr 2024")
+                ]),
+                dbc.Col([
+                    html.H2("11'849"),
+                    html.P("Opfer im Jahr 2024")
+                ])
+            ]),
+
+html.P([html.B(" Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschätzt."),
+        " Bei Tätlichkeiten und Körperverletzungen werden beispielsweise 28,9 Prozent, bei sexueller Gewalt 10,5 Prozent der Fälle angezeigt (Uni St.Gallen 2023)."]),
+
+        ],  width=4, style={'marginTop': 40})
+    ]),
+
+
+
+    # Fußnote
+    html.Div([
+        html.Hr(),
+        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
+               style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888'})
+    ])
+])
+
+
+# Hier registrieren wir die Callbacks für diesen Tab
+def register_callbacks(app):
+    @app.callback(
+        Output('zeitliche-entwicklung-straftaten', 'figure'),
+        Input('zeitliche-entwicklung-straftaten', 'id')
+    )
+    def update_zeitliche_entwicklung_straftaten(_):
+
+
+        # Daten nach Zeitraum filtern
+        opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= 2009) & (opfer_total['Jahr'] <= 2024)]
+
+        # Opfer über Zeit Visualisierung erstellen
+        # Erstelle die Grafik
+        fig = go.Figure()
+
+        # bar für Straftaten total
+
+
+        fig.add_trace(go.Bar(
+            x=opfer_total['Jahr'],
+            y=opfer_total['Straftaten_Total'],
+            name='Straftaten Total',
+            width=0.8,
+            marker_color=color_all,
+        marker = dict(
+            color=color_all,  # Hintergrundfarbe
+            pattern=dict(
+                shape="",  # Musterform
+                fgcolor='white',  # Musterfarbe
+                size=20,
+                solidity=0.05,
+                fgopacity=0.4
+            )
+        )
+        ))
+
+        fig.add_trace(go.Bar(
+            x=opfer_total['Jahr'],
+            y=opfer_total['davon_mehrfach'],
+            name='Davon mehrfach Total',
+            width=0.8,
+
+            marker=dict(
+                color=color_all,  # Hintergrundfarbe
+                pattern=dict(
+                    shape="x",  # Musterform
+                    fgcolor='white',  # Musterfarbe
+                    size=20,
+                    solidity=0.2,
+                    fgopacity=1
+                )
+            )
+        ))
+
+
+
+
+        # Layout anpassen
+        fig.update_layout(
+            barmode='overlay',
+
+            title=dict(
+                text="Anzahl registrierte Straftaten Häuslicher Gewalt 2009-2024",
+                font=dict(size=16),  # kleiner
+                pad=dict(t=0, b=0)  # Padding oben/unten auf 0 setzen
+            ),
+
+            xaxis_title='',
+            yaxis_title='',
+            template='plotly_white',
+            bargap=0.5,
+
+            xaxis=dict(
+                range=[2009 - 0.5, 2024 + 0.5],
+                tickmode='linear',
+                dtick=1, # Jährliche Ticks
+
+                linecolor='black',  # X-Achsenlinie dunkelgrau
+                linewidth=1,
+                showline=True,  # Zeige X-Achsenlinie
+                gridcolor='#e5e5e5', # Hellgraue vertikale Gitterlinien
+                showgrid = False,
+            ),
+            yaxis=dict(
+                gridcolor='#e5e5e5',  # Hellgraue horizontale Gitterlinien
+                zeroline=False,
+
+            ),
+
+
+            legend=dict(
+                orientation="v",  # horizontale Ausrichtung
+                yanchor="bottom",  # vertikale Verankerung unten
+                y=0.8,
+                xanchor="left",
+                x=0.018  # ganz rechts
+            )
+
+        )
+
+        return fig
+
+    # Grafik Zeitliche Entwilcung Opfer
+    @app.callback(
+        Output('zeitliche-entwicklung-taeter-opfer', 'figure'),
+        Input('zeitliche-entwicklung-taeter-opfer', 'id')
+    )
+
+    def update_zeitliche_entwicklung(_):
+
+
+        # Daten nach Zeitraum filtern
+        opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= 2009) & (opfer_total['Jahr'] <= 2024)]
+        taeter_gefiltert = taeter_total[(taeter_total['Jahr'] >= 2009) & (taeter_total['Jahr'] <= 2024)]
+
+
+
+        # Visualisierung erstellen
+        # Erstelle die Figur
+        fig = go.Figure()
+
+        fig.add_trace(go.Scatter(
+            x=opfer_total['Jahr'],
+            y=opfer_total['Anzahl_geschaedigter_Personen_Total'],
+            mode='lines+markers',
+            name='Geschädigte gesamt',
+            marker=dict(size=9),
+            line=dict(width=1.5, color=color_all, dash='dot')
+
+        ))
+        # Linie für gesammt Täter
+        fig.add_trace(go.Scatter(
+            x=taeter_total['Jahr'],
+            y=taeter_total['Anzahl_beschuldigter_Personen_Total'],
+            mode='lines+markers',
+            name='Beschuldigte gesamt',
+            marker=dict(symbol='star-diamond', size=10),
+            line=dict(width=1.5, color=color_all)
+
+        ))
+
+
+
+        # Layout anpassen
+        fig.update_layout(
+            template='plotly_white',
+            hovermode='x unified',
+            xaxis=dict(
+                range=[2009-0.2, 2024+0.2],
+                tickmode='linear',
+                dtick=1,  # Jährliche Ticks
+                showgrid = False,
+                linecolor = 'black',  # X-Achsenlinie dunkelgrau
+                linewidth = 1,
+                showline = True,  # Zeige X-Achsenlinie
+                gridcolor = '#e5e5e5',
+                title=""
+
+
+            ),
+
+            yaxis=dict(
+                range=[0, 12500],
+                title=""
+                       ),
+
+            legend_title='Geschlecht',
+            legend = dict(
+                orientation="v",  # horizontale Ausrichtung
+                yanchor="bottom",  # vertikale Verankerung unten
+                y=0.4,
+                xanchor="right",  # horizontale Verankerung rechts
+                x=0.18,  # ganz rechts
+
+
+            )
+
+        )
+
+        # Layout anpassen
+        fig.update_layout(
+
+            title=f"Anzahl betroffene Personen Häuslicher Gewalt 2009-2024",
+            xaxis_title="",
+            yaxis_title="",
+            legend_title="",
+            template="plotly_white",
+            hovermode="x unified"
+        )
+
+        return fig
+
+
