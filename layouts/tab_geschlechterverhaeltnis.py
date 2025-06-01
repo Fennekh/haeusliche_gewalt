@@ -10,7 +10,7 @@ import plotly.io as pio
 
 #------ Variabeln überall gleich
 
-#Variabeln
+# --- Farben ---
 color_women = "#cb4d1d"
 color_men = "#4992b2"
 color_all = "black"

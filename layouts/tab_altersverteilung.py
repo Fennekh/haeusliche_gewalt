@@ -71,20 +71,6 @@ layout = html.Div([
             dbc.Col([
                 # Alle Filter in einer horizontalen Reihe
                 html.Div([
-                    dcc.Dropdown(
-                        id='jahr-start-dropdown-tab3',
-                        options=[{'label': str(j), 'value': j} for j in range(2009, 2025)],
-                        value=2009,
-                        clearable=False,
-                        style={'width': '150px', }
-                    ),
-                    dcc.Dropdown(
-                        id='jahr-end-dropdown-tab3',
-                        options=[{'label': str(j), 'value': j} for j in range(2009, 2025)],
-                        value=2024,
-                        clearable=False,
-                        style={'width': '150px', 'marginRight': '10px'}
-                    ),
 
                     dcc.Dropdown(
                         id='gender-selector-trend',
@@ -151,14 +137,12 @@ def register_callbacks(app):
     @app.callback(
         Output('altersgruppen-trend', 'figure'),
         [Input('trend-selector', 'value'),
-         Input('gender-selector-trend', 'value'),
-         Input('jahr-start-dropdown-tab3', 'value'),
-         Input('jahr-end-dropdown-tab3', 'value')]
+         Input('gender-selector-trend', 'value'),]
     )
-    def update_altersgruppen_trend(perspektive, geschlecht, jahr_start, jahr_ende):
-        if jahr_start > jahr_ende:
-            raise PreventUpdate
+    def update_altersgruppen_trend(perspektive, geschlecht):
 
+        jahr_start = 2009
+        jahr_ende = 2024
         df = opfer if perspektive == 'opfer' else taeter
         df['Jahr'] = pd.to_numeric(df['Jahr'], errors='coerce')  # oder .astype(int), wenn du sicher bist
 
@@ -407,7 +391,7 @@ def register_callbacks(app):
             yaxis=dict(
                 title='Altersgruppe',
                 categoryorder='array',
-                categoryarray=age_order[::-1]  # ← Umdrehen der Altersgruppen
+                categoryarray=age_order
             ),
             template='plotly_white',
             bargap=0.1,

@@ -36,7 +36,7 @@ app.layout = html.Div([
     dcc.Tabs(id="tabs", value='tab1',
              className="tab-container", children=[
         dcc.Tab(label='Übersicht einzelne Delikte', value='tab1'),
-        dcc.Tab(label='Entwicklung Gesamt', value='tab2'),
+        dcc.Tab(label='Gesamtentwicklung', value='tab2'),
         dcc.Tab(label='Entwicklung Geschlechterverhältnis', value='tab3'),
         dcc.Tab(label='Beziehungen', value='tab4'),
         dcc.Tab(label='Entwicklung Altersverteilung', value='tab5'),
@@ -55,9 +55,9 @@ def render_content(tab):
     elif tab == 'tab3':
         return tab_geschlechterverhaeltnis.layout
     elif tab == 'tab4':
-        return tab_altersverteilung.layout
-    elif tab == 'tab5':
         return tab_beziehungen.layout
+    elif tab == 'tab5':
+        return tab_altersverteilung.layout
     elif tab == 'tab6':
         return tab_impressum.layout
 
@@ -73,4 +73,4 @@ tab_impressum.register_callbacks(app)
 
 # Starte die App
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)

@@ -9,10 +9,24 @@ from matplotlib.pyplot import legend
 
 #------ Variabeln überall gleich
 
-#Variabeln
-color_women = "#811616"
-color_men = "#0a0a35"
+# --- Farben ---
+color_women = "#cb4d1d"
+color_men = "#4992b2"
 color_all = "black"
+
+colors_women = [
+    "#823214",
+    "#cb4d1d",
+    "#E2A289",
+    "#F8D7CA"
+]
+
+colors_men = [
+    "#2C596C",
+    "#4992B2",
+    "#A3D1E6",
+    "#DCE6EA"
+]
 
 # Roboto-Template definieren (bei allen seiten machen?)
 pio.templates["roboto"] = go.layout.Template(
@@ -146,13 +160,24 @@ def register_callbacks(app):
         pivot_df = grouped.pivot(index='Geschlecht', columns='Beziehungsart', values='Prozentanteil').fillna(0)
 
         fig = go.Figure()
-        grautoene = ["black", "#3b3b3b", "#666666", "#adacac"]
+
+
         for i, beziehungsart in enumerate(pivot_df.columns):
+            # hole Farben nach Geschlecht
+            farben = []
+            for geschlecht in pivot_df.index:
+                if geschlecht == "weiblich":
+                    farben.append(colors_women[i])
+                elif geschlecht == "männlich":
+                    farben.append(colors_men[i])
+                else:
+                    farben.append("gray")  # Fallback für "Total" oder anderes
+
             fig.add_trace(go.Bar(
                 name=beziehungsart,
                 x=pivot_df.index,
                 y=pivot_df[beziehungsart],
-                marker_color=grautoene[i % len(grautoene)]  # Zyklisch, falls mehr Kategorien
+                marker_color=farben
             ))
 
         fig.update_layout(
@@ -188,13 +213,22 @@ def register_callbacks(app):
 
 
         fig = go.Figure()
-        grautoene = ["black","#3b3b3b", "#666666", "#adacac"]
         for i, beziehungsart in enumerate(pivot_df.columns):
+            # hole Farben nach Geschlecht
+            farben = []
+            for geschlecht in pivot_df.index:
+                if geschlecht == "weiblich":
+                    farben.append(colors_women[i])
+                elif geschlecht == "männlich":
+                    farben.append(colors_men[i])
+                else:
+                    farben.append("gray")  # Fallback für "Total" oder anderes
+
             fig.add_trace(go.Bar(
                 name=beziehungsart,
                 x=pivot_df.index,
                 y=pivot_df[beziehungsart],
-                marker_color=grautoene[i % len(grautoene)]  # Zyklisch, falls mehr Kategorien
+                marker_color=farben
             ))
 
         fig.update_layout(

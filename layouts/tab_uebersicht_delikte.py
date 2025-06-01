@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import base64
 
-# --- Farben und Template ---
+# --- Farben ---
 color_women = "#cb4d1d"
 color_men = "#4992b2"
 color_all = "black"

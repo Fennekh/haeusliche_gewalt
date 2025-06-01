@@ -176,9 +176,9 @@ def register_callbacks(app):
             y=opfer_total['Straftaten_Total'],
             name='Straftaten Total',
             width=0.8,
-            marker_color=color_all,
+            marker_color='#bdbdbd',
         marker = dict(
-            color=color_all,  # Hintergrundfarbe
+            color='#bdbdbd',  # Hintergrundfarbe
             pattern=dict(
                 shape="",  # Musterform
                 fgcolor='white',  # Musterfarbe
@@ -197,13 +197,7 @@ def register_callbacks(app):
 
             marker=dict(
                 color=color_all,  # Hintergrundfarbe
-                pattern=dict(
-                    shape="x",  # Musterform
-                    fgcolor='white',  # Musterfarbe
-                    size=20,
-                    solidity=0.2,
-                    fgopacity=1
-                )
+
             )
         ))
 
