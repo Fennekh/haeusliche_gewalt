@@ -1,34 +1,19 @@
 import dash
-from dash import dcc, html
+from dash import dcc, html, ctx
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import pandas as pd
 import plotly.io as pio
-from matplotlib.pyplot import legend
-
-#------ Variabeln überall gleich
 
 # --- Farben ---
+dark_border_class = "toggle-btn active"
+default_class = "toggle-btn"
 color_women = "#cb4d1d"
 color_men = "#4992b2"
 color_all = "black"
 
-colors_women = [
-    "#823214",
-    "#cb4d1d",
-    "#E2A289",
-    "#F8D7CA"
-]
-
-colors_men = [
-    "#2C596C",
-    "#4992B2",
-    "#A3D1E6",
-    "#DCE6EA"
-]
-
-# Roboto-Template definieren (bei allen seiten machen?)
+# Roboto-Template definieren
 pio.templates["roboto"] = go.layout.Template(
     layout=dict(
         font=dict(
@@ -38,42 +23,29 @@ pio.templates["roboto"] = go.layout.Template(
         )
     )
 )
-
-# Roboto als Standard setzen
 pio.templates.default = "roboto"
-#------
 
-
-# Daten laden und filtern
+# Daten laden
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
 taeter = pd.read_csv("data/beschuldigte_tidy.csv")
 
 opfer = opfer[(opfer["Delikt"] == "Total Häusliche Gewalt") & (opfer["Beziehungsart"] == "Alle")]
 taeter = taeter[(taeter["Delikt"] == "Total Häusliche Gewalt") & (taeter["Beziehungsart"] == "Alle")]
 
-opfer_maenlich = opfer[opfer["Geschlecht"] == "männlich"]
-opfer_weiblich = opfer[opfer["Geschlecht"] == "weiblich"]
-opfer_total = opfer[opfer["Geschlecht"] == "Total"]
-
-taeter_maenlich = taeter[taeter["Geschlecht"] == "männlich"]
-taeter_weiblich = taeter[taeter["Geschlecht"] == "weiblich"]
-taeter_total = taeter[taeter["Geschlecht"] == "Total"]
-
-##DAtenaufbereitung beziehung
-# Daten einlesen (ersetze Pfad bei Bedarf)
+# Daten für Beziehungsarten vorbereiten
 df = pd.read_csv("data/geschaedigte_tidy.csv")
 df_be = pd.read_csv("data/beschuldigte_tidy.csv")
 
-# Daten bereinigen
 df["Beziehungsart"] = df["Beziehungsart"].str.strip()
 df_be["Beziehungsart"] = df_be["Beziehungsart"].str.strip()
+
 relevante_beziehungen = [
     "Partnerschaft",
     "ehemalige Partnerschaft",
     "Eltern-Kind-Beziehung",
     "andere Verwandtschaftsbeziehung"
 ]
-#für beschädigte
+
 df = df[
     (df["Delikt"] == "Total Häusliche Gewalt") &
     (df["Beziehungsart"].isin(relevante_beziehungen)) &
@@ -83,7 +55,6 @@ df = df[["Jahr", "Geschlecht", "Beziehungsart", "Anzahl_geschaedigter_Personen_T
 df["Anzahl_geschaedigter_Personen_Total"] = df["Anzahl_geschaedigter_Personen_Total"].astype(float)
 df["Jahr"] = df["Jahr"].astype(int)
 
-#für beschuligte
 df_be = df_be[
     (df_be["Delikt"] == "Total Häusliche Gewalt") &
     (df_be["Beziehungsart"].isin(relevante_beziehungen)) &
@@ -93,48 +64,41 @@ df_be = df_be[["Jahr", "Geschlecht", "Beziehungsart", "Anzahl_beschuldigter_Pers
 df_be["Anzahl_beschuldigter_Personen_Total"] = df_be["Anzahl_beschuldigter_Personen_Total"].astype(float)
 df_be["Jahr"] = df_be["Jahr"].astype(int)
 
-
-
 # Prozentanteil berechnen
 df["Prozentanteil"] = df.groupby(["Jahr", "Geschlecht"])["Anzahl_geschaedigter_Personen_Total"].transform(lambda x: 100 * x / x.sum())
-# Nur ein Jahr verwenden (z.B. 2024)
 df_year = df[df["Jahr"] == 2024]
-df_maennlich = df_year[df_year["Geschlecht"] == "männlich"]
-df_weiblich = df_year[df_year["Geschlecht"] == "weiblich"]
 
-# Prozentanteil berechnen
 df_be["Prozentanteil"] = df_be.groupby(["Jahr", "Geschlecht"])["Anzahl_beschuldigter_Personen_Total"].transform(lambda x: 100 * x / x.sum())
-# Nur ein Jahr verwenden (z.B. 2024)
 df_be_year = df_be[df_be["Jahr"] == 2024]
-df_be_maennlich = df_be_year[df_be_year["Geschlecht"] == "männlich"]
-df_be_weiblich = df_be_year[df_be_year["Geschlecht"] == "weiblich"]
-
-
 
 # Layout
 layout = html.Div([
+    html.H3("Wie hat sich das Geschlechterverhältnis verändert?",
+            style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
 
+    dcc.Store(id='button-bez-state', data='absolute'),
 
+    html.Div([
+        dbc.ButtonGroup([
+            dbc.Button("Prozentuale Verteilung", id="btn-bez-set1", n_clicks=0, className=default_class),
+            dbc.Button("Absolute Zahlen", id="btn-bez-set2", n_clicks=0, className=dark_border_class),
+        ], size="md", className="mb-4",
 
-    html.H3("In welcher Beziehung stehen Opfer und Täter:innen?", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
-    #html.H6("Prozentuale verteilung nach Beziehungsart", style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
-
-    dbc.Row([
-        dbc.Col(dcc.Graph(id='graph-beziehung-opfer-stacked', style={
-        'height': '65vh',
-        'minHeight': '300px',
-        'textAlign': 'left',
-    }), width=6),
-        dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked', style={
-        'height': '65vh',
-        'minHeight': '300px',
-        'textAlign': 'left',
-
-
-    }), width=6),
+            style={"width": "350px", "margin": "20px auto", "gap": "10px", "marginLeft": "20px"}
+        )
     ]),
-
-
+    dbc.Row([
+        dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked', style={
+            'height': '65vh',
+            'minHeight': '300px',
+            'textAlign': 'left',
+        }), width=6),
+        dbc.Col(dcc.Graph(id='graph-beziehung-opfer-stacked', style={
+            'height': '65vh',
+            'minHeight': '300px',
+            'textAlign': 'left',
+        }), width=6),
+    ]),
 
     html.Div([
         html.Hr(),
@@ -147,113 +111,118 @@ layout = html.Div([
 def register_callbacks(app):
     @app.callback(
         Output('graph-beziehung-opfer-stacked', 'figure'),
-        Input('graph-beziehung-opfer-stacked', 'id')
+        Input('graph-beziehung-opfer-stacked', 'id'),
+        Input('button-bez-state', 'data')
     )
-    def update_beziehung_opfer_stacked(_):
+    def update_beziehung_opfer_stacked(_, view_mode):
+        if view_mode == 'absolute':
+            grouped = df_year.groupby(['Beziehungsart', 'Geschlecht'])[
+                'Anzahl_geschaedigter_Personen_Total'].sum().reset_index()
+            y_axis_title = 'Anzahl Personen'
+            title_text = 'Opfer nach Beziehungsart zur Täterschaft (2024, absolute Zahlen)'
+        else:
+            grouped = df_year.groupby(['Beziehungsart', 'Geschlecht'])['Prozentanteil'].sum().reset_index()
+            y_axis_title = 'Anteil in %'
+            title_text = 'Opfer nach Beziehungsart zur Täterschaft (2024, Anteile in %)'
 
-        grouped = df_year.groupby(['Geschlecht', 'Beziehungsart'])['Prozentanteil'].sum().reset_index()
-        # Sortiere nach bezieungsart
         grouped['Beziehungsart'] = pd.Categorical(grouped['Beziehungsart'], categories=relevante_beziehungen,
                                                   ordered=True)
         grouped = grouped.sort_values('Beziehungsart')
 
-        pivot_df = grouped.pivot(index='Geschlecht', columns='Beziehungsart', values='Prozentanteil').fillna(0)
-
         fig = go.Figure()
 
+        weiblich = grouped[grouped["Geschlecht"] == "weiblich"]
+        fig.add_trace(go.Bar(
+            x=weiblich["Beziehungsart"],
+            y=weiblich.iloc[:, 2],
+            name='weiblich',
+            marker_color=color_women
+        ))
 
-        for i, beziehungsart in enumerate(pivot_df.columns):
-            # hole Farben nach Geschlecht
-            farben = []
-            for geschlecht in pivot_df.index:
-                if geschlecht == "weiblich":
-                    farben.append(colors_women[i])
-                elif geschlecht == "männlich":
-                    farben.append(colors_men[i])
-                else:
-                    farben.append("gray")  # Fallback für "Total" oder anderes
-
-            fig.add_trace(go.Bar(
-                name=beziehungsart,
-                x=pivot_df.index,
-                y=pivot_df[beziehungsart],
-                marker_color=farben
-            ))
+        maennlich = grouped[grouped["Geschlecht"] == "männlich"]
+        fig.add_trace(go.Bar(
+            x=maennlich["Beziehungsart"],
+            y=maennlich.iloc[:, 2],
+            name='männlich',
+            marker_color=color_men
+        ))
 
         fig.update_layout(
-            barmode='stack',
-
-            yaxis_title='Anteil in %',
-            xaxis_title='',
-            legend_title='Beziehungsart',
+            barmode='group',
+            xaxis_title='Beziehungsart',
+            yaxis_title=y_axis_title,
+            legend_title='Geschlecht',
             title=dict(
-                text='Opfer nach Beziehungsart zur Täterschaft (2024, Anteile in %)',
-                x=0.03,  # ganz links
-                xanchor="left",  # Ankerpunkt ist links
-
+                text=title_text,
+                x=0.01,
+                xanchor="left"
             )
-
         )
 
         return fig
 
     @app.callback(
         Output('graph-beziehung-taeter-stacked', 'figure'),
-        Input('graph-beziehung-taeter-stacked', 'id')
+        Input('graph-beziehung-taeter-stacked', 'id'),
+        Input('button-bez-state', 'data')
     )
-    def update_beziehung_taeter_stacked(_):
-        grouped = df_be_year.groupby(['Geschlecht', 'Beziehungsart'])['Prozentanteil'].sum().reset_index()
+    def update_beziehung_taeter_stacked(_, view_mode):
+        if view_mode == 'absolute':
+            grouped = df_be_year.groupby(['Beziehungsart', 'Geschlecht'])[
+                'Anzahl_beschuldigter_Personen_Total'].sum().reset_index()
+            y_axis_title = 'Anzahl Personen'
+            title_text = 'Täter:innen nach Beziehungsart zum Opfer (2024, absolute Zahlen)'
+        else:
+            grouped = df_be_year.groupby(['Beziehungsart', 'Geschlecht'])['Prozentanteil'].sum().reset_index()
+            y_axis_title = 'Anteil in %'
+            title_text = 'Täter:innen nach Beziehungsart zum Opfer (2024, Anteile in %)'
 
-
-        # Sortiere das gruppierte DataFrame
-        grouped['Beziehungsart'] = pd.Categorical(grouped['Beziehungsart'], categories=relevante_beziehungen, ordered=True)
+        grouped['Beziehungsart'] = pd.Categorical(grouped['Beziehungsart'], categories=relevante_beziehungen,
+                                                  ordered=True)
         grouped = grouped.sort_values('Beziehungsart')
 
-        pivot_df = grouped.pivot(index='Geschlecht', columns='Beziehungsart', values='Prozentanteil').fillna(0)
-
-
         fig = go.Figure()
-        for i, beziehungsart in enumerate(pivot_df.columns):
-            # hole Farben nach Geschlecht
-            farben = []
-            for geschlecht in pivot_df.index:
-                if geschlecht == "weiblich":
-                    farben.append(colors_women[i])
-                elif geschlecht == "männlich":
-                    farben.append(colors_men[i])
-                else:
-                    farben.append("gray")  # Fallback für "Total" oder anderes
 
-            fig.add_trace(go.Bar(
-                name=beziehungsart,
-                x=pivot_df.index,
-                y=pivot_df[beziehungsart],
-                marker_color=farben
-            ))
+        weiblich = grouped[grouped["Geschlecht"] == "weiblich"]
+        fig.add_trace(go.Bar(
+            x=weiblich["Beziehungsart"],
+            y=weiblich.iloc[:, 2],
+            name='weiblich',
+            marker_color=color_women
+        ))
+
+        maennlich = grouped[grouped["Geschlecht"] == "männlich"]
+        fig.add_trace(go.Bar(
+            x=maennlich["Beziehungsart"],
+            y=maennlich.iloc[:, 2],
+            name='männlich',
+            marker_color=color_men
+        ))
 
         fig.update_layout(
-            barmode='stack',
-            yaxis_title='Anteil in %',
-            xaxis_title='',
-
-            legend_title='Beziehungsart',
-            title = dict(
-                text='Täter:innen nach Beziehungsart zu Opfer (2024, Anteile in %)',
-                x=0.02,  # ganz links
-                xanchor="left",  # Ankerpunkt ist links
-
+            barmode='group',
+            xaxis_title='Beziehungsart',
+            yaxis_title=y_axis_title,
+            legend_title='Geschlecht',
+            title=dict(
+                text=title_text,
+                x=0.01,
+                xanchor="left"
             )
         )
 
         return fig
 
     @app.callback(
-        Output('graph-taeter_bez', 'figure'),
-        Output('graph-opfer_bez', 'figure'),
-        Input('toggle-set', 'value')
+        Output("btn-bez-set1", "className"),
+        Output("btn-bez-set2", "className"),
+        Output("button-bez-state", "data"),
+        Input("btn-bez-set1", "n_clicks"),
+        Input("btn-bez-set2", "n_clicks"),
+        prevent_initial_call=True
     )
-    def update_graphs(toggle_value):
-        if toggle_value == 'set1':
-            return update_beziehungs_taeter_graph(), update_beziehungs_opfer_graph()
+    def update_buttons(n1, n2):
+        if ctx.triggered_id == "btn-bez-set2":
+            return default_class, dark_border_class, "absolute"
         else:
-            return update_entwicklung_taeter(), update_entwicklung_opfer()
+            return dark_border_class, default_class, "percent"

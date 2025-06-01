@@ -310,7 +310,7 @@ def register_callbacks(app):
             yaxis=dict(
                 title='',
                 categoryorder='array',
-                categoryarray=age_order[::-1]  # Umdrehen der Altersgruppen
+                categoryarray=age_order  # Umdrehen der Altersgruppen
             ),
             template='plotly_white',
             bargap=0.1,

@@ -77,26 +77,26 @@ def geschlechter_balken_plotly(m, w):
 
     fig = go.Figure(data=[
         go.Bar(
-            x=[ratio_m],
+            x=[ratio_w],
             y=[""],
             orientation='h',
-            marker_color=color_men,
+            marker_color=color_women,
             showlegend=False,
             hoverinfo='skip'
         ),
         go.Bar(
-            x=[ratio_w],
+            x=[ratio_m],
             y=[""],
             orientation='h',
-            base=[ratio_m],
-            marker_color=color_women,
+            base=[ratio_w],  # <- Jetzt auf den roten Balken „aufbauen“
+            marker_color=color_men,
             showlegend=False,
             hoverinfo='skip'
-        )
+        ),
     ])
 
     fig.update_layout(
-        barmode='stack',  # <<< das macht den Unterschied
+        barmode='stack',
         xaxis=dict(range=[0, 1], visible=False, fixedrange=True),
         yaxis=dict(visible=False, fixedrange=True),
         margin=dict(l=0, r=0, t=0, b=0),
@@ -106,8 +106,8 @@ def geschlechter_balken_plotly(m, w):
         paper_bgcolor='white'
     )
 
-    # to_image
     return base64.b64encode(fig.to_image(format='png')).decode('utf-8')
+
 
 
 # --- Trenddaten ---
