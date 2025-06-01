@@ -2,7 +2,7 @@ import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-from layouts import tab_zeitliche_entwicklung, tab_geschlechterverhaeltnis, tab_altersverteilung, tab_beziehungen, tab_uebersicht_delikte, tab_impressum
+from layouts import tab_geschlechterverhaeltnis, tab_altersverteilung, tab_beziehungen, tab_uebersicht_delikte, tab_impressum, tab_straftaten_gesamt
 import plotly.io as pio
 import plotly.graph_objects as go
 
@@ -36,11 +36,11 @@ app.layout = html.Div([
     dcc.Tabs(id="tabs", value='tab1',
              className="tab-container", children=[
         dcc.Tab(label='Übersicht einzelne Delikte', value='tab1'),
-        dcc.Tab(label='Gesamtentwicklung', value='tab2'),
-        dcc.Tab(label='Entwicklung Geschlechterverhältnis', value='tab3'),
-        dcc.Tab(label='Beziehungen', value='tab4'),
-        dcc.Tab(label='Entwicklung Altersverteilung', value='tab5'),
-        dcc.Tab(label='Impressum', value='tab6'),
+        dcc.Tab(label='Zeitliche Entwicklung Total', value='tab2'),
+        dcc.Tab(label='Entwicklung Geschlechterverhältnis', value='tab4'),
+        dcc.Tab(label='Beziehungen', value='tab5'),
+        dcc.Tab(label='Entwicklung Altersverteilung', value='tab6'),
+        dcc.Tab(label='Impressum', value='tab7'),
 
     ]),
     html.Div(id='tabs-content')
@@ -51,23 +51,25 @@ def render_content(tab):
     if tab == 'tab1':
         return tab_uebersicht_delikte.layout
     elif tab == 'tab2':
-        return tab_zeitliche_entwicklung.layout
-    elif tab == 'tab3':
-        return tab_geschlechterverhaeltnis.layout
+        return tab_straftaten_gesamt.layout
     elif tab == 'tab4':
-        return tab_beziehungen.layout
+        return tab_geschlechterverhaeltnis.layout
     elif tab == 'tab5':
-        return tab_altersverteilung.layout
+        return tab_beziehungen.layout
     elif tab == 'tab6':
+        return tab_altersverteilung.layout
+    elif tab == 'tab7':
         return tab_impressum.layout
 
 # Registriere die Callbacks aus allen Layout-Modulen
 tab_uebersicht_delikte.register_callbacks(app)
-tab_zeitliche_entwicklung.register_callbacks(app)
+tab_straftaten_gesamt.register_callbacks(app)
 tab_geschlechterverhaeltnis.register_callbacks(app)
 tab_altersverteilung.register_callbacks(app)
 tab_beziehungen.register_callbacks(app)
 tab_impressum.register_callbacks(app)
+
+
 
 
 

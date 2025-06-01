@@ -25,75 +25,112 @@ altersgruppen = [
 def häufigstes_alter(df, alters_cols, label):
     top_info = {}
     df = df[df["Jahr"] == 2024].copy()
+
     for col in alters_cols:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
+        if col not in df.columns:
+            df[col] = 0
+        df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+
     for delikt in df["Delikt"].unique():
         subset = df[df["Delikt"] == delikt]
-        max_count = 0
-        top_ages = set()
-        for _, row in subset.iterrows():
-            for age in alters_cols:
-                count = row[age]
-                if count > max_count:
-                    max_count = count
-                    top_ages = {age}
-                elif count == max_count:
-                    top_ages.add(age)
-        if len(top_ages) > 1:
-            top_age_label = "Mehrere"
-        elif top_ages:
-            top_age_label = list(top_ages)[0]
+        total = subset[alters_cols].sum().sum()
+
+        if total > 0:
+            max_count = 0
+            top_ages = set()
+            for _, row in subset.iterrows():
+                for age in alters_cols:
+                    count = row[age]
+                    if count > max_count:
+                        max_count = count
+                        top_ages = {age}
+                    elif count == max_count:
+                        top_ages.add(age)
+            if len(top_ages) > 1:
+                top_age_label = "Mehrere"
+            else:
+                top_age_label = list(top_ages)[0]
         else:
             top_age_label = "–"
+            max_count = 0
+
         top_info[delikt] = {
             f"Häufigstes Alter ({label})": top_age_label,
             f"Anzahl ({label})": max_count
         }
+
     return top_info
+
 
 def häufigste_beziehung(df, jahr, label, wert_col):
     top_bez = {}
     gefiltert = df[(df["Jahr"] == jahr) & (df["Beziehungsart"] != "Alle")]
+
     for delikt in gefiltert["Delikt"].unique():
         delikt_df = gefiltert[gefiltert["Delikt"] == delikt]
-        max_val = delikt_df[wert_col].max()
-        top_rows = delikt_df[delikt_df[wert_col] == max_val]
-        if len(top_rows) > 1:
-            beziehungsart = "Mehrere"
+        total = delikt_df[wert_col].sum()
+
+        if total > 0:
+            max_val = delikt_df[wert_col].max()
+            top_rows = delikt_df[delikt_df[wert_col] == max_val]
+            if len(top_rows) > 1:
+                beziehungsart = "Mehrere"
+            else:
+                beziehungsart = top_rows.iloc[0]["Beziehungsart"]
         else:
-            beziehungsart = top_rows.iloc[0]["Beziehungsart"]
+            beziehungsart = "–"
+            max_val = 0
+
         top_bez[delikt] = {
             f"Häufigste Beziehung ({label})": beziehungsart,
             f"Anzahl Beziehung ({label})": max_val
         }
+
     return top_bez
+
 
 
 
 def geschlechter_balken_plotly(m, w):
     total = m + w
-    ratio_m = m / total if total > 0 else 0
-    ratio_w = w / total if total > 0 else 0
 
-    fig = go.Figure(data=[
-        go.Bar(
-            x=[ratio_w],
-            y=[""],
-            orientation='h',
-            marker_color=color_women,
-            showlegend=False,
-            hoverinfo='skip'
-        ),
-        go.Bar(
-            x=[ratio_m],
-            y=[""],
-            orientation='h',
-            base=[ratio_w],  # <- Jetzt auf den roten Balken „aufbauen“
-            marker_color=color_men,
-            showlegend=False,
-            hoverinfo='skip'
-        ),
-    ])
+    if total == 0:
+        # Weißer Balken bei fehlenden Daten
+        fig = go.Figure(data=[
+            go.Bar(
+                x=[1],  # 100% weißer Balken
+                y=[""],
+                orientation='h',
+                marker_color='white',
+                marker_line=dict(color='lightgray', width=1),
+                showlegend=False,
+                hoverinfo='skip'
+            )
+        ])
+    else:
+        ratio_m = m / total
+        ratio_w = w / total
+
+        fig = go.Figure(data=[
+            go.Bar(
+                x=[ratio_w],
+                y=[""],
+                orientation='h',
+                marker_color=color_women,
+                showlegend=False,
+                hoverinfo='skip'
+            ),
+            go.Bar(
+                x=[ratio_m],
+                y=[""],
+                orientation='h',
+                base=[ratio_w],
+                marker_color=color_men,
+                showlegend=False,
+                hoverinfo='skip'
+            ),
+        ])
+
 
     fig.update_layout(
         barmode='stack',
@@ -115,13 +152,25 @@ taeter_filtered = taeter[(taeter["Beziehungsart"] == "Alle") & (taeter["Geschlec
 trend_data = taeter_filtered[taeter_filtered["Jahr"].between(2009, 2024)]
 trend_summary = []
 
+jahre_voll = list(range(2009, 2025))  # <- fest definierter Bereich
+
 for delikt in trend_data["Delikt"].unique():
-    delikt_data = trend_data[trend_data["Delikt"] == delikt].sort_values("Jahr")
+    delikt_data = trend_data[trend_data["Delikt"] == delikt][["Jahr", "Anzahl_beschuldigter_Personen_Total"]]
+    delikt_data = delikt_data.set_index("Jahr").reindex(jahre_voll, fill_value=0).reset_index()
+
     jahre = delikt_data["Jahr"].tolist()
     werte = delikt_data["Anzahl_beschuldigter_Personen_Total"].tolist()
-    anzahl_2024 = delikt_data[delikt_data["Jahr"] == 2024]["Anzahl_beschuldigter_Personen_Total"].sum()
-    anzahl_2009 = delikt_data[delikt_data["Jahr"] == 2009]["Anzahl_beschuldigter_Personen_Total"].sum()
-    veraenderung = ((anzahl_2024 - anzahl_2009) / max(anzahl_2009, 1)) * 100
+
+    anzahl_2024 = delikt_data.loc[delikt_data["Jahr"] == 2024, "Anzahl_beschuldigter_Personen_Total"].values[0]
+    anzahl_2009 = delikt_data.loc[delikt_data["Jahr"] == 2009, "Anzahl_beschuldigter_Personen_Total"].values[0]
+    # Optional: Prozentveränderung beschränken, um extreme Zahlen zu vermeiden
+    if anzahl_2009 == 0:
+        if anzahl_2024 == 0:
+            veraenderung = 0  # Keine Fälle damals und heute
+        else:
+            veraenderung = 100  # Oder "∞ %", wenn du das willst
+    else:
+        veraenderung = ((anzahl_2024 - anzahl_2009) / anzahl_2009) * 100
 
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=jahre, y=werte, mode='lines', line=dict(color=color_all, width=2)))
@@ -185,52 +234,56 @@ for item in trend_summary:
         "Häufigste_Beziehungsart_Opfer": bez_info.get("Häufigste Beziehung (Opfer)", "–"),
         "Häufigste_Beziehungsart_Taeter": bez_info.get("Häufigste Beziehung (Täter)", "–")
     })
+cell_style = {'padding': '0 10px', 'whiteSpace': 'nowrap','height': '40px'}
+title_cell_style = {**cell_style, 'whiteSpace': 'normal'}
+header_style = {'padding': '0 10px', 'whiteSpace': 'normal'}
 
 # --- Dash Layout ---
 layout = html.Div([
-    html.H4("Übersicht Delikte Häusliche Gewalt (Stand 2024, aufsteigend Anzahl Straftaten)", style={'marginTop': 30, 'marginLeft': 20}),
+    html.H3("Übersicht Delikte Häusliche Gewalt (Stand 2024, aufsteigend Anzahl Straftaten)",
+            style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20, 'paddingBottom': 0}),
+
     html.Table([
         html.Thead(html.Tr([
-            html.Th("Delikt"),
-            html.Th("Anzahl Straftaten 2024", style={'textAlign': 'right', 'width': '100px'}),
-
-            html.Th("Trendlinie Straftaten (2009–2024)"),
-            html.Th("Veränderung Straftaten (%)", style={'textAlign': 'right', 'width': '100px'}),
-            html.Th("Geschlechterverhältnis (Täter:innen)"),
-            html.Th("Geschlechterverhältnis (Opfer)"),
-            html.Th("Häufigste Beziehungsart (Täter:innen)"),
-            html.Th("Häufigste Beziehungsart (Opfer)"),
-            html.Th("Häufigstes Alter (Täter:innen)"),
-            html.Th("Häufigstes Alter (Opfer)")
+            html.Th("Delikt", style=header_style),
+            html.Th("Anzahl Straftaten 2024", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
+            html.Th("Straftaten Trend (2009 – 2024)", style=header_style),
+            html.Th("Veränderung Straftaten (%)", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
+            html.Th("Geschlechterverhältnis (Täter:innen)", style=header_style),
+            html.Th("Geschlechterverhältnis (Opfer)", style=header_style),
+            html.Th("Häufigste Beziehungsart (Täter:innen)", style=header_style),
+            html.Th("Häufigste Beziehungsart (Opfer)", style=header_style),
+            html.Th("Häufigstes Alter (Täter:innen)", style=header_style),
+            html.Th("Häufigstes Alter (Opfer)", style=header_style)
         ])),
         html.Tbody([
             html.Tr([
-                html.Td(row['Delikt']),
-                html.Td(f"{row['Anzahl']:,}", style={'textAlign': 'right'}),
-                html.Td(html.Img(src=row['Trend_src'], style={'height': '30px'})),
-                html.Td(row['Veränderung'], style={'textAlign': 'right'}),
-                html.Td(html.Img(src=row['Geschlechterverhältnis_taeter_src'], style={'height': '20px'})),
-                html.Td(html.Img(src=row['Geschlechterverhältnis_src'], style={'height': '20px'})),
-                html.Td(row['Häufigste_Beziehungsart_Taeter']),
-                html.Td(row['Häufigste_Beziehungsart_Opfer']),
-                html.Td(row['Häufigstes_Alter_Taeter']),
-                html.Td(row['Häufigstes_Alter_Opfer'])
+                html.Td(row['Delikt'], style=title_cell_style),
+                html.Td(f"{row['Anzahl']:,}", style={**cell_style, 'textAlign': 'right'}),
+                html.Td(html.Img(src=row['Trend_src'], style={'height': '30px'}), style=cell_style),
+                html.Td(row['Veränderung'], style={**cell_style, 'textAlign': 'right'}),
+                html.Td(html.Img(src=row['Geschlechterverhältnis_taeter_src'], style={'height': '20px'}), style=cell_style),
+                html.Td(html.Img(src=row['Geschlechterverhältnis_src'], style={'height': '20px'}), style=cell_style),
+                html.Td(row['Häufigste_Beziehungsart_Taeter'], style=cell_style),
+                html.Td(row['Häufigste_Beziehungsart_Opfer'], style=cell_style),
+                html.Td(row['Häufigstes_Alter_Taeter'], style=cell_style),
+                html.Td(row['Häufigstes_Alter_Opfer'], style=cell_style)
             ], style={'borderBottom': '1px solid #ddd', 'lineHeight': '1.8'})
             for row in table_data
         ])
     ], style={
         'width': '95%',
-        'margin': 20,
+        'margin': 40,
         'fontSize': '12px',
         'borderCollapse': 'collapse'
     }),
     html.Div([
         html.Hr(),
-        html.P("Sexueller Übergriff und sexuelle Nötigung (Art. 189) war bis 30. Juni 2024 Sexuelle Nötigung (Art. 189).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
-        html.P("Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6 war bis 30. Juni 2024 Schändung (Art. 191).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
-        html.P("Ausnützung einer Notlage oder Abhängigkeit (Art. 193) war bis 30. Juni 2024 Ausnützung der Notlage (Art. 193).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
+        html.P("*Sexueller Übergriff und sexuelle Nötigung (Art. 189) war bis 30. Juni 2024 Sexuelle Nötigung (Art. 189).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
+        html.P("**Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6 war bis 30. Juni 2024 Schändung (Art. 191).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
+        html.P("***Ausnützung einer Notlage oder Abhängigkeit (Art. 193) war bis 30. Juni 2024 Ausnützung der Notlage (Art. 193).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
         html.P("",
-               style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888', 'marginLeft': 20}),
+               style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888', 'marginLeft': 40}),
     ]),
 
     html.Div([

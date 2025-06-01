@@ -242,16 +242,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2009,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2009,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2009,Sexuelle Nötigung (Art. 189),Total,Alle,138.0,143.0,3.0,33.0,140,0,15.0,35.0,40.0,32,10,4,3
-2009,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,138,0,15.0,35.0,39.0,32,10,3,3
-2009,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,64,0,1.0,18.0,15.0,21,5,2,1
-2009,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,43,0,6.0,11.0,14.0,8,4,0,0
-2009,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,15,0,3.0,2.0,6.0,3,1,0,0
-2009,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,17,0,5.0,4.0,4.0,1,0,1,2
-2009,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2009,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2009,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,138,0,15.0,35.0,39.0,32,10,3,3
+2009,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,64,0,1.0,18.0,15.0,21,5,2,1
+2009,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,43,0,6.0,11.0,14.0,8,4,0,0
+2009,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,15,0,3.0,2.0,6.0,3,1,0,0
+2009,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,17,0,5.0,4.0,4.0,1,0,1,2
+2009,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2009,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2009,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2009,Vergewaltigung (Art. 190),Total,Alle,202.0,205.0,16.0,56.0,197,0,12.0,56.0,48.0,53,22,4,1
 2009,Vergewaltigung (Art. 190),männlich,Alle,,,,,197,0,12.0,56.0,48.0,53,22,4,1
 2009,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,120,0,3.0,32.0,35.0,30,15,3,1
@@ -263,28 +263,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2009,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2009,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2009,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Schändung (Art. 191),Total,Alle,16.0,19.0,0.0,6.0,17,0,3.0,5.0,4.0,2,3,0,0
-2009,Schändung (Art. 191),männlich,Alle,,,,,16,0,3.0,4.0,4.0,2,3,0,0
-2009,Schändung (Art. 191),männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,9,0,2.0,2.0,2.0,1,2,0,0
-2009,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,6,0,1.0,2.0,2.0,0,1,0,0
-2009,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2009,Schändung (Art. 191),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2009,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2009,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Ausnützung der Notlage (Art. 193),Total,Alle,4.0,4.0,0.0,0.0,4,0,0.0,0.0,1.0,1,1,0,1
-2009,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,4,0,0.0,0.0,1.0,1,1,0,1
-2009,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2009,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2009,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2009,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Schändung (Art. 191)**,Total,Alle,16.0,19.0,0.0,6.0,17,0,3.0,5.0,4.0,2,3,0,0
+2009,Schändung (Art. 191)**,männlich,Alle,,,,,16,0,3.0,4.0,4.0,2,3,0,0
+2009,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,9,0,2.0,2.0,2.0,1,2,0,0
+2009,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,6,0,1.0,2.0,2.0,0,1,0,0
+2009,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2009,Schändung (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2009,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2009,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Ausnützung der Notlage (Art. 193)***,Total,Alle,4.0,4.0,0.0,0.0,4,0,0.0,0.0,1.0,1,1,0,1
+2009,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,4,0,0.0,0.0,1.0,1,1,0,1
+2009,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2009,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2009,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2009,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2009,Sexuelle Belästigungen (Art. 198),Total,Alle,52.0,53.0,0.0,12.0,53,0,3.0,10.0,11.0,21,6,2,0
 2009,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,52,0,3.0,9.0,11.0,21,6,2,0
 2009,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,7,0,0.0,2.0,1.0,4,0,0,0
@@ -550,16 +550,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2010,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2010,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2010,Sexuelle Nötigung (Art. 189),Total,Alle,140.0,151.0,4.0,44.0,136,0,26.0,26.0,36.0,30,12,5,1
-2010,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,133,0,24.0,26.0,36.0,29,12,5,1
-2010,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,75,0,5.0,18.0,22.0,19,7,4,0
-2010,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,29,0,6.0,6.0,8.0,6,3,0,0
-2010,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,10,0,0.0,0.0,4.0,4,1,0,1
-2010,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,21,0,13.0,2.0,3.0,1,1,1,0
-2010,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2010,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2010,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2010,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,133,0,24.0,26.0,36.0,29,12,5,1
+2010,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,75,0,5.0,18.0,22.0,19,7,4,0
+2010,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,29,0,6.0,6.0,8.0,6,3,0,0
+2010,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,10,0,0.0,0.0,4.0,4,1,0,1
+2010,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,21,0,13.0,2.0,3.0,1,1,1,0
+2010,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2010,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2010,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
 2010,Vergewaltigung (Art. 190),Total,Alle,183.0,184.0,13.0,54.0,181,0,13.0,47.0,61.0,41,15,4,0
 2010,Vergewaltigung (Art. 190),männlich,Alle,,,,,181,0,13.0,47.0,61.0,41,15,4,0
 2010,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,108,0,2.0,32.0,37.0,25,9,3,0
@@ -571,28 +571,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2010,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2010,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2010,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Schändung (Art. 191),Total,Alle,20.0,20.0,1.0,4.0,16,0,4.0,4.0,1.0,6,1,0,0
-2010,Schändung (Art. 191),männlich,Alle,,,,,16,0,4.0,4.0,1.0,6,1,0,0
-2010,Schändung (Art. 191),männlich,   Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2010,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,6,0,1.0,3.0,1.0,1,0,0,0
-2010,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,4,0,0.0,0.0,0.0,3,1,0,0
-2010,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2010,Schändung (Art. 191),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Ausnützung der Notlage (Art. 193),Total,Alle,3.0,3.0,0.0,0.0,3,X,0.0,0.0,0.0,X,X,X,X
-2010,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2010,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2010,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2010,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2010,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2010,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Schändung (Art. 191)**,Total,Alle,20.0,20.0,1.0,4.0,16,0,4.0,4.0,1.0,6,1,0,0
+2010,Schändung (Art. 191)**,männlich,Alle,,,,,16,0,4.0,4.0,1.0,6,1,0,0
+2010,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2010,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,6,0,1.0,3.0,1.0,1,0,0,0
+2010,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,4,0,0.0,0.0,0.0,3,1,0,0
+2010,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2010,Schändung (Art. 191)**,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Ausnützung der Notlage (Art. 193)***,Total,Alle,3.0,3.0,0.0,0.0,3,X,0.0,0.0,0.0,X,X,X,X
+2010,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2010,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2010,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2010,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2010,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2010,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2010,Sexuelle Belästigungen (Art. 198),Total,Alle,46.0,49.0,0.0,9.0,44,0,3.0,9.0,6.0,16,8,2,0
 2010,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,44,0,3.0,9.0,6.0,16,8,2,0
 2010,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,7,0,0.0,0.0,2.0,4,1,0,0
@@ -858,16 +858,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2011,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2011,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2011,Sexuelle Nötigung (Art. 189),Total,Alle,124.0,126.0,4.0,32.0,125,0,11.0,26.0,33.0,33,17,4,1
-2011,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,124,0,11.0,26.0,32.0,33,17,4,1
-2011,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,55,0,1.0,10.0,18.0,16,7,3,0
-2011,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,37,0,2.0,13.0,9.0,9,3,1,0
-2011,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,13,0,1.0,1.0,1.0,5,4,0,1
-2011,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,19,0,7.0,2.0,4.0,3,3,0,0
-2011,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2011,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2011,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,124,0,11.0,26.0,32.0,33,17,4,1
+2011,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,55,0,1.0,10.0,18.0,16,7,3,0
+2011,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,37,0,2.0,13.0,9.0,9,3,1,0
+2011,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,13,0,1.0,1.0,1.0,5,4,0,1
+2011,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,19,0,7.0,2.0,4.0,3,3,0,0
+2011,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2011,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2011,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2011,Vergewaltigung (Art. 190),Total,Alle,196.0,197.0,16.0,57.0,194,0,8.0,66.0,69.0,33,14,3,1
 2011,Vergewaltigung (Art. 190),männlich,Alle,,,,,194,0,8.0,66.0,69.0,33,14,3,1
 2011,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,108,0,1.0,36.0,42.0,21,6,1,1
@@ -879,28 +879,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2011,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2011,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2011,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Schändung (Art. 191),Total,Alle,22.0,22.0,0.0,6.0,21,0,1.0,2.0,11.0,4,3,0,0
-2011,Schändung (Art. 191),männlich,Alle,,,,,21,0,1.0,2.0,11.0,4,3,0,0
-2011,Schändung (Art. 191),männlich,   Partnerschaft,,,,,14,0,0.0,1.0,8.0,3,2,0,0
-2011,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,6,0,1.0,0.0,4.0,1,0,0,0
-2011,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2011,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2011,Schändung (Art. 191),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Ausnützung der Notlage (Art. 193),Total,Alle,2.0,3.0,0.0,0.0,2,X,0.0,0.0,0.0,X,X,X,X
-2011,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2011,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2011,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2011,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2011,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Schändung (Art. 191)**,Total,Alle,22.0,22.0,0.0,6.0,21,0,1.0,2.0,11.0,4,3,0,0
+2011,Schändung (Art. 191)**,männlich,Alle,,,,,21,0,1.0,2.0,11.0,4,3,0,0
+2011,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,14,0,0.0,1.0,8.0,3,2,0,0
+2011,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,6,0,1.0,0.0,4.0,1,0,0,0
+2011,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2011,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2011,Schändung (Art. 191)**,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Ausnützung der Notlage (Art. 193)***,Total,Alle,2.0,3.0,0.0,0.0,2,X,0.0,0.0,0.0,X,X,X,X
+2011,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2011,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2011,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2011,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2011,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2011,Sexuelle Belästigungen (Art. 198),Total,Alle,36.0,36.0,0.0,9.0,36,0,1.0,9.0,11.0,7,4,3,1
 2011,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,35,0,1.0,9.0,10.0,7,4,3,1
 2011,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,12,0,0.0,2.0,6.0,2,1,1,0
@@ -1177,16 +1177,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2012,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2012,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2012,Sexuelle Nötigung (Art. 189),Total,Alle,154.0,158.0,4.0,40.0,153,0,18.0,30.0,37.0,41,24,2,1
-2012,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,148,0,18.0,29.0,34.0,41,23,2,1
-2012,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,69,0,3.0,15.0,14.0,25,11,1,0
-2012,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,46,0,8.0,12.0,12.0,10,4,0,0
-2012,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,17,0,0.0,1.0,6.0,3,7,0,0
-2012,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,16,0,7.0,1.0,2.0,3,1,1,1
-2012,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,5,0,0.0,1.0,3.0,0,1,0,0
-2012,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2012,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2012,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2012,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,148,0,18.0,29.0,34.0,41,23,2,1
+2012,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,69,0,3.0,15.0,14.0,25,11,1,0
+2012,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,46,0,8.0,12.0,12.0,10,4,0,0
+2012,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,17,0,0.0,1.0,6.0,3,7,0,0
+2012,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,16,0,7.0,1.0,2.0,3,1,1,1
+2012,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,5,0,0.0,1.0,3.0,0,1,0,0
+2012,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2012,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2012,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2012,Vergewaltigung (Art. 190),Total,Alle,194.0,197.0,15.0,60.0,191,0,14.0,57.0,50.0,47,18,4,1
 2012,Vergewaltigung (Art. 190),männlich,Alle,,,,,191,0,14.0,57.0,50.0,47,18,4,1
 2012,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,114,0,1.0,34.0,38.0,28,9,3,1
@@ -1198,28 +1198,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2012,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2012,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2012,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Schändung (Art. 191),Total,Alle,19.0,20.0,0.0,2.0,19,0,2.0,7.0,2.0,4,3,1,0
-2012,Schändung (Art. 191),männlich,Alle,,,,,19,0,2.0,7.0,2.0,4,3,1,0
-2012,Schändung (Art. 191),männlich,   Partnerschaft,,,,,6,0,0.0,3.0,1.0,1,1,0,0
-2012,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,6,0,1.0,3.0,0.0,1,1,0,0
-2012,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,4,0,0.0,1.0,0.0,2,1,0,0
-2012,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2012,Schändung (Art. 191),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Ausnützung der Notlage (Art. 193),Total,Alle,2.0,2.0,0.0,1.0,2,X,0.0,0.0,0.0,X,X,X,X
-2012,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2012,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2012,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2012,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Schändung (Art. 191)**,Total,Alle,19.0,20.0,0.0,2.0,19,0,2.0,7.0,2.0,4,3,1,0
+2012,Schändung (Art. 191)**,männlich,Alle,,,,,19,0,2.0,7.0,2.0,4,3,1,0
+2012,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,6,0,0.0,3.0,1.0,1,1,0,0
+2012,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,6,0,1.0,3.0,0.0,1,1,0,0
+2012,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,4,0,0.0,1.0,0.0,2,1,0,0
+2012,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2012,Schändung (Art. 191)**,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Ausnützung der Notlage (Art. 193)***,Total,Alle,2.0,2.0,0.0,1.0,2,X,0.0,0.0,0.0,X,X,X,X
+2012,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2012,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2012,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2012,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2012,Sexuelle Belästigungen (Art. 198),Total,Alle,53.0,54.0,1.0,18.0,53,0,1.0,12.0,16.0,11,8,4,1
 2012,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,51,0,1.0,11.0,16.0,10,8,4,1
 2012,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,12,0,0.0,5.0,0.0,3,3,1,0
@@ -1507,16 +1507,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2013,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2013,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2013,Sexuelle Nötigung (Art. 189),Total,Alle,137.0,145.0,7.0,43.0,129,0,9.0,28.0,37.0,34,10,8,3
-2013,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,128,0,8.0,28.0,37.0,34,10,8,3
-2013,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,75,0,3.0,18.0,23.0,21,3,6,1
-2013,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,27,0,2.0,7.0,8.0,7,2,0,1
-2013,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,18,0,0.0,2.0,5.0,5,5,1,0
-2013,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,10,0,3.0,1.0,2.0,2,0,1,1
-2013,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2013,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2013,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,128,0,8.0,28.0,37.0,34,10,8,3
+2013,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,75,0,3.0,18.0,23.0,21,3,6,1
+2013,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,27,0,2.0,7.0,8.0,7,2,0,1
+2013,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,18,0,0.0,2.0,5.0,5,5,1,0
+2013,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,10,0,3.0,1.0,2.0,2,0,1,1
+2013,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2013,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2013,Vergewaltigung (Art. 190),Total,Alle,215.0,218.0,11.0,68.0,205,0,15.0,51.0,61.0,49,24,5,0
 2013,Vergewaltigung (Art. 190),männlich,Alle,,,,,204,0,15.0,50.0,61.0,49,24,5,0
 2013,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,124,0,4.0,31.0,36.0,32,18,3,0
@@ -1528,28 +1528,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2013,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2013,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2013,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Schändung (Art. 191),Total,Alle,21.0,24.0,0.0,5.0,20,0,2.0,3.0,6.0,4,3,2,0
-2013,Schändung (Art. 191),männlich,Alle,,,,,19,0,2.0,2.0,6.0,4,3,2,0
-2013,Schändung (Art. 191),männlich,   Partnerschaft,,,,,4,0,0.0,1.0,0.0,1,1,1,0
-2013,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2013,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,8,0,0.0,1.0,4.0,2,1,0,0
-2013,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,6,0,1.0,0.0,2.0,1,1,1,0
-2013,Schändung (Art. 191),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2013,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2013,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Ausnützung der Notlage (Art. 193),Total,Alle,5.0,5.0,0.0,0.0,5,0,0.0,0.0,1.0,2,1,0,1
-2013,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,5,0,0.0,0.0,1.0,2,1,0,1
-2013,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2013,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2013,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2013,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Schändung (Art. 191)**,Total,Alle,21.0,24.0,0.0,5.0,20,0,2.0,3.0,6.0,4,3,2,0
+2013,Schändung (Art. 191)**,männlich,Alle,,,,,19,0,2.0,2.0,6.0,4,3,2,0
+2013,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,4,0,0.0,1.0,0.0,1,1,1,0
+2013,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2013,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,8,0,0.0,1.0,4.0,2,1,0,0
+2013,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,6,0,1.0,0.0,2.0,1,1,1,0
+2013,Schändung (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2013,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2013,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Ausnützung der Notlage (Art. 193)***,Total,Alle,5.0,5.0,0.0,0.0,5,0,0.0,0.0,1.0,2,1,0,1
+2013,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,5,0,0.0,0.0,1.0,2,1,0,1
+2013,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2013,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2013,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2013,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2013,Sexuelle Belästigungen (Art. 198),Total,Alle,45.0,45.0,0.0,7.0,45,0,2.0,8.0,12.0,11,9,1,2
 2013,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,44,0,2.0,8.0,12.0,11,8,1,2
 2013,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,11,0,2.0,2.0,2.0,1,4,0,0
@@ -1837,16 +1837,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2014,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2014,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2014,Sexuelle Nötigung (Art. 189),Total,Alle,189.0,200.0,6.0,62.0,189,0,22.0,49.0,37.0,53,22,3,3
-2014,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,183,0,20.0,49.0,36.0,50,22,3,3
-2014,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,84,0,0.0,16.0,21.0,29,16,2,0
-2014,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,64,0,9.0,30.0,11.0,11,3,0,0
-2014,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,14,0,1.0,0.0,1.0,6,3,1,2
-2014,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,22,0,10.0,3.0,3.0,4,1,0,1
-2014,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,6,0,2.0,0.0,1.0,3,0,0,0
-2014,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2014,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2014,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2014,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2014,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,183,0,20.0,49.0,36.0,50,22,3,3
+2014,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,84,0,0.0,16.0,21.0,29,16,2,0
+2014,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,64,0,9.0,30.0,11.0,11,3,0,0
+2014,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,14,0,1.0,0.0,1.0,6,3,1,2
+2014,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,22,0,10.0,3.0,3.0,4,1,0,1
+2014,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,6,0,2.0,0.0,1.0,3,0,0,0
+2014,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2014,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2014,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2014,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2014,Vergewaltigung (Art. 190),Total,Alle,180.0,180.0,8.0,47.0,179,0,13.0,40.0,49.0,56,14,3,4
 2014,Vergewaltigung (Art. 190),männlich,Alle,,,,,178,0,13.0,40.0,49.0,55,14,3,4
 2014,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,92,0,2.0,21.0,27.0,31,9,0,2
@@ -1858,28 +1858,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2014,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2014,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2014,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2014,Schändung (Art. 191),Total,Alle,26.0,26.0,1.0,6.0,23,0,2.0,5.0,6.0,3,6,1,0
-2014,Schändung (Art. 191),männlich,Alle,,,,,23,0,2.0,5.0,6.0,3,6,1,0
-2014,Schändung (Art. 191),männlich,   Partnerschaft,,,,,5,0,1.0,1.0,1.0,1,1,0,0
-2014,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,7,0,0.0,4.0,1.0,0,2,0,0
-2014,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,9,0,0.0,0.0,4.0,1,3,1,0
-2014,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2014,Schändung (Art. 191),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Ausnützung der Notlage (Art. 193),Total,Alle,6.0,6.0,0.0,1.0,6,0,0.0,0.0,2.0,2,0,1,1
-2014,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,6,0,0.0,0.0,2.0,2,0,1,1
-2014,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2014,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2014,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2014,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Schändung (Art. 191)**,Total,Alle,26.0,26.0,1.0,6.0,23,0,2.0,5.0,6.0,3,6,1,0
+2014,Schändung (Art. 191)**,männlich,Alle,,,,,23,0,2.0,5.0,6.0,3,6,1,0
+2014,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,5,0,1.0,1.0,1.0,1,1,0,0
+2014,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,7,0,0.0,4.0,1.0,0,2,0,0
+2014,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,9,0,0.0,0.0,4.0,1,3,1,0
+2014,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2014,Schändung (Art. 191)**,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Ausnützung der Notlage (Art. 193)***,Total,Alle,6.0,6.0,0.0,1.0,6,0,0.0,0.0,2.0,2,0,1,1
+2014,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,6,0,0.0,0.0,2.0,2,0,1,1
+2014,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2014,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2014,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2014,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2014,Sexuelle Belästigungen (Art. 198),Total,Alle,48.0,48.0,0.0,12.0,48,0,1.0,12.0,13.0,15,5,0,2
 2014,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,45,0,1.0,11.0,13.0,13,5,0,2
 2014,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,17,0,0.0,3.0,5.0,6,2,0,1
@@ -2167,16 +2167,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2015,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2015,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2015,Sexuelle Nötigung (Art. 189),Total,Alle,192.0,201.0,8.0,77.0,188,0,25.0,31.0,41.0,56,26,8,1
-2015,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,181,0,24.0,31.0,41.0,52,24,8,1
-2015,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,96,0,1.0,15.0,28.0,32,14,5,1
-2015,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,43,0,8.0,10.0,9.0,12,4,0,0
-2015,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,19,0,0.0,1.0,4.0,7,4,3,0
-2015,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,25,0,15.0,5.0,0.0,2,2,1,0
-2015,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,7,0,1.0,0.0,0.0,4,2,0,0
-2015,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2015,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2015,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2015,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2015,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,181,0,24.0,31.0,41.0,52,24,8,1
+2015,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,96,0,1.0,15.0,28.0,32,14,5,1
+2015,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,43,0,8.0,10.0,9.0,12,4,0,0
+2015,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,19,0,0.0,1.0,4.0,7,4,3,0
+2015,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,25,0,15.0,5.0,0.0,2,2,1,0
+2015,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,7,0,1.0,0.0,0.0,4,2,0,0
+2015,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2015,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2015,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2015,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
 2015,Vergewaltigung (Art. 190),Total,Alle,190.0,195.0,15.0,57.0,180,0,9.0,43.0,51.0,45,25,7,0
 2015,Vergewaltigung (Art. 190),männlich,Alle,,,,,180,0,9.0,43.0,51.0,45,25,7,0
 2015,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,110,0,3.0,23.0,38.0,25,17,4,0
@@ -2188,28 +2188,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2015,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2015,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2015,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Schändung (Art. 191),Total,Alle,18.0,18.0,0.0,1.0,18,0,3.0,4.0,3.0,4,4,0,0
-2015,Schändung (Art. 191),männlich,Alle,,,,,18,0,3.0,4.0,3.0,4,4,0,0
-2015,Schändung (Art. 191),männlich,   Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2015,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2015,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,7,0,0.0,1.0,1.0,3,2,0,0
-2015,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,5,0,2.0,1.0,2.0,0,0,0,0
-2015,Schändung (Art. 191),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Ausnützung der Notlage (Art. 193),Total,Alle,3.0,3.0,0.0,0.0,3,X,0.0,0.0,0.0,X,X,X,X
-2015,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2015,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2015,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2015,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2015,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Schändung (Art. 191)**,Total,Alle,18.0,18.0,0.0,1.0,18,0,3.0,4.0,3.0,4,4,0,0
+2015,Schändung (Art. 191)**,männlich,Alle,,,,,18,0,3.0,4.0,3.0,4,4,0,0
+2015,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2015,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2015,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,7,0,0.0,1.0,1.0,3,2,0,0
+2015,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,5,0,2.0,1.0,2.0,0,0,0,0
+2015,Schändung (Art. 191)**,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Ausnützung der Notlage (Art. 193)***,Total,Alle,3.0,3.0,0.0,0.0,3,X,0.0,0.0,0.0,X,X,X,X
+2015,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2015,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2015,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2015,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2015,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2015,Sexuelle Belästigungen (Art. 198),Total,Alle,59.0,60.0,1.0,10.0,59,0,4.0,16.0,15.0,11,10,3,0
 2015,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,55,0,4.0,15.0,12.0,11,10,3,0
 2015,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,12,0,1.0,2.0,2.0,2,5,0,0
@@ -2497,16 +2497,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2016,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2016,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2016,Sexuelle Nötigung (Art. 189),Total,Alle,206.0,214.0,8.0,79.0,204,0,23.0,35.0,62.0,51,25,5,3
-2016,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,199,0,22.0,35.0,60.0,50,24,5,3
-2016,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,105,0,10.0,18.0,29.0,29,15,3,1
-2016,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,49,0,2.0,13.0,20.0,7,7,0,0
-2016,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,25,0,0.0,2.0,7.0,12,2,0,2
-2016,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,22,0,10.0,2.0,4.0,4,0,2,0
-2016,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,5,0,1.0,0.0,2.0,1,1,0,0
-2016,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2016,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2016,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2016,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,199,0,22.0,35.0,60.0,50,24,5,3
+2016,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,105,0,10.0,18.0,29.0,29,15,3,1
+2016,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,49,0,2.0,13.0,20.0,7,7,0,0
+2016,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,25,0,0.0,2.0,7.0,12,2,0,2
+2016,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,22,0,10.0,2.0,4.0,4,0,2,0
+2016,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,5,0,1.0,0.0,2.0,1,1,0,0
+2016,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2016,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2016,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
 2016,Vergewaltigung (Art. 190),Total,Alle,208.0,210.0,14.0,54.0,208,0,10.0,50.0,62.0,58,23,4,0
 2016,Vergewaltigung (Art. 190),männlich,Alle,,,,,207,0,10.0,50.0,62.0,58,22,4,0
 2016,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,126,0,4.0,25.0,43.0,37,16,1,0
@@ -2518,28 +2518,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2016,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2016,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2016,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Schändung (Art. 191),Total,Alle,34.0,35.0,0.0,9.0,33,0,6.0,3.0,9.0,8,6,1,0
-2016,Schändung (Art. 191),männlich,Alle,,,,,32,0,6.0,3.0,8.0,8,6,1,0
-2016,Schändung (Art. 191),männlich,   Partnerschaft,,,,,7,0,2.0,1.0,2.0,2,0,0,0
-2016,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,8,0,2.0,1.0,3.0,2,0,0,0
-2016,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,15,0,0.0,1.0,3.0,4,6,1,0
-2016,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2016,Schändung (Art. 191),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2016,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2016,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Ausnützung der Notlage (Art. 193),Total,Alle,1.0,1.0,0.0,0.0,1,X,0.0,0.0,0.0,X,X,X,X
-2016,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2016,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2016,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2016,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Schändung (Art. 191)**,Total,Alle,34.0,35.0,0.0,9.0,33,0,6.0,3.0,9.0,8,6,1,0
+2016,Schändung (Art. 191)**,männlich,Alle,,,,,32,0,6.0,3.0,8.0,8,6,1,0
+2016,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,7,0,2.0,1.0,2.0,2,0,0,0
+2016,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,8,0,2.0,1.0,3.0,2,0,0,0
+2016,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,15,0,0.0,1.0,3.0,4,6,1,0
+2016,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2016,Schändung (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2016,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2016,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Ausnützung der Notlage (Art. 193)***,Total,Alle,1.0,1.0,0.0,0.0,1,X,0.0,0.0,0.0,X,X,X,X
+2016,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2016,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2016,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2016,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2016,Sexuelle Belästigungen (Art. 198),Total,Alle,48.0,50.0,0.0,10.0,48,0,5.0,6.0,11.0,13,9,2,2
 2016,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,47,0,5.0,6.0,10.0,13,9,2,2
 2016,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,17,0,2.0,2.0,2.0,6,3,1,1
@@ -2827,16 +2827,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2017,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2017,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2017,Sexuelle Nötigung (Art. 189),Total,Alle,178.0,186.0,7.0,62.0,179,0,24.0,29.0,44.0,49,23,9,1
-2017,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,174,0,22.0,29.0,44.0,47,22,9,1
-2017,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,91,0,4.0,12.0,33.0,26,11,4,1
-2017,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,49,0,6.0,16.0,9.0,9,6,3,0
-2017,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,14,0,0.0,0.0,1.0,6,6,1,0
-2017,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,24,0,12.0,2.0,3.0,6,0,1,0
-2017,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,5,0,2.0,0.0,0.0,2,1,0,0
-2017,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2017,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2017,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2017,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,174,0,22.0,29.0,44.0,47,22,9,1
+2017,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,91,0,4.0,12.0,33.0,26,11,4,1
+2017,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,49,0,6.0,16.0,9.0,9,6,3,0
+2017,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,14,0,0.0,0.0,1.0,6,6,1,0
+2017,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,24,0,12.0,2.0,3.0,6,0,1,0
+2017,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,5,0,2.0,0.0,0.0,2,1,0,0
+2017,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2017,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2017,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
 2017,Vergewaltigung (Art. 190),Total,Alle,213.0,216.0,21.0,63.0,212,0,15.0,53.0,68.0,51,23,0,2
 2017,Vergewaltigung (Art. 190),männlich,Alle,,,,,211,0,15.0,53.0,68.0,50,23,0,2
 2017,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,122,0,3.0,31.0,38.0,35,13,0,2
@@ -2848,28 +2848,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2017,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2017,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2017,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Schändung (Art. 191),Total,Alle,20.0,23.0,0.0,5.0,22,0,4.0,4.0,7.0,4,1,2,0
-2017,Schändung (Art. 191),männlich,Alle,,,,,21,0,4.0,4.0,6.0,4,1,2,0
-2017,Schändung (Art. 191),männlich,   Partnerschaft,,,,,8,0,1.0,3.0,1.0,2,0,1,0
-2017,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,4,0,1.0,0.0,2.0,1,0,0,0
-2017,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,5,0,0.0,1.0,2.0,1,1,0,0
-2017,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,5,0,3.0,0.0,1.0,0,0,1,0
-2017,Schändung (Art. 191),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2017,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2017,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Ausnützung der Notlage (Art. 193),Total,Alle,1.0,1.0,0.0,1.0,1,X,0.0,0.0,0.0,X,X,X,X
-2017,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2017,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2017,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2017,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Schändung (Art. 191)**,Total,Alle,20.0,23.0,0.0,5.0,22,0,4.0,4.0,7.0,4,1,2,0
+2017,Schändung (Art. 191)**,männlich,Alle,,,,,21,0,4.0,4.0,6.0,4,1,2,0
+2017,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,8,0,1.0,3.0,1.0,2,0,1,0
+2017,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,4,0,1.0,0.0,2.0,1,0,0,0
+2017,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,5,0,0.0,1.0,2.0,1,1,0,0
+2017,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,5,0,3.0,0.0,1.0,0,0,1,0
+2017,Schändung (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2017,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2017,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Ausnützung der Notlage (Art. 193)***,Total,Alle,1.0,1.0,0.0,1.0,1,X,0.0,0.0,0.0,X,X,X,X
+2017,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2017,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2017,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2017,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2017,Sexuelle Belästigungen (Art. 198),Total,Alle,44.0,46.0,0.0,4.0,43,0,3.0,6.0,11.0,11,7,2,3
 2017,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,41,0,2.0,6.0,11.0,10,7,2,3
 2017,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,6,0,0.0,0.0,2.0,2,1,0,1
@@ -3157,16 +3157,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2018,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2018,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2018,Sexuelle Nötigung (Art. 189),Total,Alle,186.0,193.0,9.0,66.0,186,0,19.0,43.0,57.0,41,20,5,1
-2018,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,185,0,19.0,42.0,57.0,41,20,5,1
-2018,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,100,0,3.0,23.0,36.0,22,13,2,1
-2018,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,56,0,6.0,14.0,16.0,12,6,2,0
-2018,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,12,0,1.0,2.0,4.0,5,0,0,0
-2018,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,20,0,9.0,3.0,3.0,3,1,1,0
-2018,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2018,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2018,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,185,0,19.0,42.0,57.0,41,20,5,1
+2018,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,100,0,3.0,23.0,36.0,22,13,2,1
+2018,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,56,0,6.0,14.0,16.0,12,6,2,0
+2018,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,12,0,1.0,2.0,4.0,5,0,0,0
+2018,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,20,0,9.0,3.0,3.0,3,1,1,0
+2018,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2018,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2018,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2018,Vergewaltigung (Art. 190),Total,Alle,241.0,246.0,14.0,65.0,237,0,19.0,62.0,69.0,56,22,7,2
 2018,Vergewaltigung (Art. 190),männlich,Alle,,,,,237,0,19.0,62.0,69.0,56,22,7,2
 2018,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,142,0,9.0,35.0,47.0,33,13,3,2
@@ -3178,28 +3178,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2018,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2018,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2018,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Schändung (Art. 191),Total,Alle,31.0,35.0,2.0,4.0,31,0,4.0,7.0,8.0,6,5,0,1
-2018,Schändung (Art. 191),männlich,Alle,,,,,30,0,4.0,7.0,7.0,6,5,0,1
-2018,Schändung (Art. 191),männlich,   Partnerschaft,,,,,13,0,1.0,2.0,5.0,1,4,0,0
-2018,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,7,0,0.0,3.0,1.0,3,0,0,0
-2018,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,8,0,1.0,1.0,1.0,3,1,0,1
-2018,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,4,0,2.0,1.0,1.0,0,0,0,0
-2018,Schändung (Art. 191),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2018,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2018,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Ausnützung der Notlage (Art. 193),Total,Alle,1.0,1.0,0.0,0.0,1,X,0.0,0.0,0.0,X,X,X,X
-2018,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2018,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2018,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2018,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Schändung (Art. 191)**,Total,Alle,31.0,35.0,2.0,4.0,31,0,4.0,7.0,8.0,6,5,0,1
+2018,Schändung (Art. 191)**,männlich,Alle,,,,,30,0,4.0,7.0,7.0,6,5,0,1
+2018,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,13,0,1.0,2.0,5.0,1,4,0,0
+2018,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,7,0,0.0,3.0,1.0,3,0,0,0
+2018,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,8,0,1.0,1.0,1.0,3,1,0,1
+2018,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,4,0,2.0,1.0,1.0,0,0,0,0
+2018,Schändung (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2018,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2018,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Ausnützung der Notlage (Art. 193)***,Total,Alle,1.0,1.0,0.0,0.0,1,X,0.0,0.0,0.0,X,X,X,X
+2018,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2018,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2018,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2018,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2018,Sexuelle Belästigungen (Art. 198),Total,Alle,68.0,70.0,0.0,12.0,67,0,5.0,11.0,19.0,20,5,4,3
 2018,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,65,0,5.0,10.0,19.0,19,5,4,3
 2018,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,17,0,0.0,2.0,5.0,6,3,1,0
@@ -3487,16 +3487,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2019,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2019,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2019,Sexuelle Nötigung (Art. 189),Total,Alle,199.0,205.0,7.0,87.0,199,0,23.0,46.0,66.0,41,15,5,3
-2019,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,197,0,22.0,46.0,66.0,41,14,5,3
-2019,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,110,0,6.0,26.0,38.0,30,7,3,0
-2019,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,61,0,8.0,17.0,20.0,9,4,2,1
-2019,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,12,0,0.0,0.0,7.0,3,1,0,1
-2019,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,17,0,8.0,4.0,2.0,0,2,0,1
-2019,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2019,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2019,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2019,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,197,0,22.0,46.0,66.0,41,14,5,3
+2019,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,110,0,6.0,26.0,38.0,30,7,3,0
+2019,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,61,0,8.0,17.0,20.0,9,4,2,1
+2019,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,12,0,0.0,0.0,7.0,3,1,0,1
+2019,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,17,0,8.0,4.0,2.0,0,2,0,1
+2019,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2019,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2019,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2019,Vergewaltigung (Art. 190),Total,Alle,277.0,287.0,15.0,73.0,269,0,25.0,72.0,79.0,59,27,5,2
 2019,Vergewaltigung (Art. 190),männlich,Alle,,,,,268,0,25.0,72.0,79.0,59,26,5,2
 2019,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,138,0,6.0,33.0,47.0,31,17,2,2
@@ -3508,28 +3508,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2019,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2019,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2019,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Schändung (Art. 191),Total,Alle,24.0,24.0,0.0,8.0,24,0,4.0,7.0,6.0,3,3,1,0
-2019,Schändung (Art. 191),männlich,Alle,,,,,23,0,4.0,7.0,5.0,3,3,1,0
-2019,Schändung (Art. 191),männlich,   Partnerschaft,,,,,6,0,0.0,4.0,0.0,1,1,0,0
-2019,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,12,0,3.0,3.0,3.0,1,2,0,0
-2019,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,4,0,0.0,1.0,2.0,0,0,1,0
-2019,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2019,Schändung (Art. 191),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2019,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2019,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Ausnützung der Notlage (Art. 193),Total,Alle,1.0,1.0,0.0,0.0,1,X,0.0,0.0,0.0,X,X,X,X
-2019,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2019,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2019,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2019,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Schändung (Art. 191)**,Total,Alle,24.0,24.0,0.0,8.0,24,0,4.0,7.0,6.0,3,3,1,0
+2019,Schändung (Art. 191)**,männlich,Alle,,,,,23,0,4.0,7.0,5.0,3,3,1,0
+2019,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,6,0,0.0,4.0,0.0,1,1,0,0
+2019,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,12,0,3.0,3.0,3.0,1,2,0,0
+2019,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,4,0,0.0,1.0,2.0,0,0,1,0
+2019,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2019,Schändung (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2019,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2019,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Ausnützung der Notlage (Art. 193)***,Total,Alle,1.0,1.0,0.0,0.0,1,X,0.0,0.0,0.0,X,X,X,X
+2019,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2019,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2019,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2019,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2019,Sexuelle Belästigungen (Art. 198),Total,Alle,60.0,61.0,1.0,11.0,59,0,5.0,10.0,13.0,11,13,5,2
 2019,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,56,0,4.0,10.0,12.0,11,13,4,2
 2019,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,9,0,0.0,1.0,2.0,3,3,0,0
@@ -3817,16 +3817,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2020,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2020,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2020,Sexuelle Nötigung (Art. 189),Total,Alle,219.0,229.0,9.0,67.0,223,0,32.0,46.0,62.0,42,29,6,6
-2020,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,213,0,30.0,46.0,58.0,40,27,6,6
-2020,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,104,0,4.0,26.0,30.0,27,14,1,2
-2020,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,59,0,12.0,18.0,10.0,6,9,2,2
-2020,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,24,0,0.0,0.0,10.0,7,4,1,2
-2020,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,27,0,14.0,2.0,8.0,0,1,2,0
-2020,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,10,0,2.0,0.0,4.0,2,2,0,0
-2020,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,5,0,0.0,0.0,3.0,2,0,0,0
-2020,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2020,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2020,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2020,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,213,0,30.0,46.0,58.0,40,27,6,6
+2020,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,104,0,4.0,26.0,30.0,27,14,1,2
+2020,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,59,0,12.0,18.0,10.0,6,9,2,2
+2020,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,24,0,0.0,0.0,10.0,7,4,1,2
+2020,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,27,0,14.0,2.0,8.0,0,1,2,0
+2020,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,10,0,2.0,0.0,4.0,2,2,0,0
+2020,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,5,0,0.0,0.0,3.0,2,0,0,0
+2020,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2020,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2020,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
 2020,Vergewaltigung (Art. 190),Total,Alle,252.0,268.0,26.0,67.0,249,0,19.0,47.0,78.0,63,26,14,2
 2020,Vergewaltigung (Art. 190),männlich,Alle,,,,,249,0,19.0,47.0,78.0,63,26,14,2
 2020,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,132,0,4.0,23.0,46.0,34,16,8,1
@@ -3838,28 +3838,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2020,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2020,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2020,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Schändung (Art. 191),Total,Alle,34.0,34.0,0.0,5.0,34,0,5.0,5.0,8.0,8,6,2,0
-2020,Schändung (Art. 191),männlich,Alle,,,,,33,0,5.0,5.0,8.0,8,5,2,0
-2020,Schändung (Art. 191),männlich,   Partnerschaft,,,,,12,0,2.0,1.0,3.0,4,1,1,0
-2020,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,8,0,1.0,1.0,2.0,2,2,0,0
-2020,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,6,0,0.0,0.0,2.0,2,1,1,0
-2020,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,7,0,2.0,3.0,1.0,0,1,0,0
-2020,Schändung (Art. 191),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2020,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2020,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),Total,Alle,0.0,0.0,0.0,0.0,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2020,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Schändung (Art. 191)**,Total,Alle,34.0,34.0,0.0,5.0,34,0,5.0,5.0,8.0,8,6,2,0
+2020,Schändung (Art. 191)**,männlich,Alle,,,,,33,0,5.0,5.0,8.0,8,5,2,0
+2020,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,12,0,2.0,1.0,3.0,4,1,1,0
+2020,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,8,0,1.0,1.0,2.0,2,2,0,0
+2020,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,6,0,0.0,0.0,2.0,2,1,1,0
+2020,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,7,0,2.0,3.0,1.0,0,1,0,0
+2020,Schändung (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2020,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2020,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,Total,Alle,0.0,0.0,0.0,0.0,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2020,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2020,Sexuelle Belästigungen (Art. 198),Total,Alle,51.0,54.0,0.0,3.0,51,0,1.0,8.0,19.0,11,8,2,2
 2020,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,50,0,1.0,8.0,18.0,11,8,2,2
 2020,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,16,0,0.0,1.0,8.0,5,1,1,0
@@ -4147,16 +4147,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2021,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2021,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2021,Sexuelle Nötigung (Art. 189),Total,Alle,186.0,198.0,13.0,61.0,189,0,21.0,35.0,54.0,49,25,5,0
-2021,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,182,0,21.0,34.0,50.0,48,24,5,0
-2021,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,98,0,8.0,15.0,31.0,27,13,4,0
-2021,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,43,0,4.0,11.0,13.0,11,4,0,0
-2021,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,23,0,0.0,1.0,7.0,11,3,1,0
-2021,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,23,0,9.0,7.0,0.0,3,4,0,0
-2021,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,7,0,0.0,1.0,4.0,1,1,0,0
-2021,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,5,0,0.0,0.0,4.0,1,0,0,0
-2021,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2021,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2021,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,182,0,21.0,34.0,50.0,48,24,5,0
+2021,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,98,0,8.0,15.0,31.0,27,13,4,0
+2021,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,43,0,4.0,11.0,13.0,11,4,0,0
+2021,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,23,0,0.0,1.0,7.0,11,3,1,0
+2021,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,23,0,9.0,7.0,0.0,3,4,0,0
+2021,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,7,0,0.0,1.0,4.0,1,1,0,0
+2021,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,5,0,0.0,0.0,4.0,1,0,0,0
+2021,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2021,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2021,Vergewaltigung (Art. 190),Total,Alle,242.0,244.0,10.0,49.0,241,0,27.0,60.0,72.0,46,29,5,1
 2021,Vergewaltigung (Art. 190),männlich,Alle,,,,,241,0,27.0,60.0,72.0,46,29,5,1
 2021,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,137,0,8.0,30.0,49.0,29,18,3,0
@@ -4168,28 +4168,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2021,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2021,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2021,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Schändung (Art. 191),Total,Alle,37.0,42.0,0.0,5.0,37,0,2.0,11.0,12.0,3,5,2,2
-2021,Schändung (Art. 191),männlich,Alle,,,,,36,0,2.0,11.0,11.0,3,5,2,2
-2021,Schändung (Art. 191),männlich,   Partnerschaft,,,,,11,0,1.0,5.0,3.0,1,0,1,0
-2021,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,10,0,0.0,4.0,4.0,0,2,0,0
-2021,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,8,0,0.0,0.0,3.0,2,2,0,1
-2021,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,7,0,1.0,2.0,1.0,0,1,1,1
-2021,Schändung (Art. 191),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2021,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2021,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Ausnützung der Notlage (Art. 193),Total,Alle,1.0,1.0,0.0,0.0,1,X,0.0,0.0,0.0,X,X,X,X
-2021,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2021,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2021,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2021,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Schändung (Art. 191)**,Total,Alle,37.0,42.0,0.0,5.0,37,0,2.0,11.0,12.0,3,5,2,2
+2021,Schändung (Art. 191)**,männlich,Alle,,,,,36,0,2.0,11.0,11.0,3,5,2,2
+2021,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,11,0,1.0,5.0,3.0,1,0,1,0
+2021,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,10,0,0.0,4.0,4.0,0,2,0,0
+2021,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,8,0,0.0,0.0,3.0,2,2,0,1
+2021,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,7,0,1.0,2.0,1.0,0,1,1,1
+2021,Schändung (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2021,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2021,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Ausnützung der Notlage (Art. 193)***,Total,Alle,1.0,1.0,0.0,0.0,1,X,0.0,0.0,0.0,X,X,X,X
+2021,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2021,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2021,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2021,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2021,Sexuelle Belästigungen (Art. 198),Total,Alle,66.0,69.0,0.0,10.0,66,0,5.0,14.0,18.0,10,12,6,1
 2021,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,62,0,3.0,13.0,18.0,9,12,6,1
 2021,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,19,0,0.0,4.0,8.0,2,3,2,0
@@ -4477,16 +4477,16 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2022,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2022,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2022,Sexuelle Nötigung (Art. 189),Total,Alle,233.0,240.0,8.0,92.0,232,0,34.0,35.0,65.0,63,24,7,4
-2022,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,225,0,32.0,33.0,64.0,61,24,7,4
-2022,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,124,0,8.0,19.0,44.0,35,13,3,2
-2022,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,66,0,12.0,13.0,17.0,17,4,2,1
-2022,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,17,0,1.0,0.0,5.0,7,3,1,0
-2022,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,26,0,12.0,2.0,1.0,4,4,1,2
-2022,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,7,0,2.0,2.0,1.0,2,0,0,0
-2022,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2022,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2022,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2022,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,225,0,32.0,33.0,64.0,61,24,7,4
+2022,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,124,0,8.0,19.0,44.0,35,13,3,2
+2022,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,66,0,12.0,13.0,17.0,17,4,2,1
+2022,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,17,0,1.0,0.0,5.0,7,3,1,0
+2022,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,26,0,12.0,2.0,1.0,4,4,1,2
+2022,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,7,0,2.0,2.0,1.0,2,0,0,0
+2022,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2022,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2022,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2022,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2022,Vergewaltigung (Art. 190),Total,Alle,306.0,307.0,16.0,77.0,300,0,35.0,56.0,92.0,75,30,9,3
 2022,Vergewaltigung (Art. 190),männlich,Alle,,,,,300,0,35.0,56.0,92.0,75,30,9,3
 2022,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,184,0,12.0,41.0,65.0,41,17,5,3
@@ -4498,28 +4498,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2022,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2022,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2022,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Schändung (Art. 191),Total,Alle,53.0,54.0,0.0,16.0,51,0,7.0,15.0,12.0,10,5,1,1
-2022,Schändung (Art. 191),männlich,Alle,,,,,50,0,7.0,14.0,12.0,10,5,1,1
-2022,Schändung (Art. 191),männlich,   Partnerschaft,,,,,20,0,3.0,6.0,7.0,2,2,0,0
-2022,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,14,0,0.0,6.0,3.0,2,3,0,0
-2022,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,11,0,0.0,1.0,3.0,5,1,1,0
-2022,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,9,0,4.0,1.0,1.0,1,1,0,1
-2022,Schändung (Art. 191),weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2022,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2022,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Ausnützung der Notlage (Art. 193),Total,Alle,2.0,2.0,0.0,0.0,2,X,0.0,0.0,0.0,X,X,X,X
-2022,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2022,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2022,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2022,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2022,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Schändung (Art. 191)**,Total,Alle,53.0,54.0,0.0,16.0,51,0,7.0,15.0,12.0,10,5,1,1
+2022,Schändung (Art. 191)**,männlich,Alle,,,,,50,0,7.0,14.0,12.0,10,5,1,1
+2022,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,20,0,3.0,6.0,7.0,2,2,0,0
+2022,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,14,0,0.0,6.0,3.0,2,3,0,0
+2022,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,11,0,0.0,1.0,3.0,5,1,1,0
+2022,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,9,0,4.0,1.0,1.0,1,1,0,1
+2022,Schändung (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2022,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2022,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Ausnützung der Notlage (Art. 193)***,Total,Alle,2.0,2.0,0.0,0.0,2,X,0.0,0.0,0.0,X,X,X,X
+2022,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2022,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2022,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2022,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2022,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2022,Sexuelle Belästigungen (Art. 198),Total,Alle,67.0,68.0,0.0,8.0,67,0,7.0,10.0,24.0,17,7,1,1
 2022,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,65,0,6.0,10.0,23.0,17,7,1,1
 2022,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,25,0,2.0,5.0,9.0,5,4,0,0
@@ -4806,17 +4806,17 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2023,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2023,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2023,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2023,Sexuelle Nötigung (Art. 189),Total,Alle,213.0,227.0,5.0,73.0,210,0,34.0,39.0,59.0,43,23,8,4
-2023,Sexuelle Nötigung (Art. 189),männlich,Alle,,,,,195,0,32.0,37.0,50.0,43,22,8,3
-2023,Sexuelle Nötigung (Art. 189),männlich,   Partnerschaft,,,,,88,0,5.0,15.0,30.0,19,13,5,1
-2023,Sexuelle Nötigung (Art. 189),männlich,   ehemalige Partnerschaft,,,,,59,0,14.0,16.0,16.0,6,5,1,1
-2023,Sexuelle Nötigung (Art. 189),männlich,   Eltern-Kind-Beziehung,,,,,21,0,0.0,1.0,2.0,13,5,0,0
-2023,Sexuelle Nötigung (Art. 189),männlich,   andere Verwandtschaftsbeziehung,,,,,32,0,14.0,7.0,2.0,6,0,2,1
-2023,Sexuelle Nötigung (Art. 189),weiblich,Alle,,,,,16,0,3.0,2.0,9.0,0,1,0,1
-2023,Sexuelle Nötigung (Art. 189),weiblich,   Partnerschaft,,,,,8,0,1.0,1.0,5.0,0,1,0,0
-2023,Sexuelle Nötigung (Art. 189),weiblich,   ehemalige Partnerschaft,,,,,5,0,1.0,1.0,3.0,0,0,0,0
-2023,Sexuelle Nötigung (Art. 189),weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2023,Sexuelle Nötigung (Art. 189),weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2023,Sexuelle Nötigung (Art. 189)*,Total,Alle,213.0,227.0,5.0,73.0,210,0,34.0,39.0,59.0,43,23,8,4
+2023,Sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,195,0,32.0,37.0,50.0,43,22,8,3
+2023,Sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,88,0,5.0,15.0,30.0,19,13,5,1
+2023,Sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,59,0,14.0,16.0,16.0,6,5,1,1
+2023,Sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,21,0,0.0,1.0,2.0,13,5,0,0
+2023,Sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,32,0,14.0,7.0,2.0,6,0,2,1
+2023,Sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,16,0,3.0,2.0,9.0,0,1,0,1
+2023,Sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,8,0,1.0,1.0,5.0,0,1,0,0
+2023,Sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,5,0,1.0,1.0,3.0,0,0,0,0
+2023,Sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2023,Sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2023,Vergewaltigung (Art. 190),Total,Alle,368.0,368.0,17.0,119.0,366,0,52.0,83.0,98.0,75,39,16,3
 2023,Vergewaltigung (Art. 190),männlich,Alle,,,,,366,0,52.0,83.0,98.0,75,39,16,3
 2023,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,214,0,25.0,43.0,64.0,49,23,8,2
@@ -4828,28 +4828,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2023,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2023,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2023,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2023,Schändung (Art. 191),Total,Alle,61.0,70.0,3.0,15.0,62,0,4.0,15.0,15.0,11,6,8,3
-2023,Schändung (Art. 191),männlich,Alle,,,,,59,0,4.0,14.0,14.0,11,5,8,3
-2023,Schändung (Art. 191),männlich,   Partnerschaft,,,,,26,0,1.0,7.0,8.0,5,1,3,1
-2023,Schändung (Art. 191),männlich,   ehemalige Partnerschaft,,,,,14,0,1.0,5.0,1.0,4,3,0,0
-2023,Schändung (Art. 191),männlich,   Eltern-Kind-Beziehung,,,,,10,0,0.0,0.0,6.0,2,0,1,1
-2023,Schändung (Art. 191),männlich,   andere Verwandtschaftsbeziehung,,,,,12,0,2.0,3.0,1.0,0,1,4,1
-2023,Schändung (Art. 191),weiblich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2023,Schändung (Art. 191),weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2023,Schändung (Art. 191),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2023,Schändung (Art. 191),weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2023,Schändung (Art. 191),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2023,Ausnützung der Notlage (Art. 193),Total,Alle,3.0,4.0,0.0,1.0,3,X,0.0,0.0,0.0,X,X,X,X
-2023,Ausnützung der Notlage (Art. 193),männlich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2023,Ausnützung der Notlage (Art. 193),männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2023,Ausnützung der Notlage (Art. 193),männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2023,Ausnützung der Notlage (Art. 193),männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2023,Ausnützung der Notlage (Art. 193),männlich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2023,Ausnützung der Notlage (Art. 193),weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2023,Ausnützung der Notlage (Art. 193),weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2023,Ausnützung der Notlage (Art. 193),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2023,Ausnützung der Notlage (Art. 193),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2023,Ausnützung der Notlage (Art. 193),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2023,Schändung (Art. 191)**,Total,Alle,61.0,70.0,3.0,15.0,62,0,4.0,15.0,15.0,11,6,8,3
+2023,Schändung (Art. 191)**,männlich,Alle,,,,,59,0,4.0,14.0,14.0,11,5,8,3
+2023,Schändung (Art. 191)**,männlich,   Partnerschaft,,,,,26,0,1.0,7.0,8.0,5,1,3,1
+2023,Schändung (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,14,0,1.0,5.0,1.0,4,3,0,0
+2023,Schändung (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,10,0,0.0,0.0,6.0,2,0,1,1
+2023,Schändung (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,12,0,2.0,3.0,1.0,0,1,4,1
+2023,Schändung (Art. 191)**,weiblich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2023,Schändung (Art. 191)**,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2023,Schändung (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2023,Schändung (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2023,Schändung (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2023,Ausnützung der Notlage (Art. 193)***,Total,Alle,3.0,4.0,0.0,1.0,3,X,0.0,0.0,0.0,X,X,X,X
+2023,Ausnützung der Notlage (Art. 193)***,männlich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2023,Ausnützung der Notlage (Art. 193)***,männlich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2023,Ausnützung der Notlage (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2023,Ausnützung der Notlage (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2023,Ausnützung der Notlage (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2023,Ausnützung der Notlage (Art. 193)***,weiblich,Alle,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2023,Ausnützung der Notlage (Art. 193)***,weiblich,   Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2023,Ausnützung der Notlage (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2023,Ausnützung der Notlage (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2023,Ausnützung der Notlage (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2023,Sexuelle Belästigungen (Art. 198),Total,Alle,65.0,66.0,0.0,16.0,65,0,6.0,11.0,23.0,19,4,1,1
 2023,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,63,0,6.0,11.0,22.0,18,4,1,1
 2023,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,18,0,0.0,6.0,5.0,5,2,0,0
@@ -5136,17 +5136,17 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2024,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2024,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2024,Sexuelle Handlungen mit Abhängigen (Art. 188),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,Total,Alle,198.0,211.0,6.0,61.0,199,1,33.0,25.0,48.0,54,22,11,5
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,männlich,Alle,,,,,192,1,31.0,23.0,47.0,52,22,11,5
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,männlich,   Partnerschaft,,,,,101,0,7.0,14.0,27.0,35,12,6,0
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,männlich,   ehemalige Partnerschaft,,,,,42,0,9.0,7.0,9.0,9,7,1,0
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,männlich,   Eltern-Kind-Beziehung,,,,,20,0,0.0,0.0,5.0,9,3,2,1
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,männlich,   andere Verwandtschaftsbeziehung,,,,,33,1,15.0,2.0,6.0,2,1,2,4
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,weiblich,Alle,,,,,7,0,2.0,2.0,1.0,2,0,0,0
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,weiblich,   Partnerschaft,,,,,4,0,1.0,1.0,0.0,2,0,0,0
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,weiblich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)5,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,Total,Alle,198.0,211.0,6.0,61.0,199,1,33.0,25.0,48.0,54,22,11,5
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,männlich,Alle,,,,,192,1,31.0,23.0,47.0,52,22,11,5
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,männlich,   Partnerschaft,,,,,101,0,7.0,14.0,27.0,35,12,6,0
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,männlich,   ehemalige Partnerschaft,,,,,42,0,9.0,7.0,9.0,9,7,1,0
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,männlich,   Eltern-Kind-Beziehung,,,,,20,0,0.0,0.0,5.0,9,3,2,1
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,männlich,   andere Verwandtschaftsbeziehung,,,,,33,1,15.0,2.0,6.0,2,1,2,4
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,weiblich,Alle,,,,,7,0,2.0,2.0,1.0,2,0,0,0
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,weiblich,   Partnerschaft,,,,,4,0,1.0,1.0,0.0,2,0,0,0
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,weiblich,   ehemalige Partnerschaft,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Sexueller Übergriff und sexuelle Nötigung (Art. 189)*,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2024,Vergewaltigung (Art. 190),Total,Alle,469.0,480.0,23.0,157.0,468,0,53.0,85.0,120.0,127,62,18,3
 2024,Vergewaltigung (Art. 190),männlich,Alle,,,,,466,0,53.0,85.0,119.0,127,61,18,3
 2024,Vergewaltigung (Art. 190),männlich,   Partnerschaft,,,,,268,0,20.0,46.0,70.0,81,35,14,2
@@ -5158,28 +5158,28 @@ Jahr,Delikt,Geschlecht,Beziehungsart,Fälle,Straftaten_Total,davon_versucht,davo
 2024,Vergewaltigung (Art. 190),weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2024,Vergewaltigung (Art. 190),weiblich,   Eltern-Kind-Beziehung,,,,,1,X,0.0,0.0,0.0,X,X,X,X
 2024,Vergewaltigung (Art. 190),weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,Total,Alle,54.0,55.0,0.0,8.0,52,0,6.0,9.0,16.0,12,5,3,1
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,männlich,Alle,,,,,51,0,6.0,9.0,15.0,12,5,3,1
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,männlich,   Partnerschaft,,,,,21,0,0.0,6.0,6.0,6,3,0,0
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,männlich,   ehemalige Partnerschaft,,,,,17,0,4.0,4.0,4.0,4,1,0,0
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,männlich,   Eltern-Kind-Beziehung,,,,,7,0,0.0,0.0,3.0,2,1,0,1
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,männlich,   andere Verwandtschaftsbeziehung,,,,,7,0,2.0,0.0,2.0,0,0,3,0
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,Total,Alle,4.0,6.0,0.0,1.0,4,0,0.0,1.0,1.0,1,1,0,0
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,männlich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,männlich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,männlich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
-2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)7,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,Total,Alle,54.0,55.0,0.0,8.0,52,0,6.0,9.0,16.0,12,5,3,1
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,männlich,Alle,,,,,51,0,6.0,9.0,15.0,12,5,3,1
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,männlich,   Partnerschaft,,,,,21,0,0.0,6.0,6.0,6,3,0,0
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,männlich,   ehemalige Partnerschaft,,,,,17,0,4.0,4.0,4.0,4,1,0,0
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,männlich,   Eltern-Kind-Beziehung,,,,,7,0,0.0,0.0,3.0,2,1,0,1
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,männlich,   andere Verwandtschaftsbeziehung,,,,,7,0,2.0,0.0,2.0,0,0,3,0
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)**,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,Total,Alle,4.0,6.0,0.0,1.0,4,0,0.0,1.0,1.0,1,1,0,0
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,männlich,Alle,,,,,3,X,0.0,0.0,0.0,X,X,X,X
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,männlich,   Partnerschaft,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,männlich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,männlich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,männlich,   andere Verwandtschaftsbeziehung,,,,,2,X,0.0,0.0,0.0,X,X,X,X
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,weiblich,Alle,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,weiblich,   Partnerschaft,,,,,1,X,0.0,0.0,0.0,X,X,X,X
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,weiblich,   ehemalige Partnerschaft,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,weiblich,   Eltern-Kind-Beziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
+2024,Ausnützung einer Notlage oder Abhängigkeit (Art. 193)***,weiblich,   andere Verwandtschaftsbeziehung,,,,,0,0,0.0,0.0,0.0,0,0,0,0
 2024,Sexuelle Belästigungen (Art. 198),Total,Alle,108.0,113.0,0.0,20.0,107,0,5.0,15.0,35.0,30,16,3,3
 2024,Sexuelle Belästigungen (Art. 198),männlich,Alle,,,,,104,0,5.0,15.0,34.0,29,16,2,3
 2024,Sexuelle Belästigungen (Art. 198),männlich,   Partnerschaft,,,,,34,0,2.0,4.0,13.0,11,3,0,1

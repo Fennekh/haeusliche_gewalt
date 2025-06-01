@@ -94,24 +94,7 @@ layout = html.Div([
     html.H3("Wie verändert sich die Anzahl Straftaten und Betroffene in Häuslicher Gewalt?",
             style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20,'paddingBottom': 0}),
     # Haupt-Grafik + Zusammenfassung
-    dbc.Row([
-        dbc.Col(
-            dcc.Graph(id='zeitliche-entwicklung-straftaten'),
-            width=8,
-        ),
-        dbc.Col([
-            html.H4("Was ist Häusliche Gewalt?"),
-            html.P("Unter Häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt innerhalb einer Familie oder in einer aktuellen oder aufgelösten Paarbeziehung."),
-            html.P([
-                "Der ", html.B("Strafbestand wir mit Mehrfach gekennzeichnet"),
-                " wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt",
 
-                " gekennzeichnet."
-            ]),
-            html.H1("21'127", style={'marginTop': 10}),
-            html.P("Straftaten Häusliche Gewalt 2024")
-        ], width=4, style={'marginTop': 40})
-    ]),
 
     # Tabelle + weitere Visualisierungen
     dbc.Row([
@@ -154,100 +137,7 @@ html.P([html.B(" Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschät
 
 # Hier registrieren wir die Callbacks für diesen Tab
 def register_callbacks(app):
-    @app.callback(
-        Output('zeitliche-entwicklung-straftaten', 'figure'),
-        Input('zeitliche-entwicklung-straftaten', 'id')
-    )
-    def update_zeitliche_entwicklung_straftaten(_):
 
-
-        # Daten nach Zeitraum filtern
-        opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= 2009) & (opfer_total['Jahr'] <= 2024)]
-
-        # Opfer über Zeit Visualisierung erstellen
-        # Erstelle die Grafik
-        fig = go.Figure()
-
-        # bar für Straftaten total
-
-
-        fig.add_trace(go.Bar(
-            x=opfer_total['Jahr'],
-            y=opfer_total['Straftaten_Total'],
-            name='Straftaten Total',
-            width=0.8,
-            marker_color='#bdbdbd',
-        marker = dict(
-            color='#bdbdbd',  # Hintergrundfarbe
-            pattern=dict(
-                shape="",  # Musterform
-                fgcolor='white',  # Musterfarbe
-                size=20,
-                solidity=0.05,
-                fgopacity=0.4
-            )
-        )
-        ))
-
-        fig.add_trace(go.Bar(
-            x=opfer_total['Jahr'],
-            y=opfer_total['davon_mehrfach'],
-            name='Davon mehrfach Total',
-            width=0.8,
-
-            marker=dict(
-                color=color_all,  # Hintergrundfarbe
-
-            )
-        ))
-
-
-
-
-        # Layout anpassen
-        fig.update_layout(
-            barmode='overlay',
-
-            title=dict(
-                text="Anzahl registrierte Straftaten Häuslicher Gewalt 2009-2024",
-                font=dict(size=16),  # kleiner
-                pad=dict(t=0, b=0)  # Padding oben/unten auf 0 setzen
-            ),
-
-            xaxis_title='',
-            yaxis_title='',
-            template='plotly_white',
-            bargap=0.5,
-
-            xaxis=dict(
-                range=[2009 - 0.5, 2024 + 0.5],
-                tickmode='linear',
-                dtick=1, # Jährliche Ticks
-
-                linecolor='black',  # X-Achsenlinie dunkelgrau
-                linewidth=1,
-                showline=True,  # Zeige X-Achsenlinie
-                gridcolor='#e5e5e5', # Hellgraue vertikale Gitterlinien
-                showgrid = False,
-            ),
-            yaxis=dict(
-                gridcolor='#e5e5e5',  # Hellgraue horizontale Gitterlinien
-                zeroline=False,
-
-            ),
-
-
-            legend=dict(
-                orientation="v",  # horizontale Ausrichtung
-                yanchor="bottom",  # vertikale Verankerung unten
-                y=0.8,
-                xanchor="left",
-                x=0.018  # ganz rechts
-            )
-
-        )
-
-        return fig
 
     # Grafik Zeitliche Entwilcung Opfer
     @app.callback(
