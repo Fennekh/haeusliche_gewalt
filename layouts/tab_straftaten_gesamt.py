@@ -192,13 +192,17 @@ def register_callbacks(app):
                 html.H4("Was ist Häusliche Gewalt?"),
                 html.P("Unter Häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt "
                        "innerhalb einer Familie oder Beziehung."),
-                html.P([
+
+
+                dbc.Row([
+                    dbc.Col([html.H1("21'127"),
+                html.P("Straftaten Häusliche Gewalt 2024")]),
+                    dbc.Col([html.H1("5695"), html.P("Davon mehrfach 2024")])
+                ]),html.P([
                     "Der ", html.B("Strafbestand wird mit Mehrfach gekennzeichnet"),
                     ", wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird."
                 ]),
-                html.H1("21'127", style={'marginTop': 10}),
-                html.P("Straftaten Häusliche Gewalt 2024")
-            ])
+            ],style={'marginTop': 95})
         else:
             # Linien-Ansicht Betroffene – mit Styling aus Originalversion
             opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= 2009) & (opfer_total['Jahr'] <= 2024)]
@@ -256,14 +260,14 @@ def register_callbacks(app):
             text = html.Div([
                 html.H4("Wie viele Personen sind betroffen?"),
                 dbc.Row([
-                    dbc.Col([html.H2("11'041"), html.P("Täter:innen im Jahr 2024")]),
-                    dbc.Col([html.H2("11'849"), html.P("Opfer im Jahr 2024")])
+                    dbc.Col([html.H1("11'041"), html.P("Täter:innen im Jahr 2024")]),
+                    dbc.Col([html.H1("11'849"), html.P("Opfer im Jahr 2024")])
                 ]),
                 html.P([
                     html.B("Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschätzt."),
                     " Bei Tätlichkeiten und Körperverletzungen werden z. B. 28,9 %, bei sexueller Gewalt 10,5 % der Fälle angezeigt (Uni St.Gallen 2023)."
                 ])
-            ])
+            ],style={'marginTop': 95})
 
         return fig, text
 

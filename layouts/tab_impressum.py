@@ -39,87 +39,73 @@ pio.templates.default = "roboto"
 
 # Layout für den ersten Tab (Zeitliche Entwicklung)
 layout = html.Div([
-    html.H3("Wie verändert sich die Anzahl Straftaten und Betroffene in Häuslicher Gewalt?",
-            style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20,'paddingBottom': 0}),
-    # Haupt-Grafik + Zusammenfassung
-    dbc.Row([
-        dbc.Col([
-            html.H4("Was ist Häusliche Gewalt?"),
-            html.P(
-                "Unter Häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt innerhalb einer Familie oder in einer aktuellen oder aufgelösten Paarbeziehung."),
-            html.P([
-                "Der ", html.B("Strafbestand wir mit Mehrfach gekennzeichnet"),
-                " wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt",
+    html.H3("Impressum & Projektdokumentation", style={'marginTop': 20, 'marginBottom': 10}),
 
-                " gekennzeichnet."
-            ]),
-            html.H1("21'127", style={'marginTop': 10}),
-            html.P("Straftaten Häusliche Gewalt 2024")
-        ], width=4, style={'marginTop': 40}),
+    html.H4("Projektbeschreibung"),
+    html.P("Ein interaktives Dashboard zur Visualisierung und Analyse von registrierten Straftaten im Bereich häuslicher Gewalt in der Schweiz, basierend auf Daten von 2009 bis 2024."),
 
-        dbc.Col([
-            html.H4("Was ist Häusliche Gewalt?"),
-            html.P("Unter Häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt innerhalb einer Familie oder in einer aktuellen oder aufgelösten Paarbeziehung."),
-            html.P([
-                "Der ", html.B("Strafbestand wir mit Mehrfach gekennzeichnet"),
-                " wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt",
+    html.H4("Ziel des Dashboards"),
+    html.P("Das Dashboard richtet sich an Fachpersonen aus Statistik, Prävention, Medien und Politik, um Trends, Geschlechterunterschiede und wiederholte Tatmuster schnell erfassbar zu machen."),
 
-                " gekennzeichnet."
-            ]),
-            html.H1("21'127", style={'marginTop': 10}),
-            html.P("Straftaten Häusliche Gewalt 2024")
-        ], width=4, style={'marginTop': 40}),
+    html.H4("Datenquelle"),
+    html.Ul([
+        html.Li("Polizeiliche Kriminalstatistik Schweiz (BFS), 2009–2024"),
+        html.Li("Verwendete Formate: CSV-Dateien (statisch)"),
+        html.Li("Datenbasis: öffentlich zugänglich über bfs.admin.ch")
     ]),
 
-    # Tabelle + weitere Visualisierungen
-    dbc.Row([
+    html.H4("Spaltenbeschreibung"),
+    dash_table.DataTable(
+        columns=[
+            {"name": "Spalte", "id": "Spalte"},
+            {"name": "Beschreibung", "id": "Beschreibung"}
+        ],
+        data=[
+            {"Spalte": "Jahr", "Beschreibung": "Kalenderjahr der Erhebung"},
+            {"Spalte": "Delikt", "Beschreibung": "Kategorie des Delikts (z. B. Körperverletzung)"},
+            {"Spalte": "Beziehungsart", "Beschreibung": "Art der Beziehung zwischen Täter:in und Opfer"},
+            {"Spalte": "Geschlecht", "Beschreibung": "Geschlecht der betroffenen Person"},
+            {"Spalte": "Straftaten_Total", "Beschreibung": "Gesamtzahl registrierter Straftaten"},
+            {"Spalte": "davon_mehrfach", "Beschreibung": "Wiederholte Fälle derselben betroffenen Person"}
+        ],
+        style_table={'marginBottom': '20px'},
+        style_cell={'textAlign': 'left', 'padding': '5px'},
+        style_header={'fontWeight': 'bold', 'backgroundColor': '#f5f5f5'}
+    ),
 
-        dbc.Col([
-            html.H4("Wie viele Personen sind betroffen?"),
-            dbc.Row([
-                dbc.Col([
-                    html.H2("11'041"),
-                    html.P("Täter:innen im Jahr 2024")
-                ]),
-                dbc.Col([
-                    html.H2("11'849"),
-                    html.P("Opfer im Jahr 2024")
-                ])
-            ]),
-
-            html.P([html.B(" Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschätzt."),
-                    " Bei Tätlichkeiten und Körperverletzungen werden beispielsweise 28,9 Prozent, bei sexueller Gewalt 10,5 Prozent der Fälle angezeigt (Uni St.Gallen 2023)."]),
-
-        ], width=4, style={'marginTop': 40}),
-
-        dbc.Col([
-            html.H4("Wie viele Personen sind betroffen?"),
-            dbc.Row([
-                dbc.Col([
-                    html.H2("11'041"),
-                    html.P("Täter:innen im Jahr 2024")
-                ]),
-                dbc.Col([
-                    html.H2("11'849"),
-                    html.P("Opfer im Jahr 2024")
-                ])
-            ]),
-
-html.P([html.B(" Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschätzt."),
-        " Bei Tätlichkeiten und Körperverletzungen werden beispielsweise 28,9 Prozent, bei sexueller Gewalt 10,5 Prozent der Fälle angezeigt (Uni St.Gallen 2023)."]),
-
-        ],  width=4, style={'marginTop': 40}),
+    html.H4("Technische Umsetzung"),
+    html.Ul([
+        html.Li("Python mit Dash und Plotly für interaktive Visualisierungen"),
+        html.Li("Dash Bootstrap Components für responsives Layout"),
+        html.Li("Statisches CSV-Datenmodell ohne Backend-Anbindung")
     ]),
 
+    html.H4("Interaktionsmöglichkeiten"),
+    html.Ul([
+        html.Li("Hover-Tooltips in Diagrammen mit Detailwerten"),
+        html.Li("Tabs zur Navigation durch unterschiedliche Analysebereiche"),
+        html.Li("Dynamische Diagrammaktualisierung bei Filteranpassungen (z. B. nach Geschlecht)")
+    ]),
 
+    html.H4("Limitationen"),
+    html.Ul([
+        html.Li("Keine Prognosen oder Machine Learning-Analysen enthalten"),
+        html.Li("Keine Daten auf Kantons-/Gemeindeebene"),
+        html.Li("Statische Daten ohne automatische Aktualisierung"),
+    ]),
 
-    # Fußnote
-    html.Div([
-        html.Hr(),
-        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
-               style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888'})
-    ])
+    html.H4("Verbesserungsideen"),
+    html.Ul([
+        html.Li("Erweiterung um Deliktartenvergleich oder kantonale Ebene"),
+        html.Li("Integration von Prognosefunktionen (z. B. mit Prophet oder PyCaret)"),
+        html.Li("Datenaktualisierung per API oder automatisierter ETL-Prozess")
+    ]),
+
+    html.Hr(),
+    html.P("Dieses Dashboard wurde im Rahmen eines Data-Science-Projekts entwickelt. Alle Daten basieren auf öffentlich zugänglichen Quellen und dienen der Veranschaulichung gesellschaftlich relevanter Themen.",
+           style={'fontStyle': 'italic', 'fontSize': 12, 'color': '#888', 'textAlign': 'center'})
 ])
+
 
 
 def register_callbacks(app):

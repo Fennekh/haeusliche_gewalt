@@ -73,19 +73,36 @@ df_be_year = df_be[df_be["Jahr"] == 2024]
 
 # Layout
 layout = html.Div([
-    html.H3("Wie hat sich das Geschlechterverhältnis verändert?",
+    html.Div([
+        html.H3([
+            "In welcher Beziehung standen Täter:innen und Opfer?",
+            html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"})
+        ],
             style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+
+        dbc.Tooltip(
+            "Die Zahlen Bei Täter:innen und Opfer unterscheiden sich, da Täter:innen mehrere Opfer haben können und umgekehrt.",
+            target="info-icon",
+            placement="right"
+        ),
+    ]),
 
     dcc.Store(id='button-bez-state', data='absolute'),
 
     html.Div([
-        dbc.ButtonGroup([
-            dbc.Button("Prozentuale Verteilung", id="btn-bez-set1", n_clicks=0, className=default_class),
-            dbc.Button("Absolute Zahlen", id="btn-bez-set2", n_clicks=0, className=dark_border_class),
-        ], size="md", className="mb-4",
-
-            style={"width": "350px", "margin": "20px auto", "gap": "10px", "marginLeft": "20px"}
-        )
+        dbc.Row([
+            dbc.Col(dbc.ButtonGroup([
+                dbc.Button("Prozentuale Verteilung", id="btn-bez-set1", n_clicks=0, className=default_class),
+                dbc.Button("Absolute Zahlen", id="btn-bez-set2", n_clicks=0, className=dark_border_class),
+            ], size="md", className="mb-4"), width="auto"),
+            dbc.Col(dcc.Dropdown(
+                id='jahr-dropdown',
+                options=[{"label": str(j), "value": j} for j in sorted(df["Jahr"].unique())],
+                value=2024,
+                clearable=False,
+                style={"width": "150px"}
+            ), width="auto", style={"marginLeft": "20px", "marginTop": "5px"})
+        ], style={"marginLeft": "20px", "gap": "10px"})
     ]),
     dbc.Row([
         dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked', style={
@@ -98,7 +115,7 @@ layout = html.Div([
             'minHeight': '300px',
             'textAlign': 'left',
         }), width=6),
-    ]),
+    ], style={'margin-left': '40px'}),
 
     html.Div([
         html.Hr(),
@@ -111,19 +128,21 @@ layout = html.Div([
 def register_callbacks(app):
     @app.callback(
         Output('graph-beziehung-opfer-stacked', 'figure'),
-        Input('graph-beziehung-opfer-stacked', 'id'),
-        Input('button-bez-state', 'data')
+        Input('button-bez-state', 'data'),
+        Input('jahr-dropdown', 'value')
     )
-    def update_beziehung_opfer_stacked(_, view_mode):
+    def update_beziehung_opfer_stacked(view_mode, selected_year):
+        df_year = df[df["Jahr"] == selected_year]
+
         if view_mode == 'absolute':
             grouped = df_year.groupby(['Beziehungsart', 'Geschlecht'])[
                 'Anzahl_geschaedigter_Personen_Total'].sum().reset_index()
-            y_axis_title = 'Anzahl Personen'
-            title_text = 'Opfer nach Beziehungsart zur Täterschaft (2024, absolute Zahlen)'
+            y_axis_title = ''
+            title_text = f'Opfer nach Beziehungsart zur Täterschaft ({selected_year}, absolute Zahlen)'
         else:
             grouped = df_year.groupby(['Beziehungsart', 'Geschlecht'])['Prozentanteil'].sum().reset_index()
             y_axis_title = 'Anteil in %'
-            title_text = 'Opfer nach Beziehungsart zur Täterschaft (2024, Anteile in %)'
+            title_text = f'Opfer nach Beziehungsart zur Täterschaft ({selected_year}, Anteile nach Geschlecht in %)'
 
         grouped['Beziehungsart'] = pd.Categorical(grouped['Beziehungsart'], categories=relevante_beziehungen,
                                                   ordered=True)
@@ -156,26 +175,33 @@ def register_callbacks(app):
                 text=title_text,
                 x=0.01,
                 xanchor="left"
-            )
+            ),
+        xaxis = dict(
+            tickangle=0,  # horizontal
+            tickfont=dict(size=11)  # kleinere Schrift
+        )
         )
 
         return fig
 
     @app.callback(
         Output('graph-beziehung-taeter-stacked', 'figure'),
-        Input('graph-beziehung-taeter-stacked', 'id'),
-        Input('button-bez-state', 'data')
+        Input('button-bez-state', 'data'),
+        Input('jahr-dropdown', 'value')
     )
-    def update_beziehung_taeter_stacked(_, view_mode):
+    def update_beziehung_taeter_stacked(view_mode, selected_year):
+        df_be_year = df_be[df_be["Jahr"] == selected_year]
+
         if view_mode == 'absolute':
             grouped = df_be_year.groupby(['Beziehungsart', 'Geschlecht'])[
                 'Anzahl_beschuldigter_Personen_Total'].sum().reset_index()
-            y_axis_title = 'Anzahl Personen'
-            title_text = 'Täter:innen nach Beziehungsart zum Opfer (2024, absolute Zahlen)'
+            y_axis_title = ''
+            title_text = f'Täter:innen nach Beziehungsart zum Opfer ({selected_year}, absolute Zahlen)'
         else:
             grouped = df_be_year.groupby(['Beziehungsart', 'Geschlecht'])['Prozentanteil'].sum().reset_index()
-            y_axis_title = 'Anteil in %'
-            title_text = 'Täter:innen nach Beziehungsart zum Opfer (2024, Anteile in %)'
+            y_axis_title = ''
+            title_text = f'Täter:innen nach Beziehungsart zum Opfer ({selected_year}, Anteile nach Geschlecht in %)'
+
 
         grouped['Beziehungsart'] = pd.Categorical(grouped['Beziehungsart'], categories=relevante_beziehungen,
                                                   ordered=True)
@@ -203,11 +229,16 @@ def register_callbacks(app):
             barmode='group',
             xaxis_title='Beziehungsart',
             yaxis_title=y_axis_title,
-            legend_title='Geschlecht',
+            legend_title='',
+            showlegend=False,
             title=dict(
                 text=title_text,
                 x=0.01,
                 xanchor="left"
+            ),
+            xaxis=dict(
+                tickangle=0,  # horizontal
+                tickfont=dict(size=11)  # kleinere Schrift
             )
         )
 

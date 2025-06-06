@@ -249,8 +249,8 @@ layout = html.Div([
             html.Th("Anzahl Straftaten 2024", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
             html.Th("Straftaten Trend (2009 – 2024)", style=header_style),
             html.Th("Veränderung Straftaten (%)", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
-            html.Th("Geschlechterverhältnis (Täter:innen)", style=header_style),
-            html.Th("Geschlechterverhältnis (Opfer)", style=header_style),
+            html.Th(["Geschlechterverhältnis", html.Br(), "(Täter:innen)"], style=header_style),
+            html.Th(["Geschlechterverhältnis", html.Br(), "(Opfer)"], style=header_style),
             html.Th("Häufigste Beziehungsart (Täter:innen)", style=header_style),
             html.Th("Häufigste Beziehungsart (Opfer)", style=header_style),
             html.Th("Häufigstes Alter (Täter:innen)", style=header_style),
@@ -258,7 +258,7 @@ layout = html.Div([
         ])),
         html.Tbody([
             html.Tr([
-                html.Td(row['Delikt'], style=title_cell_style),
+                html.Td(row['Delikt'], style={**title_cell_style, 'fontWeight': 'bold'}),
                 html.Td(f"{row['Anzahl']:,}", style={**cell_style, 'textAlign': 'right'}),
                 html.Td(html.Img(src=row['Trend_src'], style={'height': '30px'}), style=cell_style),
                 html.Td(row['Veränderung'], style={**cell_style, 'textAlign': 'right'}),
