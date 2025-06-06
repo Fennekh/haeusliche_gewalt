@@ -3,7 +3,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from dash import dcc, html, dash_table
 import dash_bootstrap_components as dbc
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 import plotly.io as pio
 
@@ -367,7 +367,7 @@ def register_callbacks(app):
             x=x_women,
             orientation='h',
             name='Weiblich',
-            marker_color='maroon'
+            marker_color=color_women,
         ))
 
         fig.add_trace(go.Bar(
@@ -375,7 +375,7 @@ def register_callbacks(app):
             x=x_men,
             orientation='h',
             name='Männlich',
-            marker_color='royalblue'
+            marker_color=color_men
         ))
 
         # Layout
@@ -410,4 +410,19 @@ def register_callbacks(app):
             return f"Ausgewähltes Jahr: {jahr_start}"
         else:
             return f"Ausgewählter Zeitraum: {jahr_start} - {jahr_ende}"
+
+    @app.callback(
+        Output('jahr-pyramide-dropdown-tab3', 'value'),
+        [Input('altersgruppen-trend', 'clickData')],
+        [State('jahr-pyramide-dropdown-tab3', 'value')]  # damit bei keinem Klick der alte Wert bleibt
+    )
+    def update_jahr_from_trend_click(clickData, current_value):
+        if clickData is None:
+            raise PreventUpdate
+
+        try:
+            clicked_year = int(clickData['points'][0]['x'])
+            return clicked_year
+        except (KeyError, ValueError, IndexError):
+            return current_value  # bei Fehler aktuellen Wert beibehalten
 
