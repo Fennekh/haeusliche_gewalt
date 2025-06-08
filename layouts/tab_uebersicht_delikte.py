@@ -5,6 +5,16 @@ from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import pandas as pd
 import base64
+import plotly.io as pio
+from dash import ctx
+plotly_font = dict(
+    family="Arimo, sans-serif",
+    size=14,
+    color="black"
+)
+pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
+pio.templates.default = "arimo"
+
 
 # --- Farben ---
 color_women = "#cb4d1d"
@@ -240,8 +250,39 @@ header_style = {'padding': '0 10px', 'whiteSpace': 'normal'}
 
 # --- Dash Layout ---
 layout = html.Div([
-    html.H3("Übersicht Delikte Häusliche Gewalt (Stand 2024, aufsteigend Anzahl Straftaten)",
-            style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20, 'paddingBottom': 0}),
+    html.H2("Welche Delikte gibt es? ",
+            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '20px', 'marginTop': 48,  'fontWeight': 600 }),
+
+    dcc.Store(id='sort-direction', data='desc'),
+
+        html.Div([
+            dbc.ButtonGroup([
+                dbc.Button("Absteigend nach Anzahl Straftaten", id="btn-desc", n_clicks=0, className="toggle-btn active"),
+                dbc.Button("Aufsteigend nach Anzahl Straftaten", id="btn-asc", n_clicks=0, className="toggle-btn"),
+            ], style={'marginLeft': '40px', 'marginTop': '20px'})
+        ]),
+
+
+#Legende
+    html.Div([
+        html.Span(style={
+            'display': 'inline-block',
+            'width': '15px',
+            'height': '15px',
+            'backgroundColor': color_women,
+            'marginRight': '5px'
+        }),
+        html.Span("Weiblich", style={'marginRight': '15px'}),
+
+        html.Span(style={
+            'display': 'inline-block',
+            'width': '15px',
+            'height': '15px',
+            'backgroundColor': color_men,
+            'marginRight': '5px'
+        }),
+        html.Span("Männlich")
+    ], style={'marginLeft': '40px', 'marginTop': '20px'}),
 
     html.Table([
         html.Thead(html.Tr([
@@ -256,25 +297,12 @@ layout = html.Div([
             html.Th("Häufigstes Alter (Täter:innen)", style=header_style),
             html.Th("Häufigstes Alter (Opfer)", style=header_style)
         ])),
-        html.Tbody([
-            html.Tr([
-                html.Td(row['Delikt'], style={**title_cell_style, 'fontWeight': 'bold'}),
-                html.Td(f"{row['Anzahl']:,}", style={**cell_style, 'textAlign': 'right'}),
-                html.Td(html.Img(src=row['Trend_src'], style={'height': '30px'}), style=cell_style),
-                html.Td(row['Veränderung'], style={**cell_style, 'textAlign': 'right'}),
-                html.Td(html.Img(src=row['Geschlechterverhältnis_taeter_src'], style={'height': '20px'}), style=cell_style),
-                html.Td(html.Img(src=row['Geschlechterverhältnis_src'], style={'height': '20px'}), style=cell_style),
-                html.Td(row['Häufigste_Beziehungsart_Taeter'], style=cell_style),
-                html.Td(row['Häufigste_Beziehungsart_Opfer'], style=cell_style),
-                html.Td(row['Häufigstes_Alter_Taeter'], style=cell_style),
-                html.Td(row['Häufigstes_Alter_Opfer'], style=cell_style)
-            ], style={'borderBottom': '1px solid #ddd', 'lineHeight': '1.8'})
-            for row in table_data
-        ])
+        html.Tbody(id="delikte-table"),
     ], style={
         'width': '95%',
         'margin': 40,
-        'fontSize': '12px',
+        'marginTop': 16,
+        'fontSize': '13px',
         'borderCollapse': 'collapse'
     }),
     html.Div([
@@ -307,8 +335,59 @@ layout = html.Div([
 # Hier registrieren wir die Callbacks für diesen Tab
 def register_callbacks(app):
 
+    # Toggle Button Logik
+    @app.callback(
+        Output("btn-asc", "className"),
+        Output("btn-desc", "className"),
+        Output("sort-direction", "data"),
+        Input("btn-asc", "n_clicks"),
+        Input("btn-desc", "n_clicks"),
+        prevent_initial_call=True
+    )
+    def update_sort_direction(n_asc, n_desc):
+        if ctx.triggered_id == "btn-asc":
+            return "toggle-btn active", "toggle-btn", "asc"
+        else:
+            return "toggle-btn", "toggle-btn active", "desc"
 
+    # Tabelle aktualisieren je nach Sortierung
+    @app.callback(
+        Output("delikte-table", "children"),
+        Input("sort-direction", "data")
+    )
+    def update_table(sort_order):
+        sorted_summary = sorted(trend_summary, key=lambda x: x["Anzahl"], reverse=(sort_order == "desc"))
 
+        rows = []
+        for item in sorted_summary:
+            delikt = item["Delikt"]
+            alt_info = {**top_alter_opfer.get(delikt, {}), **top_alter_taeter.get(delikt, {})}
+            bez_info = {**top_beziehung_opfer.get(delikt, {}), **top_beziehung_taeter.get(delikt, {})}
+
+            m = geschlecht_pivot.loc[delikt]["Anzahl_geschaedigter_Personen_Total"]["männlich"] if delikt in geschlecht_pivot.index else 0
+            w = geschlecht_pivot.loc[delikt]["Anzahl_geschaedigter_Personen_Total"]["weiblich"] if delikt in geschlecht_pivot.index else 0
+            img_gender_opfer = geschlechter_balken_plotly(m, w)
+
+            m_t = geschlecht_pivot_taeter.loc[delikt]["Anzahl_beschuldigter_Personen_Total"]["männlich"] if delikt in geschlecht_pivot_taeter.index else 0
+            w_t = geschlecht_pivot_taeter.loc[delikt]["Anzahl_beschuldigter_Personen_Total"]["weiblich"] if delikt in geschlecht_pivot_taeter.index else 0
+            img_gender_taeter = geschlechter_balken_plotly(m_t, w_t)
+
+            row = html.Tr([
+                html.Td(delikt, style={**title_cell_style, 'fontWeight': 'bold'}),
+                html.Td(f"{item['Anzahl']:,}", style={**cell_style, 'textAlign': 'right'}),
+                html.Td(html.Img(src=item['Trend_img'], style={'height': '30px'}), style=cell_style),
+                html.Td(item["Veränderung"], style={**cell_style, 'textAlign': 'right'}),
+                html.Td(html.Img(src=f"data:image/png;base64,{img_gender_taeter}", style={'height': '20px'}), style=cell_style),
+                html.Td(html.Img(src=f"data:image/png;base64,{img_gender_opfer}", style={'height': '20px'}), style=cell_style),
+                html.Td(bez_info.get("Häufigste Beziehung (Täter)", "–"), style=cell_style),
+                html.Td(bez_info.get("Häufigste Beziehung (Opfer)", "–"), style=cell_style),
+                html.Td(alt_info.get("Häufigstes Alter (Täter)", "–"), style=cell_style),
+                html.Td(alt_info.get("Häufigstes Alter (Opfer)", "–"), style=cell_style)
+            ], style={'borderBottom': '1px solid #ddd', 'lineHeight': '1.8'})
+
+            rows.append(row)
+
+        return rows
     # Callback für die Anzeige des ausgewählten Zeitraums
     @app.callback(
         Output('zeitraum-info-tab2', 'children'),

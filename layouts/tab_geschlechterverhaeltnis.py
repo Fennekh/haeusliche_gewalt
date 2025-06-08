@@ -8,6 +8,13 @@ import plotly.graph_objects as go
 import pandas as pd
 import plotly.io as pio
 
+plotly_font = dict(
+    family="Arimo, sans-serif",
+    size=14,
+    color="black"
+)
+pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
+pio.templates.default = "arimo"
 # Farben
 dark_border_class = "toggle-btn active"
 default_class = "toggle-btn"
@@ -37,8 +44,8 @@ taeter_total = taeter[taeter["Geschlecht"] == "Total"]
 
 # Layout
 layout = html.Div([
-    html.H3("Wie hat sich das Geschlechterverhältnis verändert?",
-            style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20}),
+    html.H2("Wie hat sich das Geschlechterverhältnis verändert?",
+            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '20px', 'marginTop': 48,  'fontWeight': 600 }),
 
     dcc.Store(id='button-state', data='percent'),
 
@@ -47,7 +54,7 @@ layout = html.Div([
             dbc.Button("Prozentuale Verteilung", id="btn-set1", n_clicks=0, className=dark_border_class),
             dbc.Button("Absolute Zahlen", id="btn-set2", n_clicks=0, className=default_class),
         ], size="md", className="mb-4",
-            style={"width": "350px", "margin": "20px auto", "gap": "10px", "marginLeft": "20px"}
+            style={"width": "350px", "margin": "40px auto", "marginLeft": "40px", 'marginTop': '20px'}
         )
     ]),
 
@@ -108,20 +115,41 @@ def register_callbacks(app):
         fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männlich', marker_color=color_men)
         fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weiblich', marker_color=color_women)
 
-        fig.update_layout(barmode='stack', title='Opfer nach Geschlecht (2009–2024, Anteile in %)', showlegend=True,
-                          template="plotly_white", bargap=0.1)
+        fig.update_layout(barmode='stack', title='Opfer nach Geschlecht (2009–2024, Anteile in %)',
+                          template="plotly_white", bargap=0.1,
+                            showlegend = True,
+                            legend = dict(
+                                title="",
+                                x=0.98,
+                                y=1.1,
+                                xanchor='right',
+                                yanchor='top',
+                                bgcolor='rgba(255,255,255,0.5)',  # halbtransparenter Hintergrund
+                                bordercolor='lightgrey',
+                                borderwidth=1,
+                                font=dict(color='black')) )
         return fig
 
     def update_entwicklung_opfer():
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x=opfer_maenlich['Jahr'], y=opfer_maenlich['Anzahl_geschaedigter_Personen_Total'],
-                                 mode='lines+markers', name='Opfer männlich', line=dict(width=1.5, color=color_men)))
         fig.add_trace(go.Scatter(x=opfer_weiblich['Jahr'], y=opfer_weiblich['Anzahl_geschaedigter_Personen_Total'],
-                                 mode='lines+markers', name='Opfer weiblich', line=dict(width=1.5, color=color_women)))
+                                 mode='lines+markers', name='Weiblich', line=dict(width=1.5, color=color_women)))
+        fig.add_trace(go.Scatter(x=opfer_maenlich['Jahr'], y=opfer_maenlich['Anzahl_geschaedigter_Personen_Total'],
+                                 mode='lines+markers', name='Männlich', line=dict(width=1.5, color=color_men)))
         fig.add_trace(go.Scatter(x=opfer_total['Jahr'], y=opfer_total['Anzahl_geschaedigter_Personen_Total'],
                                  mode='lines+markers', name='Gesamt', line=dict(width=1.5, color=color_all), opacity=0.1))
         fig.update_layout(title="Opfer nach Geschlecht (2009–2024, Anzahl Personen)", xaxis_title="Jahr",
-                          yaxis_title="Anzahl Personen", template="plotly_white", hovermode="x unified")
+                          yaxis_title="Anzahl Personen", template="plotly_white", hovermode="x unified",  showlegend = True,
+        legend = dict(
+            title="",
+            x=0.98,
+            y=1.15,
+            xanchor='right',
+            yanchor='top',
+            bgcolor='rgba(255,255,255,0.5)',  # halbtransparenter Hintergrund
+            bordercolor='lightgrey',
+            borderwidth=1,
+            font=dict(color='black')))
         return fig
 
     @app.callback(

@@ -36,9 +36,9 @@ app.layout = html.Div([
     dcc.Tabs(id="tabs", value='tab1',
              className="tab-container", children=[
         dcc.Tab(label='Übersicht einzelne Delikte', value='tab1'),
-        dcc.Tab(label='Zeitliche Entwicklung Total', value='tab2'),
+        dcc.Tab(label='Zeitliche Entwicklung', value='tab2'),
         dcc.Tab(label='Entwicklung Geschlechterverhältnis', value='tab4'),
-        dcc.Tab(label='Beziehungen', value='tab5'),
+        dcc.Tab(label='Beziehungsarten', value='tab5'),
         dcc.Tab(label='Entwicklung Altersverteilung', value='tab6'),
         dcc.Tab(label='Impressum', value='tab7'),
 

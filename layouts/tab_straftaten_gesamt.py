@@ -10,33 +10,24 @@ from dash import dash_table
 import matplotlib.pyplot as plt
 import io
 import plotly.io as pio
+plotly_font = dict(
+    family="Arimo, sans-serif",
+    size=14,
+    color="black"
+)
+pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
+pio.templates.default = "arimo"
 
-#------ Variabeln überall gleich
 
-#Variabeln
+
+#------ Farben überall gleich
+
 color_women = "#811616"
 color_men = "#0a0a35"
 color_all = "black"
 
-# Roboto-Template definieren (bei allen seiten machen?)
-pio.templates["roboto"] = go.layout.Template(
-    layout=dict(
-        font=dict(
-            family="roboto",
-            size=14,
-            color="black"
-        )
-    )
-)
-
-# Roboto als Standard setzen
-pio.templates.default = "roboto"
-#------
 
 
-
-
-#------
 #Daten laden
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
 taeter = pd.read_csv("data/beschuldigte_tidy.csv")
@@ -91,8 +82,8 @@ opfer_total = opfer[opfer["Geschlecht"] == "Total"]
 
 # Layout für den ersten Tab (Zeitliche Entwicklung)
 layout = html.Div([
-    html.H3("Wie verändert sich die Anzahl Straftaten und Betroffene in Häuslicher Gewalt?",
-            style={'textAlign': 'left', 'marginTop': 20, 'marginLeft': 20, 'paddingBottom': 0}),
+    html.H2("Wie verändert sich die Anzahl Straftaten und Betroffene in Häuslicher Gewalt?",
+            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '20px', 'marginTop': 48,  'fontWeight': 600 }),
 
     dcc.Store(id='toggle-view-state', data='straftaten'),
 
@@ -102,7 +93,7 @@ layout = html.Div([
             dbc.ButtonGroup([
                 dbc.Button("Straftaten", id="btn-straftaten", n_clicks=0, className="toggle-btn active"),
                 dbc.Button("Betroffene Personen", id="btn-betroffene", n_clicks=0, className="toggle-btn"),
-            ], style={"width": "350px", "margin": "20px auto", "gap": "10px", "marginLeft": "20px"}),
+            ], style={"width": "350px", "margin": "20px auto", "marginLeft": "40px"}),
 
             # Grafik
             dcc.Graph(id='zeitliche-entwicklung-gesamt', style={'height': '65vh', 'minHeight': '300px'})
@@ -153,7 +144,7 @@ def register_callbacks(app):
                 x=opfer_total['Jahr'],
                 y=opfer_total['Straftaten_Total'],
                 name='Straftaten Total',
-                marker=dict(color='#6E6E6E')
+                marker=dict(color='grey')
             ))
             fig.add_trace(go.Bar(
                 x=opfer_total['Jahr'],
