@@ -60,18 +60,20 @@ layout = html.Div([
                         value='opfer',
                         labelStyle={'display': 'inline-block', 'marginLeft': '20px'}
                     ),
-                ], style={'display': 'flex', 'gap': '10px', 'marginTop': '20px', 'marginBottom': '16px'}),
-                dcc.Graph(id='altersgruppen-trend', style={'height': '65vh', 'marginLeft': '40px'})
+                ], style={'display': 'flex', 'gap': '10px', 'marginTop': '8px', 'marginBottom': '16px'}),
+                dcc.Graph(id='altersgruppen-trend', style={'height': '65vh', 'marginLeft': '0px', 'marginTop': '16px', }),
             ], width=8),
 
             dbc.Col([
-                dcc.Graph(id='alterspyramide', style={'height': '70vh','marginTop': '40px'})
+                dcc.Graph(id='alterspyramide', style={'height': '65vh','marginTop': '40px'})
             ], width=4)
         ], style={'marginTop': '36px'})
     ]),
-    html.Hr(),
-    html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
-           style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 14, 'color': '#888'})
+    html.Div([
+        html.Hr(),
+        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025 ",
+               style={'textAlign': 'left', 'marginLeft': 40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'})
+    ])
 ])
 
 # --- Callbacks ---
@@ -133,9 +135,11 @@ def register_callbacks(app):
                     )
 
         fig.update_layout(
-            title=f"Entwicklung der Altersgruppen bei {geschlecht.lower()} {'Opfer' if perspektive == 'opfer' else 'Täter:innen'} ({jahr_start}-{jahr_ende})",
-            xaxis_title="Jahr",
-            yaxis_title="Anzahl Personen",
+            title=f"Entwicklung der Altersgruppen bei {geschlecht.lower()} {'Opfer' if perspektive == 'opfer' else 'Täter:innen'} (Anzahl Personen, {jahr_start}-{jahr_ende})",
+            xaxis_title="",
+            yaxis_title="",
+            title_font_family="Arimo, sans-serif",
+            title_font_size=20,
             font_family="Arimo, sans-serif",
             font_size=14,
             yaxis=dict(range=[0, 4000]),
@@ -143,7 +147,7 @@ def register_callbacks(app):
             showlegend=False,
             template="plotly_white",
             hoverlabel=dict(bgcolor="white", font_size=14),
-            margin=dict(t=40, b=40, l=60, r=30)
+
         )
 
         return fig

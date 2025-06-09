@@ -45,7 +45,7 @@ taeter_total = taeter[taeter["Geschlecht"] == "Total"]
 # Layout
 layout = html.Div([
     html.H2("Wie hat sich das Geschlechterverhältnis verändert?",
-            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '20px', 'marginTop': 48,  'fontWeight': 600 }),
+            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48,  'fontWeight': 600 }),
 
     dcc.Store(id='button-state', data='percent'),
 
@@ -65,8 +65,8 @@ layout = html.Div([
 
     html.Div([
         html.Hr(),
-        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
-               style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888'})
+        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025 ",
+               style={'textAlign': 'left', 'marginLeft': 40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'})
     ])
 ])
 
@@ -82,11 +82,13 @@ def register_callbacks(app):
         df['% weiblich'] = df['weiblich'] / df['total'] * 100
 
         fig = go.Figure()
-        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männliche Täter', marker_color=color_men)
-        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weibliche Täter', marker_color=color_women)
+        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männliche Täter', marker_color=color_men, hovertemplate='%{y:.1f}%<br>Täter<extra></extra>')
+        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weibliche Täter', marker_color=color_women, hovertemplate='%{y:.1f}%<br>Täterinnen<extra></extra>')
 
         fig.update_layout(barmode='stack', title='Täter:innen nach Geschlecht (2009–2024, Anteile in %)',
-                          yaxis_title="Prozent (%)", showlegend=False, template="plotly_white", bargap=0.1)
+                          yaxis_title="", showlegend=False, template="plotly_white", bargap=0.1, title_font_family="Arimo, sans-serif",
+                title_font_size=20,
+            )
         return fig
 
     def update_entwicklung_taeter():
@@ -99,7 +101,7 @@ def register_callbacks(app):
                                  mode='lines+markers', name='Gesamt', line=dict(width=1.5, color=color_all),
                                  opacity=0.1, showlegend=False))
         fig.update_layout(title="Täter:innen nach Geschlecht (2009–2024, Anzahl Personen)", xaxis_title="Jahr",
-                          yaxis_title="Anzahl Personen", template="plotly_white", hovermode="x unified",
+                          yaxis_title="", template="plotly_white", hovermode="x unified",yaxis = dict(range=[0, 12000]),
                           showlegend=False)
         return fig
 
@@ -112,8 +114,8 @@ def register_callbacks(app):
         df['% weiblich'] = df['weiblich'] / df['total'] * 100
 
         fig = go.Figure()
-        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männlich', marker_color=color_men)
-        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weiblich', marker_color=color_women)
+        fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männlich', marker_color=color_men, hovertemplate='%{y:.1f}%<br>Männliche Opfer<extra></extra>')
+        fig.add_bar(x=df['Jahr'], y=df['% weiblich'], name='Weiblich', marker_color=color_women,  hovertemplate='%{y:.1f}%<br>Weibliche Opfer<extra></extra>')
 
         fig.update_layout(barmode='stack', title='Opfer nach Geschlecht (2009–2024, Anteile in %)',
                           template="plotly_white", bargap=0.1,
@@ -127,7 +129,7 @@ def register_callbacks(app):
                                 bgcolor='rgba(255,255,255,0.5)',  # halbtransparenter Hintergrund
                                 bordercolor='lightgrey',
                                 borderwidth=1,
-                                font=dict(color='black')) )
+                                font=dict(color='black', family='Arimo'),) )
         return fig
 
     def update_entwicklung_opfer():
@@ -138,9 +140,12 @@ def register_callbacks(app):
                                  mode='lines+markers', name='Männlich', line=dict(width=1.5, color=color_men)))
         fig.add_trace(go.Scatter(x=opfer_total['Jahr'], y=opfer_total['Anzahl_geschaedigter_Personen_Total'],
                                  mode='lines+markers', name='Gesamt', line=dict(width=1.5, color=color_all), opacity=0.1))
-        fig.update_layout(title="Opfer nach Geschlecht (2009–2024, Anzahl Personen)", xaxis_title="Jahr",
-                          yaxis_title="Anzahl Personen", template="plotly_white", hovermode="x unified",  showlegend = True,
-        legend = dict(
+        fig.update_layout(
+            title="Opfer nach Geschlecht (2009–2024, Anzahl Personen)",
+            xaxis_title="Jahr",
+            yaxis_title="Anzahl Personen",
+            template="plotly_white", hovermode="x unified",  showlegend = True,
+            legend = dict(
             title="",
             x=0.98,
             y=1.15,
@@ -149,7 +154,12 @@ def register_callbacks(app):
             bgcolor='rgba(255,255,255,0.5)',  # halbtransparenter Hintergrund
             bordercolor='lightgrey',
             borderwidth=1,
-            font=dict(color='black')))
+            title_font_family="Arimo, sans-serif",
+            title_font_size=20,
+            font=dict(color='black')),
+            yaxis = dict(range=[0, 12000])
+                          )
+
         return fig
 
     @app.callback(

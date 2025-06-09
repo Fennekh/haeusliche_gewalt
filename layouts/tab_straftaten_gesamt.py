@@ -83,7 +83,8 @@ opfer_total = opfer[opfer["Geschlecht"] == "Total"]
 # Layout für den ersten Tab (Zeitliche Entwicklung)
 layout = html.Div([
     html.H2("Wie verändert sich die Anzahl Straftaten und Betroffene in Häuslicher Gewalt?",
-            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '20px', 'marginTop': 48,  'fontWeight': 600 }),
+            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48,  'fontWeight': 600 }),
+
 
     dcc.Store(id='toggle-view-state', data='straftaten'),
 
@@ -96,7 +97,7 @@ layout = html.Div([
             ], style={"width": "350px", "margin": "20px auto", "marginLeft": "40px"}),
 
             # Grafik
-            dcc.Graph(id='zeitliche-entwicklung-gesamt', style={'height': '65vh', 'minHeight': '300px'})
+            dcc.Graph(id='zeitliche-entwicklung-gesamt', style={'height': '65vh','minHeight': '300px', 'overflow': 'visible', 'font-family': 'arimo', })
         ], width=8),
 
         dbc.Col([
@@ -106,8 +107,8 @@ layout = html.Div([
 
     html.Div([
         html.Hr(),
-        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
-               style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888'})
+        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025 ",
+               style={'textAlign': 'left', 'marginLeft': 40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'})
     ])
 ])
 
@@ -144,18 +145,26 @@ def register_callbacks(app):
                 x=opfer_total['Jahr'],
                 y=opfer_total['Straftaten_Total'],
                 name='Straftaten Total',
-                marker=dict(color='grey')
+                marker=dict(color='grey'),
+                hovertemplate = "%{y:.0f}<br>Straftaten (%{x})<extra></extra>"
             ))
             fig.add_trace(go.Bar(
                 x=opfer_total['Jahr'],
                 y=opfer_total['davon_mehrfach'],
                 name='Davon mehrfach',
-                marker=dict(color=color_all)
+                marker=dict(color=color_all),
+                hovertemplate="%{y:.0f}<br>Davon mehrfach (%{x})<extra></extra>"
             ))
             fig.update_layout(
                 barmode='overlay',
                 template='plotly_white',
-                title="Anzahl registrierte Straftaten Häuslicher Gewalt 2009–2024",
+                title=dict(
+                    text="Anzahl registrierte Straftaten Häuslicher Gewalt 2009–2024",
+                    x=0.03,
+                    xanchor="left"
+                ),
+                title_font_family="Arimo, sans-serif",
+                title_font_size=20,
                 xaxis=dict(
                     range=[2009 - 0.5, 2024 + 0.5],
                     tickmode='linear',
@@ -168,7 +177,8 @@ def register_callbacks(app):
                 yaxis=dict(
                     range=[0,20000],
                     gridcolor='#e5e5e5',
-                    zeroline=False
+                    zeroline=False,
+                    tickformat = "'d"
                 ),
                 legend=dict(
                     orientation="v",
@@ -222,7 +232,20 @@ def register_callbacks(app):
             fig.update_layout(
                 template='plotly_white',
                 hovermode='x unified',
-                title="Anzahl betroffene Personen Häuslicher Gewalt 2009–2024",
+                hoverlabel=dict(
+                    bgcolor="white",
+                    bordercolor="black",
+                    font=dict(color="black", size=14, family="Arimo, sans-serif"),
+                    align='left',  # linksbündig
+                    namelength=-1  # ⬅️ GANZ WICHTIG: Deaktiviert die Kürzung mit ...
+                ),
+                title=dict(
+                    text="Anzahl betroffene Personen Häuslicher Gewalt 2009–2024",
+                    x=0.03,
+                    xanchor="left"
+                ),
+                title_font_family="Arimo, sans-serif",
+                title_font_size=20,
                 xaxis=dict(
                     range=[2009 - 0.2, 2024 + 0.2],
                     tickmode='linear',
@@ -235,7 +258,8 @@ def register_callbacks(app):
                 ),
                 yaxis=dict(
                     range=[0, 20000],
-                    title=""
+                    title="",
+                    tickformat = "'d"  # 12345 statt 12.3k
                 ),
                 legend_title='',
                 legend=dict(

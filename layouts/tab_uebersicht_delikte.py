@@ -165,14 +165,14 @@ trend_summary = []
 jahre_voll = list(range(2009, 2025))  # <- fest definierter Bereich
 
 for delikt in trend_data["Delikt"].unique():
-    delikt_data = trend_data[trend_data["Delikt"] == delikt][["Jahr", "Anzahl_beschuldigter_Personen_Total"]]
+    delikt_data = trend_data[trend_data["Delikt"] == delikt][["Jahr", "Straftaten_Total"]]
     delikt_data = delikt_data.set_index("Jahr").reindex(jahre_voll, fill_value=0).reset_index()
 
     jahre = delikt_data["Jahr"].tolist()
-    werte = delikt_data["Anzahl_beschuldigter_Personen_Total"].tolist()
+    werte = delikt_data["Straftaten_Total"].tolist()
 
-    anzahl_2024 = delikt_data.loc[delikt_data["Jahr"] == 2024, "Anzahl_beschuldigter_Personen_Total"].values[0]
-    anzahl_2009 = delikt_data.loc[delikt_data["Jahr"] == 2009, "Anzahl_beschuldigter_Personen_Total"].values[0]
+    anzahl_2024 = delikt_data.loc[delikt_data["Jahr"] == 2024, "Straftaten_Total"].values[0]
+    anzahl_2009 = delikt_data.loc[delikt_data["Jahr"] == 2009, "Straftaten_Total"].values[0]
     # Optional: Prozentveränderung beschränken, um extreme Zahlen zu vermeiden
     if anzahl_2009 == 0:
         if anzahl_2024 == 0:
@@ -250,8 +250,19 @@ header_style = {'padding': '0 10px', 'whiteSpace': 'normal'}
 
 # --- Dash Layout ---
 layout = html.Div([
-    html.H2("Welche Delikte gibt es? ",
-            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '20px', 'marginTop': 48,  'fontWeight': 600 }),
+    html.H2([
+        "Welche Delikte gibt es?",
+        html.Span(" ℹ️", id="info-icon2", style={"cursor": "pointer", "marginLeft": "10px"})
+    ],
+        style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48, 'fontWeight': 600}),
+
+    dbc.Tooltip(
+        "Bei zu niedrigen Datenwerten, wird keine Aussage zum Alter gemacht",
+        target="info-icon2",
+        placement="right",
+        style={'textAlign': 'left'},
+
+    ),
 
     dcc.Store(id='sort-direction', data='desc'),
 
@@ -286,16 +297,16 @@ layout = html.Div([
 
     html.Table([
         html.Thead(html.Tr([
-            html.Th("Delikt", style=header_style),
-            html.Th("Anzahl Straftaten 2024", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
-            html.Th("Straftaten Trend (2009 – 2024)", style=header_style),
-            html.Th("Veränderung Straftaten (%)", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
-            html.Th(["Geschlechterverhältnis", html.Br(), "(Täter:innen)"], style=header_style),
-            html.Th(["Geschlechterverhältnis", html.Br(), "(Opfer)"], style=header_style),
-            html.Th("Häufigste Beziehungsart (Täter:innen)", style=header_style),
-            html.Th("Häufigste Beziehungsart (Opfer)", style=header_style),
-            html.Th("Häufigstes Alter (Täter:innen)", style=header_style),
-            html.Th("Häufigstes Alter (Opfer)", style=header_style)
+            html.Th("Delikt nach Strafgesetzbuch Artikel", style=header_style),
+            html.Th("Straftaten (2024)", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
+            html.Th(["Straftaten Trend ", html.Br(), " (2009 – 2024)"], style=header_style),
+            html.Th("Veränderung Straftaten %", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
+            html.Th(["Geschlechterverhältnis", html.Br(), "(Täter:innen, 2024)"], style=header_style),
+            html.Th(["Geschlechterverhältnis", html.Br(), "(Opfer, 2024)"], style=header_style),
+            html.Th(["Häufigste Beziehungsart", html.Br(), "(Täter:innen, 2024)"], style=header_style),
+            html.Th(["Häufigste Beziehungsart ", html.Br(), "(Opfer, 2024)"], style=header_style),
+            html.Th(["Häufigstes Alter ", html.Br(), "(Täter:inne, 2024)"], style=header_style),
+            html.Th(["Häufigstes Alter ", html.Br(), "(Opfer, 2024)"], style=header_style)
         ])),
         html.Tbody(id="delikte-table"),
     ], style={
@@ -306,28 +317,20 @@ layout = html.Div([
         'borderCollapse': 'collapse'
     }),
     html.Div([
-        html.Hr(),
-        html.P("*Sexueller Übergriff und sexuelle Nötigung (Art. 189) war bis 30. Juni 2024 Sexuelle Nötigung (Art. 189).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
-        html.P("**Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6 war bis 30. Juni 2024 Schändung (Art. 191).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
-        html.P("***Ausnützung einer Notlage oder Abhängigkeit (Art. 193) war bis 30. Juni 2024 Ausnützung der Notlage (Art. 193).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
+        html.P("Hinweise", style={'textAlign': 'left', 'fontSize': 18, 'color': 'black', 'marginLeft': 40, 'font-weight': '600', 'padding': '0px'}),
+        html.P("*Sexueller Übergriff und sexuelle Nötigung (Art. 189) war bis 30. Juni 2024 Sexuelle Nötigung (Art. 189).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
+        html.P("**Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6 war bis 30. Juni 2024 Schändung (Art. 191).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
+        html.P("***Ausnützung einer Notlage oder Abhängigkeit (Art. 193) war bis 30. Juni 2024 Ausnützung der Notlage (Art. 193).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
         html.P("",
-               style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888', 'marginLeft': 40}),
+               style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40, 'marginBottom': '40px'}),
     ]),
 
     html.Div([
         html.Hr(),
-        html.P(
-            "",
-            style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
-        html.P(
-            "",
-            style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
-        html.P(
-            "",
-            style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 12, 'color': 'black', 'marginLeft': 20}),
-        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
-               style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888', 'marginLeft': 20}),
-    ]),
+        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025 ",
+               style={'textAlign': 'left', 'marginLeft': 40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'})
+    ])
+
 
 ])
 

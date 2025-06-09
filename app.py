@@ -3,22 +3,19 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from layouts import tab_geschlechterverhaeltnis, tab_altersverteilung, tab_beziehungen, tab_uebersicht_delikte, tab_impressum, tab_straftaten_gesamt
-import plotly.io as pio
+
 import plotly.graph_objects as go
-
-# Roboto-Template definieren
-pio.templates["roboto"] = go.layout.Template(
-    layout=dict(
-        font=dict(
-            family="roboto",
-            size=14,
-            color="black"
-        )
-    )
+import plotly.io as pio
+plotly_font = dict(
+    family="Arimo, sans-serif",
+    size=12,
+    color="black"
 )
+pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
+pio.templates.default = "arimo"
 
-# Roboto als Standard setzen
-pio.templates.default = "roboto"
+
+
 
 
 
@@ -31,7 +28,7 @@ server = app.server
 # Layout mit Tabs
 app.layout = html.Div([
     html.H5("Statistik zu Häuslicher Gewalt in der Schweiz 2009-2024",
-            style={'textAlign': 'left', 'color': 'black', 'fontWeight': 'regular', 'marginTop': 20, 'marginBottom': 20, 'marginLeft': 20}),
+            style={'textAlign': 'left', 'color': 'black', 'fontWeight': 'light', 'marginTop': 28, 'marginBottom': 32, 'marginLeft': 40}),
 
     dcc.Tabs(id="tabs", value='tab1',
              className="tab-container", children=[

@@ -63,11 +63,12 @@ layout = html.Div([
             "In welcher Beziehung standen Täter:innen und Opfer?",
             html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"})
         ],
-            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '20px', 'marginTop': 48,  'fontWeight': 600 }),
+            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48,  'fontWeight': 600 }),
 
         dbc.Tooltip(
             "Die Zahlen Bei Täter:innen und Opfer können sich unterscheiden, da Täter:innen mehrere Opfer haben können und umgekehrt. Wird eine Person beispielsweise von der Mutter und dem Bruder bedroht, so zählt dies je einmal in den Kategorien Eltern-Kind-Beziehung und andere Verwandtschaftsbeziehung.",
             target="info-icon",
+            style={'textAlign': 'left'},
             placement="right"
         ),
     ]),
@@ -94,13 +95,14 @@ layout = html.Div([
             'height': '65vh',
             'minHeight': '300px',
             'textAlign': 'left',
+            'font_family': 'arimo',
         }), width=6),
-    ], style={'margin-left': '40px'}),
+    ], ),
 
     html.Div([
         html.Hr(),
-        html.P("Daten basierend auf Statistiken zu häuslicher Gewalt (Schweiz, 2009–2024)",
-               style={'textAlign': 'center', 'fontStyle': 'italic', 'fontSize': 12, 'color': '#888'})
+        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025 ",
+               style={'textAlign': 'left', 'marginLeft':40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'})
     ])
 ])
 
@@ -126,7 +128,7 @@ def register_callbacks(app):
         fig.add_trace(go.Bar(
             x=weiblich["Beziehungsart"],
             y=weiblich["Anzahl_geschaedigter_Personen_Total"],
-            name='weiblich',
+            name='Weiblich',
             marker_color=color_women
         ))
 
@@ -134,7 +136,7 @@ def register_callbacks(app):
         fig.add_trace(go.Bar(
             x=maennlich["Beziehungsart"],
             y=maennlich["Anzahl_geschaedigter_Personen_Total"],
-            name='männlich',
+            name='Männlich',
             marker_color=color_men
         ))
 
@@ -143,7 +145,9 @@ def register_callbacks(app):
             xaxis_title='Beziehungsart',
             yaxis_title=y_axis_title,
             font_family="Arimo, sans-serif",  # bleibt erhalten
-            title=dict(text=title_text, x=0.01, xanchor="left"),
+            title_font_family="Arimo, sans-serif",
+            title_font_size=20,
+            title=dict(text=title_text, x=0.05, xanchor="left"),
             xaxis=dict(tickangle=0, tickfont=dict(size=11)),
         showlegend = True,
         legend = dict(
@@ -156,6 +160,7 @@ def register_callbacks(app):
             bordercolor='lightgrey',
             borderwidth=1,
             font=dict(color='black')
+
         )
         )
 
@@ -194,13 +199,20 @@ def register_callbacks(app):
         ))
 
         fig.update_layout(
+
             barmode='group',
             xaxis_title='Beziehungsart',
             yaxis_title=y_axis_title,
             legend_title='',
             font_family="Arimo, sans-serif",
             showlegend=False,
-            title=dict(text=title_text, x=0.01, xanchor="left"),
+            title_font_family="Arimo, sans-serif",
+            title_font_size=20,
+            title=dict(
+                text=title_text,
+                x=0.05,
+                xanchor="left"
+            ),
             xaxis=dict(tickangle=0, tickfont=dict(size=11))
         )
 

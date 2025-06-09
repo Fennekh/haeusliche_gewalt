@@ -39,6 +39,14 @@ Ein interaktives Dashboard zur Visualisierung und Analyse der Entwicklung von h�
 
 Das Dashboard soll es der Schweizer Bevölkerung erleichtern, die Entwicklung häuslicher Gewalt zu analysieren, zu erkennen, wer die Betroffenen (Täter:innen und Opfer) sind und in welcher Beziehung sie zueinander standen. Dadurch sollen das Bewusstsein und die Sichtbarkeit für häusliche Gewalt erhöht werden.
 
+### Disclaimer
+
+Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschätzt. 
+Bei Tätlichkeiten und Körperverletzungen werden z. B. 28,9 %, bei sexueller Gewalt 10,5 % 
+der Fälle angezeigt.
+
+Quelle: https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die-dunkelziffer-der-haeusli-chen-gewalt-aus/, Univeristät St.Gallen, 26.10.2023, zuletzt abgerufen: 09.06.2025 
+
 ### Datenquelle
 
 Wir nutzen dafür die Daten des Bundesamts für Statistik. Die Polizeistatistik 2009–2024 (Letzte Aktualisierung: 22.04.2025):

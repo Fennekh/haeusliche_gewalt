@@ -8,7 +8,11 @@ body, html {
 //* Gesamte Tab-Leiste */
 .dash-tabs {
     border-bottom: 1px solid #ccc;
+     display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
+
 
 /* Grundstil für alle Tabs */
 .tab {
@@ -18,10 +22,13 @@ body, html {
     border-bottom: 1px solid lightgrey !important;  /* Keine Linie standardmäßig */
     padding: 6px 12px !important;
     height: 36px !important;
-    font-size: 16px !important;
-    display: flex;
+    font-size: 15px !important;
+    display: flex: 1 1 auto;
     align-items: center;
     justify-content: center;
+    min-width: 100px; /* Optional: Einheitlicheres Verhalten */
+
+
 }
 
 /* Stil für aktiven Tab */
@@ -36,7 +43,7 @@ body, html {
 }
 
 
-/* Grundstil für die Toggle-Buttons */
+/* Toggle-Buttons */
 .toggle-btn {
     background-color: white !important;
     color: black !important;
@@ -78,3 +85,8 @@ body, html {
     color: black !important;
 }
 
+/*Tooltip text links alignen*/
+
+.tooltip-inner {
+    text-align: left;
+}
