@@ -8,7 +8,7 @@ import pandas as pd
 from plotly.validators.scatter.marker import SymbolValidator
 from dash import dash_table
 import matplotlib.pyplot as plt
-import io
+
 import plotly.io as pio
 plotly_font = dict(
     family="Arimo, sans-serif",
