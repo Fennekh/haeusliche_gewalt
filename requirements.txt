@@ -4,3 +4,5 @@ dash~=3.0.4
 dash-bootstrap-components~=2.0.2
 plotly~=6.1.0
 matplotlib~=3.10.3
+kaleido~=0.2.1
+numpy~=2.2.5
