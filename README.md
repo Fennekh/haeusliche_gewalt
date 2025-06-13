@@ -1,11 +1,13 @@
-## # Dashboard zu Häuslicher Gewalt in der Schweiz 2009–2024
+## Dashboard zu Häuslicher Gewalt in der Schweiz 2009–2024
 
 Ein interaktives Dashboard zur Visualisierung und Analyse der Entwicklung von häuslicher Gewalt von 2009 bis 2024 nach Delikten sowie der Gesamtentwicklung der Betroffenen (Täter:innen und Opfer) und deren Eigenschaften (Geschlecht, Alter, Beziehung zwischen Täter:innen und Opfer). Erstellt mit Python und Dash.
+
 
 ### Ziel des Dashboards
 
 Das Dashboard soll es der Schweizer Bevölkerung, Behörden und Beratungsstellen dabei ermöglichen, die Entwicklung häuslicher Gewalt zu analysieren, zu erkennen, wer die Betroffenen (Täter:innen und Opfer) sind und in welcher Beziehung sie zueinander standen.  
 *Ziel:* Bewusstsein und Sichtbarkeit für häusliche Gewalt erhöhen.
+
 
 ### Disclaimer
 
@@ -15,7 +17,9 @@ der Fälle angezeigt.
 
 Quelle: https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die-dunkelziffer-der-haeusli-chen-gewalt-aus/, Univeristät St.Gallen, 26.10.2023, zuletzt abgerufen: 09.06.2025 
 
+
 ### Datenquelle
+
 
 Wir nutzen dafür die Daten des Bundesamts für Statistik. Die Polizeistatistik 2009–2024 (Letzte Aktualisierung: 22.04.2025):
 
@@ -38,6 +42,7 @@ Folgende Attribute sind jeweils für Täter:innen und Opfer vorhanden und für 3
 **Hinweise:**  
 (2) In Fällen, in denen die gleiche Person von derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt, wird der betreffende Straftatbestand mit „mehrfach“ gekennzeichnet. 
 
+
 ### Metadaten im Dashboard
 
 - **Aktualisierungsdatum** der Daten (z. B. „Letzte Aktualisierung: 09. Mai 2025“)
@@ -55,6 +60,7 @@ Das Bundesamt für Statistik wendet strenge Datenschutzrichtlinien an, um die An
 - Schwellenwertregelung: Bei Totalwerten zwischen 1-3 Personen werden Detailinformationen (Alter, Beziehungsart) aus Datenschutzgründen nicht ausgewiesen
 - Geografische Anonymisierung: Keine kleinräumigen geografischen Zuordnungen unter kantonaler Ebene
 - Zeitliche Aggregation: Daten werden nur in Jahreszyklen veröffentlicht, nie tagesaktuell
+
 
 ### Visualisierungen und ihre Begründung
 
