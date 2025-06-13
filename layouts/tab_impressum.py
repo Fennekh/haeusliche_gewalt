@@ -31,14 +31,16 @@ color_all = "black"
 #----
 
 text = """
-## # Dashboard zu Häuslicher Gewalt in der Schweiz 2009–2024
+## Dashboard zu Häuslicher Gewalt in der Schweiz 2009–2024
 
 Ein interaktives Dashboard zur Visualisierung und Analyse der Entwicklung von häuslicher Gewalt von 2009 bis 2024 nach Delikten sowie der Gesamtentwicklung der Betroffenen (Täter:innen und Opfer) und deren Eigenschaften (Geschlecht, Alter, Beziehung zwischen Täter:innen und Opfer). Erstellt mit Python und Dash.
+
 
 ### Ziel des Dashboards
 
 Das Dashboard soll es der Schweizer Bevölkerung, Behörden und Beratungsstellen dabei ermöglichen, die Entwicklung häuslicher Gewalt zu analysieren, zu erkennen, wer die Betroffenen (Täter:innen und Opfer) sind und in welcher Beziehung sie zueinander standen.  
 *Ziel:* Bewusstsein und Sichtbarkeit für häusliche Gewalt erhöhen.
+
 
 ### Disclaimer
 
@@ -48,7 +50,9 @@ der Fälle angezeigt.
 
 Quelle: https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die-dunkelziffer-der-haeusli-chen-gewalt-aus/, Univeristät St.Gallen, 26.10.2023, zuletzt abgerufen: 09.06.2025 
 
+
 ### Datenquelle
+
 
 Wir nutzen dafür die Daten des Bundesamts für Statistik. Die Polizeistatistik 2009–2024 (Letzte Aktualisierung: 22.04.2025):
 
@@ -71,6 +75,7 @@ Folgende Attribute sind jeweils für Täter:innen und Opfer vorhanden und für 3
 **Hinweise:**  
 (2) In Fällen, in denen die gleiche Person von derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt, wird der betreffende Straftatbestand mit „mehrfach“ gekennzeichnet. 
 
+
 ### Metadaten im Dashboard
 
 - **Aktualisierungsdatum** der Daten (z. B. „Letzte Aktualisierung: 09. Mai 2025“)
@@ -78,8 +83,8 @@ Folgende Attribute sind jeweils für Täter:innen und Opfer vorhanden und für 3
 - **Hinweis zu Verbrauchseinheiten** (Tooltips bei Diagrammen)
 - **Haftungsausschluss** im Fußbereich
 
-### Datenschutz und Datenanonymisierung
-Datenschutzmassnahmen des BFS
+
+### Datenschutz und Datenanonymisierung - Datenschutzmassnahmen des BFS
 
 Das Bundesamt für Statistik wendet strenge Datenschutzrichtlinien an, um die Anonymität der Betroffenen zu gewährleisten:
 
@@ -87,6 +92,7 @@ Das Bundesamt für Statistik wendet strenge Datenschutzrichtlinien an, um die An
 - Schwellenwertregelung: Bei Totalwerten zwischen 1-3 Personen werden Detailinformationen (Alter, Beziehungsart) aus Datenschutzgründen nicht ausgewiesen
 - Geografische Anonymisierung: Keine kleinräumigen geografischen Zuordnungen unter kantonaler Ebene
 - Zeitliche Aggregation: Daten werden nur in Jahreszyklen veröffentlicht, nie tagesaktuell
+
 
 ### Visualisierungen und ihre Begründung
 
@@ -101,6 +107,7 @@ Das Bundesamt für Statistik wendet strenge Datenschutzrichtlinien an, um die An
 | **Liniendiagramm (Alter)**              | Jahresverlauf nach Alterskategorien                                            |
 | **Alterspyramide**                      | Detailanalyse der Altersverteilung in einem bestimmten Jahr nach Geschlecht    |
 
+
 ### Page Layout
 
 Ein stratifiziertes Layout:
@@ -112,6 +119,7 @@ Ein stratifiziertes Layout:
 - *Ebene 5:* Interaktive Diagramme, Tabelle, erläuternder Text  
 - *Unten:* Hinweise, Quellen, Haftungsausschluss
 
+
 ### Seitenorganisation (Structure)
 
 - *Seite 1:* Übersicht (Delikte im tabellarischen Überblick)  
@@ -120,6 +128,7 @@ Ein stratifiziertes Layout:
 - *Seite 4:* Beziehungsart (Täter-Opfer-Beziehung)  
 - *Seite 5:* Altersverteilung  
 - *Seite 6:* Impressum (Metadaten, Rechtliches)
+
 
 ### Interaktionen
 
@@ -134,11 +143,13 @@ Ein stratifiziertes Layout:
 - Zoom & Pan in Diagrammen  
 - Tabs zur Seitennavigation  
 
-### Farbwahl
+
+### Farbauswahl
 
 - *Datenkodierung:* Frauen (Rot), Männer (Blau), Gesamt (Schwarz)  
 - *Semantische Farben:* Helligkeitsabstufungen für einfache/mehrfache Straftaten  
 - *Barrierefreiheit:* Hoher Kontrast, keine ausschliessliche Farbcodierung
+
 
 ### Strukturmuster
 
@@ -147,6 +158,7 @@ Ein stratifiziertes Layout:
 - *Hierarchische Navigation:* Vom Überblick zu Details  
 - *Konsistente Achsenbeschriftung:* Y-Achse = Personenanzahl, X-Achse = Zeit/Kategorien  
 - *Responsive Layout:* Anpassung an Bildschirmgrößen
+
 
 ### Limitationen
 
@@ -157,11 +169,13 @@ Ein stratifiziertes Layout:
 - Beziehungsart – nicht nach Geschlecht differenziert  
 - Mehrfachstraftaten – erschwerte Zuordnung
 
+
 ### Was nicht geklappt hat
 
 - Tabellen nicht mobiloptimiert, keine Hover-Details  
 - Delikt-spezifische Filterung nicht umgesetzt  
 - Keine automatischen Updates bei neuen BFS-Daten
+
 
 ### Technische Limitationen (Dash/Python)
 
@@ -178,6 +192,7 @@ Ein stratifiziertes Layout:
 - Vergleichstool für Kantone (sofern Daten verfügbar)  
 - Migration zu Dash Bootstrap Components  
 - Kontextuelle Hilfen für rechtliche/statistische Begriffe
+
 
 ### Feedback-Umsetzung von Tag 7
 *(Inhalt bei Bedarf ergänzen)*
@@ -217,6 +232,7 @@ Ein stratifiziertes Layout:
 - Linkage im Alterstab ergänzt  
 - Sortierfunktion für Tabelle integriert  
 - Filter optimiert und auf Seitenrelevanz reduziert
+
 """
 
 layout = html.Div([dbc.Container([html.H2("Impressum", style={'textAlign': 'left', 'marginLeft': 0, 'paddingBottom': 48, 'marginTop': 48,  'fontWeight': 600 }),
