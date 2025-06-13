@@ -69,6 +69,7 @@ Das Bundesamt für Statistik wendet strenge Datenschutzrichtlinien an, um die An
 | **Liniendiagramm (Alter)**              | Jahresverlauf nach Alterskategorien                                            |
 | **Alterspyramide**                      | Detailanalyse der Altersverteilung in einem bestimmten Jahr nach Geschlecht    |
 
+
 ### Page Layout
 
 Ein stratifiziertes Layout:
@@ -80,6 +81,7 @@ Ein stratifiziertes Layout:
 - *Ebene 5:* Interaktive Diagramme, Tabelle, erläuternder Text  
 - *Unten:* Hinweise, Quellen, Haftungsausschluss
 
+
 ### Seitenorganisation (Structure)
 
 - *Seite 1:* Übersicht (Delikte im tabellarischen Überblick)  
@@ -88,6 +90,7 @@ Ein stratifiziertes Layout:
 - *Seite 4:* Beziehungsart (Täter-Opfer-Beziehung)  
 - *Seite 5:* Altersverteilung  
 - *Seite 6:* Impressum (Metadaten, Rechtliches)
+
 
 ### Interaktionen
 
@@ -102,11 +105,13 @@ Ein stratifiziertes Layout:
 - Zoom & Pan in Diagrammen  
 - Tabs zur Seitennavigation  
 
-### Farbwahl
+
+### Farbauswahl
 
 - *Datenkodierung:* Frauen (Rot), Männer (Blau), Gesamt (Schwarz)  
 - *Semantische Farben:* Helligkeitsabstufungen für einfache/mehrfache Straftaten  
 - *Barrierefreiheit:* Hoher Kontrast, keine ausschliessliche Farbcodierung
+
 
 ### Strukturmuster
 
@@ -115,6 +120,7 @@ Ein stratifiziertes Layout:
 - *Hierarchische Navigation:* Vom Überblick zu Details  
 - *Konsistente Achsenbeschriftung:* Y-Achse = Personenanzahl, X-Achse = Zeit/Kategorien  
 - *Responsive Layout:* Anpassung an Bildschirmgrößen
+
 
 ### Limitationen
 
@@ -125,11 +131,13 @@ Ein stratifiziertes Layout:
 - Beziehungsart – nicht nach Geschlecht differenziert  
 - Mehrfachstraftaten – erschwerte Zuordnung
 
+
 ### Was nicht geklappt hat
 
 - Tabellen nicht mobiloptimiert, keine Hover-Details  
 - Delikt-spezifische Filterung nicht umgesetzt  
 - Keine automatischen Updates bei neuen BFS-Daten
+
 
 ### Technische Limitationen (Dash/Python)
 
@@ -146,6 +154,7 @@ Ein stratifiziertes Layout:
 - Vergleichstool für Kantone (sofern Daten verfügbar)  
 - Migration zu Dash Bootstrap Components  
 - Kontextuelle Hilfen für rechtliche/statistische Begriffe
+
 
 ### Feedback-Umsetzung von Tag 7
 *(Inhalt bei Bedarf ergänzen)*
