@@ -51,8 +51,7 @@ Folgende Attribute sind jeweils für Täter:innen und Opfer vorhanden und für 3
 - **Haftungsausschluss** im Fußbereich
 
 
-### Datenschutz und Datenanonymisierung
-Datenschutzmassnahmen des BFS
+### Datenschutz und Datenanonymisierung - Datenschutzmassnahmen des BFS
 
 Das Bundesamt für Statistik wendet strenge Datenschutzrichtlinien an, um die Anonymität der Betroffenen zu gewährleisten:
 
