@@ -251,7 +251,7 @@ header_style = {'padding': '0 10px', 'whiteSpace': 'normal'}
 # --- Dash Layout ---
 layout = html.Div([
     html.H2([
-        "Welche Delikte gibt es?",
+        "Welche Delikte gibt es und wie häufig kommen sie vor?",
         html.Span(" ℹ️", id="info-icon2", style={"cursor": "pointer", "marginLeft": "10px"})
     ],
         style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48, 'fontWeight': 600}),
