@@ -265,7 +265,7 @@ layout = html.Div([
     ),
 
     html.P(
-        "Diese Tabelle zeigt die häufigsten Delikte, ihren Verlauf über die Jahre sowie die sozialen und demografischen Muster dahinter.",
+        "Häufigsten Delikte, ihre Entwicklung über die Jahre sowie die sozialen und demografischen Muster dahinter",
         style={
             'textAlign': 'left',
             'marginLeft': 40,
