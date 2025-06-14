@@ -41,6 +41,16 @@ for df in [opfer, taeter]:
 layout = html.Div([
     html.Div([
         html.H2("Wie ist die Altersverteilung über Täter:Innen und Opfer", style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': 0, 'marginTop': 48,  'fontWeight': 600 }),
+
+        html.P(
+        "Platzhalter",
+        style={
+            'textAlign': 'left',
+            'marginLeft': 40,
+
+        }
+         ),
+
         dbc.Row([
             dbc.Col([
                 html.Div([

@@ -69,7 +69,6 @@ layout = html.Div([
         ], style={
             'textAlign': 'left',
             'marginLeft': 40,
-            'paddingBottom': '8px',
             'marginTop': 48,
             'fontWeight': 600
         }),
@@ -87,8 +86,7 @@ layout = html.Div([
         style={
             'textAlign': 'left',
             'marginLeft': 40,
-            'paddingBottom': '8px',
-            'fontWeight': 600
+
         }
     ),
 

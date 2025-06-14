@@ -83,8 +83,15 @@ opfer_total = opfer[opfer["Geschlecht"] == "Total"]
 # Layout für den ersten Tab (Zeitliche Entwicklung)
 layout = html.Div([
     html.H2("Wie verändert sich die Anzahl Straftaten und Betroffene in Häuslicher Gewalt?",
-            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48,  'fontWeight': 600 }),
+            style={'textAlign': 'left', 'marginLeft': 40, 'marginTop': 48,  'fontWeight': 600 }),
+html.P(
+        "Platzhalter",
+        style={
+            'textAlign': 'left',
+            'marginLeft': 40,
 
+        }
+    ),
 
     dcc.Store(id='toggle-view-state', data='straftaten'),
 

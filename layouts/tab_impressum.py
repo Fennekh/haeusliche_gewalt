@@ -67,13 +67,14 @@ Folgende Attribute werden für die Jahre von 2009 bis 2024, für Täter:innen un
 | Attribut                      | Beschreibung                                                                 |
 |------------------------------|------------------------------------------------------------------------------|
 | `Straftaten Total`           | Anzahl Straftaten pro Delikt                                                |
-| `Straftaten Mehrfach`    | Anteil der mehrfach verübten Straftaten    (2)                                 |
+| `Straftaten Mehrfach`        | Anteil der mehrfach verübten Straftaten. In Fällen, in denen die gleiche Person 
+|                               von derselben Täterschaft zu mehreren Zeitpunkten 
+                                 auf die gleiche Art wiederholt geschädigt wird, 
+                                 ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt,
+                                wird der betreffende Straftatbestand mit „mehrfach“ gekennzeichnet.                                  |
 | `Beschuldigte/Geschädigte Total` | Anzahl Personen pro Delikt                                                |
-| `Alter`                      | 13 Alterskategorien, reduziert auf 8 (10-Jahres-Schritte), in Anzahl Personen |
-| `Beziehungsart`              | Beziehung zwischen den Personen (4 Kategorien: Partnerschaft, ehemalige Partnerschaft, Eltern-Kind-Beziehung, andere Verwandtschaft) |
-
-**Hinweise:**  
-(2) In Fällen, in denen die gleiche Person von derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt, wird der betreffende Straftatbestand mit „mehrfach“ gekennzeichnet. 
+| `Alter`                          | 13 Alterskategorien, reduziert auf 8 (10-Jahres-Schritte), in Anzahl Personen |
+| `Beziehungsart`                  | Beziehung zwischen den Personen (4 Kategorien: Partnerschaft, ehemalige Partnerschaft, Eltern-Kind-Beziehung, andere Verwandtschaft) |
 
 
 
@@ -96,6 +97,7 @@ Das Bundesamt für Statistik wendet strenge Datenschutzrichtlinien an, um die An
 - Geografische Anonymisierung: Keine kleinräumigen geografischen Zuordnungen unter kantonaler Ebene
 - Zeitliche Aggregation: Daten werden nur in Jahreszyklen veröffentlicht, nie tagesaktuell
 
+Quelle:
 
 ### Visualisierungen und ihre Begründung
 

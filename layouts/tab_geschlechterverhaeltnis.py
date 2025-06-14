@@ -45,8 +45,15 @@ taeter_total = taeter[taeter["Geschlecht"] == "Total"]
 # Layout
 layout = html.Div([
     html.H2("Wie hat sich das Geschlechterverhältnis verändert?",
-            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48,  'fontWeight': 600 }),
+            style={'textAlign': 'left', 'marginLeft': 40, 'marginTop': 48,  'fontWeight': 600 }),
+html.P(
+        "Platzhalter",
+        style={
+            'textAlign': 'left',
+            'marginLeft': 40,
 
+        }
+    ),
     dcc.Store(id='button-state', data='percent'),
 
     html.Div([

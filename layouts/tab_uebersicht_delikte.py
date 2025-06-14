@@ -254,7 +254,7 @@ layout = html.Div([
         "Welche Delikte gibt es und wie häufig kommen sie vor?",
         html.Span(" ℹ️", id="info-icon2", style={"cursor": "pointer", "marginLeft": "10px"})
     ],
-        style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48, 'fontWeight': 600}),
+        style={'textAlign': 'left', 'marginLeft': 40,  'marginTop': 48, 'fontWeight': 600}),
 
     dbc.Tooltip(
         "Bei zu niedrigen Datenwerten, wird keine Aussage zum Alter gemacht",
@@ -262,6 +262,15 @@ layout = html.Div([
         placement="right",
         style={'textAlign': 'left'},
 
+    ),
+
+    html.P(
+        "Diese Tabelle zeigt die häufigsten Delikte, ihren Verlauf über die Jahre sowie die sozialen und demografischen Muster dahinter.",
+        style={
+            'textAlign': 'left',
+            'marginLeft': 40,
+
+        }
     ),
 
     dcc.Store(id='sort-direction', data='desc'),
