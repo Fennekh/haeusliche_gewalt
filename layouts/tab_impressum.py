@@ -83,7 +83,7 @@ Folgende Attribute sind jeweils für Täter:innen und Opfer vorhanden und für 3
 •**Datenquelle** (z.B. „Bundesamt für Statistik – Polizeistatistik 2009–2024")
 •**Hinweis** zu Dateninterpretation (z.B. Tooltips bei Diagrammen)
 •**Datenschutzhinweise** (bei Totalwerten 1–3 entfallen gewisse Informationen)
-•**Haftungsausschluss** im Fußbereich
+•**Haftungsausschluss** im Fussbereich
 
 
 ### Datenschutz und Datenanonymisierung - Datenschutzmassnahmen des BFS
