@@ -82,7 +82,7 @@ layout = html.Div([
     ]),
 
     html.P(
-        "Ob im sozialen Umfeld, in der Familie oder unter Fremden – diese Infografik zeigt, in welchen Beziehungen Täter:innen und Opfer zueinander stehen und wie häufig diese Konstellationen sind.",
+        "Beziehung von Täter:innen und Opfer zueinander und ihre Häufigkeit",
         style={
             'textAlign': 'left',
             'marginLeft': 40,
