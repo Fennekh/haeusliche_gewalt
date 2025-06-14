@@ -40,10 +40,10 @@ for df in [opfer, taeter]:
 # --- Layout ---
 layout = html.Div([
     html.Div([
-        html.H2("Wie ist die Altersverteilung über Täter:Innen und Opfer", style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': 0, 'marginTop': 48,  'fontWeight': 600 }),
+        html.H2("Welche Altersklassen sind unter Täter:innen und Opfern besonders häufig vertreten?", style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': 0, 'marginTop': 48,  'fontWeight': 600 }),
 
         html.P(
-        "Platzhalter",
+        "Entwicklung der Anzahl betroffenen nach Altersklassen und Geschlecht",
         style={
             'textAlign': 'left',
             'marginLeft': 40,
