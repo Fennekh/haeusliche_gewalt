@@ -70,6 +70,7 @@ layout = html.Div([
             "Ob im sozialen Umfeld, in der Familie oder unter Fremden – diese Infografik zeigt, in welchen Beziehungen Täter:innen und Opfer zueinander stehen und wie häufig diese Konstellationen sind.",
             html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"}),
         ],
+            ],
             style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48,  'fontWeight': 600 }),
 
         dbc.Tooltip(
