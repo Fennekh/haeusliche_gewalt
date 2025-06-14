@@ -64,7 +64,7 @@ df_be["Jahr"] = df_be["Jahr"].astype(int)
 layout = html.Div([
     html.Div([
         html.H2([
-            "In welcher Beziehung standen Täter:innen und Opfer?",
+            "In welcher Beziehung stehen Täter:innen und Opfer zueinander?",
             html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"})
         ], style={
             'textAlign': 'left',
