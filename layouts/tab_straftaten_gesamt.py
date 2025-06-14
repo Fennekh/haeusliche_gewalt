@@ -85,7 +85,7 @@ layout = html.Div([
     html.H2("Wie viele Straftaten und Betroffene werden erfasst – und wie oft erleben diese wiederholte Gewalt?",
             style={'textAlign': 'left', 'marginLeft': 40, 'marginTop': 48,  'fontWeight': 600 }),
 html.P(
-        "Platzhalter",
+        "Entwicklung der Anzahl Straftaten, mehrfach Straftaten und Betroffenen",
         style={
             'textAlign': 'left',
             'marginLeft': 40,
