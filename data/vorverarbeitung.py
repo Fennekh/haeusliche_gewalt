@@ -121,4 +121,4 @@ print(df.iloc[0])
 df.to_csv("beschuldigte_tidy.csv", index=False)
 print("✅ Datei gespeichert als 'beschuldigte_tidy.csv'")
 
-#Hinweis: Deliktnamen mit Fussnote wurden im nachhnienin direkt in den Tidy Files noch angepasst.
+#Hinweis: Deliktnamen mit Fussnote wurden in einem zweiten Schritt direkt in den Tidy Files manuell angepasst.

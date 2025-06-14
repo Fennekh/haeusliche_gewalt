@@ -1,3 +1,5 @@
+# === Datei: tab_altersverteilung.py ===
+
 import pandas as pd
 import plotly.graph_objects as go
 from dash import dcc, html
@@ -7,6 +9,7 @@ from dash.exceptions import PreventUpdate
 import plotly.io as pio
 
 # --- Variabeln ---
+
 #Schriftart definieren
 plotly_font = dict(
     family="Arimo, sans-serif",
@@ -62,7 +65,7 @@ layout = html.Div([
                             {'label': 'Alle Geschlechter', 'value': 'Total'}
                         ],
                         value='Total',
-                        style={'width': '200px', 'marginLeft': '20px'}
+                        style={'width': '200px','position': 'relative'}
                     ),
                     dcc.RadioItems(
                         id='trend-selector',
@@ -73,7 +76,7 @@ layout = html.Div([
                         value='opfer',
                         labelStyle={'display': 'inline-block', 'marginLeft': '20px'}
                     ),
-                ], style={'display': 'flex', 'gap': '10px', 'marginTop': '8px', 'marginBottom': '16px'}),
+                ], style={'display': 'flex', 'gap': '10px', 'marginTop': '8px', 'marginBottom': '16px', 'marginLeft': '40px'}),
                 dcc.Graph(id='altersgruppen-trend', style={'height': '65vh', 'marginLeft': '0px', 'marginTop': '16px', }),
             ], width=8),
 

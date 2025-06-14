@@ -1,4 +1,5 @@
-import dash
+# === Datei: tab_uebersicht_delikte.py ===
+
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
@@ -257,7 +258,7 @@ layout = html.Div([
         style={'textAlign': 'left', 'marginLeft': 40,  'marginTop': 48, 'fontWeight': 600}),
 
     dbc.Tooltip(
-        "Bei zu niedrigen Datenwerten, wird keine Aussage zum Alter gemacht",
+        "Unter Häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt innerhalb einer Familie oder Beziehung.",
         target="info-icon2",
         placement="right",
         style={'textAlign': 'left'},
@@ -332,6 +333,13 @@ layout = html.Div([
         html.P("***Ausnützung einer Notlage oder Abhängigkeit (Art. 193) war bis 30. Juni 2024 Ausnützung der Notlage (Art. 193).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
         html.P("",
                style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40, 'marginBottom': '40px'}),
+        html.P(
+            "",
+            style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
+        html.P(
+            "Bei Werten unter 3 Straftaten werden Datenschutzgründen keine Angaben zum A",
+            style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
+
     ]),
 
     html.Div([

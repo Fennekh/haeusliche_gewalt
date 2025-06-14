@@ -2,7 +2,7 @@ import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-from layouts import tab_geschlechterverhaeltnis, tab_altersverteilung, tab_beziehungen, tab_uebersicht_delikte, tab_impressum, tab_straftaten_gesamt
+from layouts import tab_geschlechterverhaeltnis, tab_altersverteilung, tab_beziehungen, tab_uebersicht_delikte, tab_ReadMe, tab_zeitliche_entwicklung
 
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -37,7 +37,7 @@ app.layout = html.Div([
         dcc.Tab(label='Entwicklung Geschlechterverhältnis', value='tab4'),
         dcc.Tab(label='Beziehungsarten', value='tab5'),
         dcc.Tab(label='Entwicklung Altersverteilung', value='tab6'),
-        dcc.Tab(label='Impressum', value='tab7'),
+        dcc.Tab(label='ReadMe', value='tab7'),
 
     ]),
     html.Div(id='tabs-content')
@@ -48,7 +48,7 @@ def render_content(tab):
     if tab == 'tab1':
         return tab_uebersicht_delikte.layout
     elif tab == 'tab2':
-        return tab_straftaten_gesamt.layout
+        return tab_zeitliche_entwicklung.layout
     elif tab == 'tab4':
         return tab_geschlechterverhaeltnis.layout
     elif tab == 'tab5':
@@ -56,15 +56,15 @@ def render_content(tab):
     elif tab == 'tab6':
         return tab_altersverteilung.layout
     elif tab == 'tab7':
-        return tab_impressum.layout
+        return tab_ReadMe.layout
 
 # Registriere die Callbacks aus allen Layout-Modulen
 tab_uebersicht_delikte.register_callbacks(app)
-tab_straftaten_gesamt.register_callbacks(app)
+tab_zeitliche_entwicklung.register_callbacks(app)
 tab_geschlechterverhaeltnis.register_callbacks(app)
 tab_altersverteilung.register_callbacks(app)
 tab_beziehungen.register_callbacks(app)
-tab_impressum.register_callbacks(app)
+tab_ReadMe.register_callbacks(app)
 
 
 

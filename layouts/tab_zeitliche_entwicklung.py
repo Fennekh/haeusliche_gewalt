@@ -1,3 +1,6 @@
+# === Datei: tab_zeitliche_entwicklung.py ===
+
+# --- Imports ---
 import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
@@ -9,6 +12,7 @@ from plotly.validators.scatter.marker import SymbolValidator
 from dash import dash_table
 import matplotlib.pyplot as plt
 
+# --- Plotly-Schriftart definieren ---
 import plotly.io as pio
 plotly_font = dict(
     family="Arimo, sans-serif",
@@ -18,54 +22,48 @@ plotly_font = dict(
 pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
 pio.templates.default = "arimo"
 
-
-
-#------ Farben überall gleich
-
+# --- Farbdefinitionen ---
 color_women = "#811616"
 color_men = "#0a0a35"
 color_all = "black"
 
-
-
-#Daten laden
+# --- Daten laden ---
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
 taeter = pd.read_csv("data/beschuldigte_tidy.csv")
 
-#Datenvorbereitung für Tabelle
+# --- Datenaufbereitung: Tabelle (Trenddarstellung) ---
 
-# Nur Beziehungsart = Alle und Geschlecht = Total verwenden
+# Filter: nur Beziehungsart = Alle & Geschlecht = Total
 taeter_filtered = taeter[(taeter["Beziehungsart"] == "Alle") & (taeter["Geschlecht"] == "Total")]
 
 # Gruppieren nach Delikt und Jahr
 taeter_grouped = taeter_filtered.groupby(['Delikt', 'Jahr'])['Anzahl_beschuldigter_Personen_Total'].sum().reset_index()
 
-# Pivot-Tabelle: Delikt als Zeile, Jahre als Spalten
+# Pivot: Delikte in Zeilen, Jahre in Spalten
 trend_pivot = taeter_grouped.pivot(index='Delikt', columns='Jahr', values='Anzahl_beschuldigter_Personen_Total')
 
-# Fehlende Werte auffüllen (z. B. Delikte, die in 2009 oder 2024 nicht gemeldet wurden)
+# Fehlende Werte mit 0 auffüllen
 trend_pivot = trend_pivot.fillna(0)
 
-# Mini-Trendliste + aktuelle Zahlen + Veränderung
+# Spalten: aktuelle Zahl, Trendverlauf, prozentuale Veränderung seit 2009
 trend_pivot['Anzahl'] = trend_pivot[2024]
 trend_pivot['Trend'] = trend_pivot.apply(lambda row: row.loc[2009:2024].tolist(), axis=1)
 trend_pivot['Veränderung (%)'] = ((trend_pivot[2024] - trend_pivot[2009]) / trend_pivot[2009].replace(0, 1)) * 100
 
-# Sortieren nach Anzahl (2024)
+# Sortierung nach aktueller Zahl (2024)
 trend_pivot_sorted = trend_pivot.sort_values(by='Anzahl', ascending=False).reset_index()
 
+# --- Datenaufbereitung: Grafiken (Zeitverlauf gesamt) ---
 
-
-#Datenvorbereitung Grafiken
-#Filtern nach Delikte gesamt
+# Nur Gesamtdelikte: "Total Häusliche Gewalt"
 taeter = taeter[taeter["Delikt"] == "Total Häusliche Gewalt"]
 opfer = opfer[opfer["Delikt"] == "Total Häusliche Gewalt"]
 
-#Filtern nach Beziehungsart alle
+# Filter: nur Beziehungsart "Alle"
 taeter = taeter[taeter["Beziehungsart"] == "Alle"]
 opfer = opfer[opfer["Beziehungsart"] == "Alle"]
 
-#Filtern nach geschlecht
+# Aufteilen nach Geschlecht
 taeter_maenlich = taeter[taeter["Geschlecht"] == "männlich"]
 taeter_weiblich = taeter[taeter["Geschlecht"] == "weiblich"]
 taeter_total = taeter[taeter["Geschlecht"] == "Total"]
@@ -74,57 +72,50 @@ opfer_maenlich = opfer[opfer["Geschlecht"] == "männlich"]
 opfer_weiblich = opfer[opfer["Geschlecht"] == "weiblich"]
 opfer_total = opfer[opfer["Geschlecht"] == "Total"]
 
+# --- Layout: Tab "Zeitliche Entwicklung" ---
 
-
-
-
-#----
-
-# Layout für den ersten Tab (Zeitliche Entwicklung)
 layout = html.Div([
     html.H2("Wie viele Straftaten und Betroffene werden erfasst – und wie oft erleben diese wiederholte Gewalt?",
             style={'textAlign': 'left', 'marginLeft': 40, 'marginTop': 48,  'fontWeight': 600 }),
-html.P(
-        "Entwicklung der Anzahl Straftaten, mehrfach Straftaten und Betroffenen",
-        style={
-            'textAlign': 'left',
-            'marginLeft': 40,
 
-        }
-    ),
+    html.P("Entwicklung der Anzahl Straftaten, mehrfach Straftaten und Betroffenen",
+           style={'textAlign': 'left', 'marginLeft': 40}),
 
+    # Store zur Speicherung des aktuellen View-Modus
     dcc.Store(id='toggle-view-state', data='straftaten'),
 
     dbc.Row([
         dbc.Col([
-            # Toggle-Button
+            # Button-Group für Umschaltung
             dbc.ButtonGroup([
                 dbc.Button("Straftaten", id="btn-straftaten", n_clicks=0, className="toggle-btn active"),
                 dbc.Button("Betroffene Personen", id="btn-betroffene", n_clicks=0, className="toggle-btn"),
             ], style={"width": "350px", "margin": "20px auto", "marginLeft": "40px"}),
 
-            # Grafik
-            dcc.Graph(id='zeitliche-entwicklung-gesamt', style={'height': '65vh','minHeight': '300px', 'overflow': 'visible', 'font-family': 'arimo', })
+            # Graph: Balken oder Linie, je nach Modus
+            dcc.Graph(id='zeitliche-entwicklung-gesamt',
+                      style={'height': '65vh','minHeight': '300px', 'overflow': 'visible', 'font-family': 'arimo'})
         ], width=8),
 
+        # Infobereich rechts
         dbc.Col([
             html.Div(id='infotext-block')
         ], width=4, style={'marginTop': 40})
     ]),
 
+    # Quellenangabe unten
     html.Div([
         html.Hr(),
-        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025 ",
+        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025",
                style={'textAlign': 'left', 'marginLeft':40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'}),
-
-        html.P("Für die Richtigkeit, Vollständigkeit und Aktualität der dargestellten Daten übernehmen wir keine Gewähr. Die Angaben basieren auf den zum genannten Zeitpunkt veröffentlichten Informationen des Bundesamts für Statistik.",
+        html.P("Für die Richtigkeit, Vollständigkeit und Aktualität der dargestellten Daten übernehmen wir keine Gewähr. "
+               "Die Angaben basieren auf den zum genannten Zeitpunkt veröffentlichten Informationen des Bundesamts für Statistik.",
                style={'textAlign': 'left', 'marginLeft': 40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'}),
     ])
 ])
 
-
-# Hier registrieren wir die Callbacks für diesen Tab
-from dash import ctx
+# --- Callbacks: Interaktive Steuerung von Button & Graph ---
+from dash import ctx  # ctx erkennt, welcher Button ausgelöst wurde
 
 def register_callbacks(app):
     @app.callback(
@@ -136,6 +127,7 @@ def register_callbacks(app):
         prevent_initial_call=True
     )
     def update_toggle_view(n1, n2):
+        # Aktive Button-Klasse setzen, je nach Auswahl
         triggered = ctx.triggered_id
         if triggered == "btn-betroffene":
             return "toggle-btn", "toggle-btn active", "betroffene"
@@ -149,7 +141,7 @@ def register_callbacks(app):
     )
     def update_grafik_und_text(view_mode):
         if view_mode == "straftaten":
-            # Bar-Chart Ansicht
+            # --- Diagramm: Straftaten (Balken) ---
             fig = go.Figure()
             fig.add_trace(go.Bar(
                 x=opfer_total['Jahr'],
@@ -199,28 +191,26 @@ def register_callbacks(app):
                 )
             )
 
+            # --- Textblock: Zusatzinfos Straftaten ---
             text = html.Div([
-                html.H4("Was ist Häusliche Gewalt?"),
+                html.H4(["Was ist Häusliche Gewalt ", html.Br(), "und wie viele Straftaten gibt es?"]),
                 html.P("Unter Häuslicher Gewalt versteht man körperliche, psychische oder sexuelle Gewalt "
                        "innerhalb einer Familie oder Beziehung."),
-
-
                 dbc.Row([
-                    dbc.Col([html.H1("21'127"),
-                html.P("Straftaten Häusliche Gewalt 2024")]),
+                    dbc.Col([html.H1("21'127"), html.P("Straftaten Häusliche Gewalt 2024")]),
                     dbc.Col([html.H1("5695"), html.P("Davon mehrfach 2024")])
-                ]),html.P([
+                ]),
+                html.P([
                     "Der ", html.B("Strafbestand wird mit Mehrfach gekennzeichnet"),
                     ", wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird."
                 ]),
-            ],style={'marginTop': 95})
+            ], style={'marginTop': 95, 'marginRight': 40})
         else:
-            # Linien-Ansicht Betroffene – mit Styling aus Originalversion
+            # --- Diagramm: Betroffene (Linie) ---
             opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= 2009) & (opfer_total['Jahr'] <= 2024)]
             taeter_gefiltert = taeter_total[(taeter_total['Jahr'] >= 2009) & (taeter_total['Jahr'] <= 2024)]
 
             fig = go.Figure()
-
             fig.add_trace(go.Scatter(
                 x=opfer_gefiltert['Jahr'],
                 y=opfer_gefiltert['Anzahl_geschaedigter_Personen_Total'],
@@ -229,7 +219,6 @@ def register_callbacks(app):
                 marker=dict(size=9),
                 line=dict(width=1.5, color=color_all, dash='dot')
             ))
-
             fig.add_trace(go.Scatter(
                 x=taeter_gefiltert['Jahr'],
                 y=taeter_gefiltert['Anzahl_beschuldigter_Personen_Total'],
@@ -238,7 +227,6 @@ def register_callbacks(app):
                 marker=dict(symbol='star-diamond', size=10),
                 line=dict(width=1.5, color=color_all)
             ))
-
             fig.update_layout(
                 template='plotly_white',
                 hovermode='x unified',
@@ -246,8 +234,8 @@ def register_callbacks(app):
                     bgcolor="white",
                     bordercolor="black",
                     font=dict(color="black", size=14, family="Arimo, sans-serif"),
-                    align='left',  # linksbündig
-                    namelength=-1  # ⬅️ GANZ WICHTIG: Deaktiviert die Kürzung mit ...
+                    align='left',
+                    namelength=-1
                 ),
                 title=dict(
                     text="Anzahl betroffene Personen Häuslicher Gewalt 2009–2024",
@@ -269,7 +257,7 @@ def register_callbacks(app):
                 yaxis=dict(
                     range=[0, 20000],
                     title="",
-                    tickformat = "'d"  # 12345 statt 12.3k
+                    tickformat = "'d"
                 ),
                 legend_title='',
                 legend=dict(
@@ -281,7 +269,7 @@ def register_callbacks(app):
                 )
             )
 
-            # Richtiger Platz für den Text zur Betroffenen-Ansicht
+            # --- Textblock: Zusatzinfos Betroffene ---
             text = html.Div([
                 html.H4("Wie viele Personen sind betroffen?"),
                 dbc.Row([
@@ -295,12 +283,9 @@ def register_callbacks(app):
                         "(Quelle: Universität St. Gallen, 2023, zuletzt abgerufen: 09.06.2025 )",
                         href="https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die-dunkelziffer-der-haeuslichen-gewalt-aus/",
                         target="_blank",
-                        style={"marginLeft": "4px"}
+                        style={"marginLeft": "4px", "color": "black", "textDecoration": "none"}
                     )
-                ],)
-            ],style={'marginTop': 95})
+                ])
+            ], style={'marginTop': 95, 'marginRight': 40})
 
         return fig, text
-
-
-
