@@ -65,14 +65,22 @@ layout = html.Div([
     html.Div([
         html.H2([
             "Tatort Beziehung: Wo treffen Täter:innen auf ihre Opfer?",
-            html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"}),
-        html.H3([
+            html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"})
+        ]),
+
+        html.H3(
             "Ob im sozialen Umfeld, in der Familie oder unter Fremden – diese Infografik zeigt, in welchen Beziehungen Täter:innen und Opfer zueinander stehen und wie häufig diese Konstellationen sind.",
-        ],
-            style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48,  'fontWeight': 600 }),
+            style={
+                'textAlign': 'left',
+                'marginLeft': 40,
+                'paddingBottom': '8px',
+                'marginTop': 48,
+                'fontWeight': 600
+            }
+        ),
 
         dbc.Tooltip(
-            "Die Zahlen Bei Täter:innen und Opfer können sich unterscheiden, da Täter:innen mehrere Opfer haben können und umgekehrt. Wird eine Person beispielsweise von der Mutter und dem Bruder bedroht, so zählt dies je einmal in den Kategorien Eltern-Kind-Beziehung und andere Verwandtschaftsbeziehung.",
+            "Die Zahlen bei Täter:innen und Opfern können sich unterscheiden, da Täter:innen mehrere Opfer haben können und umgekehrt. Wird eine Person beispielsweise von der Mutter und dem Bruder bedroht, so zählt dies je einmal in den Kategorien Eltern-Kind-Beziehung und andere Verwandtschaftsbeziehung.",
             target="info-icon",
             style={'textAlign': 'left'},
             placement="right"
@@ -87,9 +95,10 @@ layout = html.Div([
                 value=2024,
                 clearable=False,
                 style={"width": "150px"}
-            ), width="auto", style={ "marginTop": "20px"})
+            ), width="auto", style={"marginTop": "20px"})
         ], style={"marginLeft": "30px"})
-    ]),
+    ])
+])
 
     dbc.Row([
         dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked', style={
