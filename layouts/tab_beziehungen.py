@@ -64,8 +64,11 @@ df_be["Jahr"] = df_be["Jahr"].astype(int)
 layout = html.Div([
     html.Div([
         html.H2([
-            "In welcher Beziehung stehen Täter:innen und Opfer zueinander?",
-            html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"})
+            "Tatort Beziehung: Wo treffen Täter:innen auf ihre Opfer?",
+            html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"}),
+        html.H3([
+            "Ob im sozialen Umfeld, in der Familie oder unter Fremden – diese Infografik zeigt, in welchen Beziehungen Täter:innen und Opfer zueinander stehen und wie häufig diese Konstellationen sind.",
+            html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"}),
         ],
             style={'textAlign': 'left', 'marginLeft': 40, 'paddingBottom': '8px', 'marginTop': 48,  'fontWeight': 600 }),
 
