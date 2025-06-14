@@ -47,7 +47,7 @@ layout = html.Div([
     html.H2("Wie hat sich das Geschlechterverhältnis verändert?",
             style={'textAlign': 'left', 'marginLeft': 40, 'marginTop': 48,  'fontWeight': 600 }),
 html.P(
-        "Platzhalter",
+        "Entwicklung des Geschlechterverhältnis in absoluten und relativen Zahlen",
         style={
             'textAlign': 'left',
             'marginLeft': 40,
