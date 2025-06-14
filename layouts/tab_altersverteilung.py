@@ -5,6 +5,9 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
 import plotly.io as pio
+
+# --- Variabeln ---
+#Schriftart definieren
 plotly_font = dict(
     family="Arimo, sans-serif",
     size=14,
@@ -13,7 +16,7 @@ plotly_font = dict(
 pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
 pio.templates.default = "arimo"
 
-# --- Farben und Template ---
+#
 color_women = "#cb4d1d"
 color_men = "#4992b2"
 color_all = "black"

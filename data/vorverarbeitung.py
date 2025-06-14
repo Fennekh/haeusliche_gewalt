@@ -7,7 +7,7 @@ excel_file = pd.ExcelFile("beschuldigte.xlsx")  # ggf. Pfad anpassen
 jahre = [str(j) for j in range(2009, 2025)]
 alle_jahre_df = []
 
-# Extraktionsfunktion für einen Deliktblock
+# Extraktionsfunktion pro einen Deliktblock um diese später einzeln anprechen zu können
 def extract_block(df_block, jahr):
     rows = []
 
@@ -52,7 +52,7 @@ def extract_block(df_block, jahr):
 
     return pd.DataFrame(rows)
 
-# Verarbeite alle Jahre
+# Verarbeite alle Jahre (Aufteilung Jahre
 for jahr in jahre:
     df_sheet = excel_file.parse(jahr, header=None)
 
@@ -120,3 +120,5 @@ print(df.iloc[0])
 # Speichern beschuldigte
 df.to_csv("beschuldigte_tidy.csv", index=False)
 print("✅ Datei gespeichert als 'beschuldigte_tidy.csv'")
+
+#Hinweis: Deliktnamen mit Fussnote wurden im nachhnienin direkt in den Tidy Files noch angepasst.

@@ -300,7 +300,7 @@ layout = html.Div([
             html.Th("Delikt nach Strafgesetzbuch Artikel", style=header_style),
             html.Th("Straftaten (2024)", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
             html.Th(["Straftaten Trend ", html.Br(), " (2009 – 2024)"], style=header_style),
-            html.Th("Veränderung Straftaten %", style={**header_style, 'textAlign': 'right', 'width': '100px'}),
+            html.Th(["Veränderung Straftaten", html.Br(), " 2009 vs. 2024 (in %)"], style={**header_style, 'textAlign': 'right', }),
             html.Th(["Geschlechterverhältnis", html.Br(), "(Täter:innen, 2024)"], style=header_style),
             html.Th(["Geschlechterverhältnis", html.Br(), "(Opfer, 2024)"], style=header_style),
             html.Th(["Häufigste Beziehungsart", html.Br(), "(Täter:innen, 2024)"], style=header_style),
@@ -319,7 +319,7 @@ layout = html.Div([
     html.Div([
         html.P("Hinweise", style={'textAlign': 'left', 'fontSize': 18, 'color': 'black', 'marginLeft': 40, 'font-weight': '600', 'padding': '0px'}),
         html.P("*Sexueller Übergriff und sexuelle Nötigung (Art. 189) war bis 30. Juni 2024 Sexuelle Nötigung (Art. 189).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
-        html.P("**Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191)6 war bis 30. Juni 2024 Schändung (Art. 191).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
+        html.P("**Missbrauch einer urteilsunfähigen oder zum Widerstand unfähigen Person (Art. 191) war bis 30. Juni 2024 Schändung (Art. 191).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
         html.P("***Ausnützung einer Notlage oder Abhängigkeit (Art. 193) war bis 30. Juni 2024 Ausnützung der Notlage (Art. 193).", style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
         html.P("",
                style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40, 'marginBottom': '40px'}),

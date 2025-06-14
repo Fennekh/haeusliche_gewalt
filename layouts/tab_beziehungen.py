@@ -5,6 +5,9 @@ from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import pandas as pd
 import plotly.io as pio
+
+
+# --- Variabeln ---
 plotly_font = dict(
     family="Arimo, sans-serif",
     size=14,
@@ -13,16 +16,17 @@ plotly_font = dict(
 pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
 pio.templates.default = "arimo"
 
-# --- Farben ---
+# Farben
 color_women = "#cb4d1d"
 color_men = "#4992b2"
 
-# Daten laden
+# --- Daten laden und vorbereiten ---
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
 taeter = pd.read_csv("data/beschuldigte_tidy.csv")
 
 opfer = opfer[(opfer["Delikt"] == "Total Häusliche Gewalt") & (opfer["Beziehungsart"] == "Alle")]
 taeter = taeter[(taeter["Delikt"] == "Total Häusliche Gewalt") & (taeter["Beziehungsart"] == "Alle")]
+
 
 # Daten für Beziehungsarten vorbereiten
 df = pd.read_csv("data/geschaedigte_tidy.csv")
@@ -101,8 +105,14 @@ layout = html.Div([
 
     html.Div([
         html.Hr(),
+
+
+
         html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025 ",
-               style={'textAlign': 'left', 'marginLeft':40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'})
+               style={'textAlign': 'left', 'marginLeft':40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'}),
+
+        html.P("Für die Richtigkeit, Vollständigkeit und Aktualität der dargestellten Daten übernehmen wir keine Gewähr. Die Angaben basieren auf den zum genannten Zeitpunkt veröffentlichten Informationen des Bundesamts für Statistik.",
+               style={'textAlign': 'left', 'marginLeft': 40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'}),
     ])
 ])
 

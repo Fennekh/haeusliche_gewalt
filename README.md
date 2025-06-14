@@ -42,13 +42,13 @@ Folgende Attribute sind jeweils für Täter:innen und Opfer vorhanden und für 3
 **Hinweise:**  
 (2) In Fällen, in denen die gleiche Person von derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird, ohne dass eine separate Anzeige bzw. ein separater Rapport erfolgt, wird der betreffende Straftatbestand mit „mehrfach“ gekennzeichnet. 
 
+## Metadaten im Dashboard
 
-### Metadaten im Dashboard
-
-- **Aktualisierungsdatum** der Daten (z. B. „Letzte Aktualisierung: 09. Mai 2025“)
-- **Datenquelle** (z. B. „Simulierte Smart-Meter-Daten v2.1“)
-- **Hinweis zu Verbrauchseinheiten** (Tooltips bei Diagrammen)
-- **Haftungsausschluss** im Fußbereich
+•**Aktualisierungsdatum** der Daten (z.B. „Letzte Aktualisierung: 22. April 2025")
+•**Datenquelle** (z.B. „Bundesamt für Statistik – Polizeistatistik 2009–2024")
+•**Hinweis** zu Dateninterpretation (z.B. Tooltips bei Diagrammen)
+•**Datenschutzhinweise** (bei Totalwerten 1–3 entfallen gewisse Informationen)
+•**Haftungsausschluss** im Fußbereich
 
 
 ### Datenschutz und Datenanonymisierung - Datenschutzmassnahmen des BFS
@@ -162,7 +162,6 @@ Ein stratifiziertes Layout:
 
 
 ### Feedback-Umsetzung von Tag 7
-*(Inhalt bei Bedarf ergänzen)*
 
 **Metadata**
 - Quelle & Beschreibung ergänzt  

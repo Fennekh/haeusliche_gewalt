@@ -279,9 +279,15 @@ def register_callbacks(app):
                     dbc.Col([html.H1("11'849"), html.P("Opfer im Jahr 2024")])
                 ]),
                 html.P([
-                    html.B("Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschätzt."),
-                    " Bei Tätlichkeiten und Körperverletzungen werden z. B. 28,9 %, bei sexueller Gewalt 10,5 % der Fälle angezeigt (Uni St.Gallen 2023)."
-                ])
+                    html.B("Die Dunkelziffer bei häuslicher Gewalt wird als sehr hoch eingeschätzt."),
+                    " Laut einer Untersuchung der Universität St. Gallen werden beispielsweise nur 28,9 % der Tätlichkeiten und Körperverletzungen und lediglich 10,5 % der sexuellen Gewaltdelikte angezeigt ",
+                    html.A(
+                        "(Quelle: Universität St. Gallen, 2023, zuletzt abgerufen: 09.06.2025 )",
+                        href="https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die-dunkelziffer-der-haeuslichen-gewalt-aus/",
+                        target="_blank",
+                        style={"marginLeft": "4px"}
+                    )
+                ],)
             ],style={'marginTop': 95})
 
         return fig, text

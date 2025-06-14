@@ -88,6 +88,7 @@ def register_callbacks(app):
         fig.update_layout(barmode='stack', title='Täter:innen nach Geschlecht (2009–2024, Anteile in %)',
                           yaxis_title="", showlegend=False, template="plotly_white", bargap=0.1, title_font_family="Arimo, sans-serif",
                 title_font_size=20,
+
             )
         return fig
 
@@ -102,7 +103,8 @@ def register_callbacks(app):
                                  opacity=0.1, showlegend=False))
         fig.update_layout(title="Täter:innen nach Geschlecht (2009–2024, Anzahl Personen)", xaxis_title="Jahr",
                           yaxis_title="", template="plotly_white", hovermode="x unified",yaxis = dict(range=[0, 12000]),
-                          showlegend=False)
+                          showlegend=False,  title_font_family="Arimo, sans-serif",
+            title_font_size=20,)
         return fig
 
     def update_opfer_graph():
@@ -120,6 +122,8 @@ def register_callbacks(app):
         fig.update_layout(barmode='stack', title='Opfer nach Geschlecht (2009–2024, Anteile in %)',
                           template="plotly_white", bargap=0.1,
                             showlegend = True,
+                          title_font_family="Arimo, sans-serif",
+                          title_font_size=20,
                             legend = dict(
                                 title="",
                                 x=0.98,
@@ -129,6 +133,8 @@ def register_callbacks(app):
                                 bgcolor='rgba(255,255,255,0.5)',  # halbtransparenter Hintergrund
                                 bordercolor='lightgrey',
                                 borderwidth=1,
+                                title_font_family="Arimo, sans-serif",
+                                title_font_size=20,
                                 font=dict(color='black', family='Arimo'),) )
         return fig
 
@@ -144,6 +150,8 @@ def register_callbacks(app):
             title="Opfer nach Geschlecht (2009–2024, Anzahl Personen)",
             xaxis_title="Jahr",
             yaxis_title="Anzahl Personen",
+            title_font_family="Arimo, sans-serif",
+            title_font_size=20,
             template="plotly_white", hovermode="x unified",  showlegend = True,
             legend = dict(
             title="",
