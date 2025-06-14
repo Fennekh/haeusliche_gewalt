@@ -45,7 +45,7 @@ Das Dashboard soll es der Schweizer Bevölkerung, Behörden und Beratungsstellen
 ### Disclaimer
 
 Die Dunkelziffer bei Häuslicher Gewalt wird sehr hoch geschätzt. 
-Bei Tätlichkeiten und Körperverletzungen werden z. B. 28,9 %, bei sexueller Gewalt 10,5 % 
+Bei Tätlichkeiten und Körperverletzungen werden z.B. 28,9 %, bei sexueller Gewalt 10,5 % 
 der Fälle angezeigt.
 
 Quelle: https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die-dunkelziffer-der-haeusli-chen-gewalt-aus/, Univeristät St.Gallen, 26.10.2023, zuletzt abgerufen: 09.06.2025 
@@ -62,12 +62,12 @@ Wir nutzen dafür die Daten des Bundesamts für Statistik. Die Polizeistatistik 
 - **Strafgesetzbuch (StGB)**: Straftaten häusliche Gewalt und geschädigte Personen  
   https://www.bfs.admin.ch/bfs/de/home/statistiken/kriminalitaet-strafrecht/polizei/haeusliche-gewalt.assetdetail.34387408.html
 
-Folgende Attribute sind jeweils für Täter:innen und Opfer vorhanden und für 30 verschiedene Deliktarten sowie männlich/weiblich differenziert:
+Folgende Attribute werden für die Jahre von 2009 bis 2024, für Täter:innen und Opfer und für 30 verschiedene Deliktarten sowie männlich/weiblich differenziert:
 
 | Attribut                      | Beschreibung                                                                 |
 |------------------------------|------------------------------------------------------------------------------|
 | `Straftaten Total`           | Anzahl Straftaten pro Delikt                                                |
-| `Straftaten Mehrfach (2)`    | Anteil der mehrfach verübten Straftaten                                     |
+| `Straftaten Mehrfach`    | Anteil der mehrfach verübten Straftaten    (2)                                 |
 | `Beschuldigte/Geschädigte Total` | Anzahl Personen pro Delikt                                                |
 | `Alter`                      | 13 Alterskategorien, reduziert auf 8 (10-Jahres-Schritte), in Anzahl Personen |
 | `Beziehungsart`              | Beziehung zwischen den Personen (4 Kategorien: Partnerschaft, ehemalige Partnerschaft, Eltern-Kind-Beziehung, andere Verwandtschaft) |
@@ -79,9 +79,10 @@ Folgende Attribute sind jeweils für Täter:innen und Opfer vorhanden und für 3
 
 ## Metadaten im Dashboard
 
-•**Aktualisierungsdatum** der Daten (z.B. „Letzte Aktualisierung: 22. April 2025")
-•**Datenquelle** (z.B. „Bundesamt für Statistik – Polizeistatistik 2009–2024")
-•**Hinweis** zu Dateninterpretation (z.B. Tooltips bei Diagrammen)
+•**Aktualisierungsdatum** der Daten im Fussbereich (z.B. „Letzte Aktualisierung: 22. April 2025")
+•**Datenquelle** im Fussbereich und Impressum (z.B. „Bundesamt für Statistik – Polizeistatistik 2009–2024")
+•**Hinweis zu Dateninterpretation** (z.B. Tooltip bei Hover  über Infoicon neben der Seitenüberschrift mit seitenspezifischen Informationen. )
+•**Nutzungshinweis** (Infobox zur Nutzung des Liniendiagramms bei Entwicklung Altersverteilung)
 •**Datenschutzhinweise** (bei Totalwerten 1–3 entfallen gewisse Informationen)
 •**Haftungsausschluss** im Fussbereich
 
@@ -204,11 +205,11 @@ Ein stratifiziertes Layout:
 
 **Visual Representation**
 - *Beziehungsgrafik:*
-  - Titel & Hoverinfo ergänzt (Diskrepanzen erklärt)
+  - Titel & Hoverinfo mit erkärendem Text ergänzt (Diskrepanzen erklärt)
   - Wechsel von Stacked zu gruppiertem Balkendiagramm
   - Umstellung auf absolute Zahlen
   - Vertikale Balken (Frauen = links/Rot, Männer = rechts/Blau)
-- *Alterspyramide:* Umgedreht für intuitive Darstellung
+- *Alterspyramide:* Umgedreht für gewohntere Darstellung
 
 **Page Layout**
 - Tabelle auf Seite 1 verschoben  

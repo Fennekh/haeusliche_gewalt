@@ -64,28 +64,33 @@ df_be["Jahr"] = df_be["Jahr"].astype(int)
 layout = html.Div([
     html.Div([
         html.H2([
-            "Tatort Beziehung: Wo treffen Täter:innen auf ihre Opfer?",
+            "In welcher Beziehung standen Täter:innen und Opfer?",
             html.Span(" ℹ️", id="info-icon", style={"cursor": "pointer", "marginLeft": "10px"})
-        ]),
-
-        html.H3(
-            "Ob im sozialen Umfeld, in der Familie oder unter Fremden – diese Infografik zeigt, in welchen Beziehungen Täter:innen und Opfer zueinander stehen und wie häufig diese Konstellationen sind.",
-            style={
-                'textAlign': 'left',
-                'marginLeft': 40,
-                'paddingBottom': '8px',
-                'marginTop': 48,
-                'fontWeight': 600
-            }
-        ),
+        ], style={
+            'textAlign': 'left',
+            'marginLeft': 40,
+            'paddingBottom': '8px',
+            'marginTop': 48,
+            'fontWeight': 600
+        }),
 
         dbc.Tooltip(
             "Die Zahlen bei Täter:innen und Opfern können sich unterscheiden, da Täter:innen mehrere Opfer haben können und umgekehrt. Wird eine Person beispielsweise von der Mutter und dem Bruder bedroht, so zählt dies je einmal in den Kategorien Eltern-Kind-Beziehung und andere Verwandtschaftsbeziehung.",
             target="info-icon",
-            style={'textAlign': 'left'},
-            placement="right"
+            placement="right",
+            style={'textAlign': 'left'}
         ),
     ]),
+
+    html.P(
+        "Ob im sozialen Umfeld, in der Familie oder unter Fremden – diese Infografik zeigt, in welchen Beziehungen Täter:innen und Opfer zueinander stehen und wie häufig diese Konstellationen sind.",
+        style={
+            'textAlign': 'left',
+            'marginLeft': 40,
+            'paddingBottom': '8px',
+            'fontWeight': 600
+        }
+    ),
 
     html.Div([
         dbc.Row([
@@ -97,8 +102,7 @@ layout = html.Div([
                 style={"width": "150px"}
             ), width="auto", style={"marginTop": "20px"})
         ], style={"marginLeft": "30px"})
-    ])
-])
+    ]),
 
     dbc.Row([
         dbc.Col(dcc.Graph(id='graph-beziehung-taeter-stacked', style={
@@ -112,15 +116,12 @@ layout = html.Div([
             'textAlign': 'left',
             'font_family': 'arimo',
         }), width=6),
-    ], ),
+    ]),
 
     html.Div([
         html.Hr(),
-
-
-
-        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025 ",
-               style={'textAlign': 'left', 'marginLeft':40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'}),
+        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025",
+               style={'textAlign': 'left', 'marginLeft': 40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'}),
 
         html.P("Für die Richtigkeit, Vollständigkeit und Aktualität der dargestellten Daten übernehmen wir keine Gewähr. Die Angaben basieren auf den zum genannten Zeitpunkt veröffentlichten Informationen des Bundesamts für Statistik.",
                style={'textAlign': 'left', 'marginLeft': 40, 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black'}),
