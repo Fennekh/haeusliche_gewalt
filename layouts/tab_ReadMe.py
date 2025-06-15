@@ -82,7 +82,7 @@ Quelle: https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die
 Das Bundesamt für Statistik wendet strenge Datenschutzrichtlinien an, um die Anonymität der Betroffenen zu gewährleisten:
 
 - Statistische Geheimhaltung: Alle Daten werden vollständig anonymisiert veröffentlicht – keine Rückschlüsse auf Einzelpersonen möglich  
-- Schwellenwertregelung: Bei Totalwerten zwischen 1–3 Personen werden Detailinformationen (Alter, Beziehungsart) aus Datenschutzgründen nicht ausgewiesen  
+- Schwellenwertregelung: Bei Totalwerten zwischen 1–3 Personen werden Detailinformationen aus Datenschutzgründen nicht ausgewiesen  
 - Geografische Anonymisierung: Keine kleinräumigen geografischen Zuordnungen unter kantonaler Ebene  
 - Zeitliche Aggregation: Daten werden nur in Jahreszyklen veröffentlicht, nie tagesaktuell  
 

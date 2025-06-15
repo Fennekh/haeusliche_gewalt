@@ -353,7 +353,7 @@ layout = html.Div([
             "",
             style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
         html.P(
-            "Bei Totalwerten zwischen 1–3 Personen werden Detailinformationen (Alter, Beziehungsart) aus Datenschutzgründen nicht ausgewiesen",
+            "Bei Totalwerten zwischen 1–3 Personen werden Detailinformationen (Alter) aus Datenschutzgründen nicht ausgewiesen",
             style={'textAlign': 'left', 'fontStyle': 'italic', 'fontSize': 16, 'color': 'black', 'marginLeft': 40}),
 
     ]),
