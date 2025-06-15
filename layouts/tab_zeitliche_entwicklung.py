@@ -172,8 +172,17 @@ def register_callbacks(app):
                     yanchor="bottom",
                     y=0.85,
                     xanchor="left",
-                    x=0.018
-                )
+                    x=0.018,
+
+                ),
+                hoverlabel=dict(
+                    bgcolor="white",
+                    bordercolor="black",
+                    font=dict(color="black", size=14, family="Arimo, sans-serif"),
+                    align='left',
+                    namelength=-1
+                ),
+
             )
 
             # --- Textblock: Zusatzinfos Straftaten ---
@@ -190,7 +199,7 @@ def register_callbacks(app):
                     ", wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird."
                 ]),
             ], style={'marginTop': 95, 'marginRight': 40})
-            
+
         else:
             # --- Diagramm: Betroffene (Linie) ---
             opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= 2009) & (opfer_total['Jahr'] <= 2024)]
