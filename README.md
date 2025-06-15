@@ -107,7 +107,7 @@ Ein stratifiziertes Layout:
 .
 #### Strukturmuster
 
-- **Overview first, zoom and filter, then details-on-demand**  
+- **Overview first, zoom and filter second, then details-on-demand**  
   Nutzer:innen erhalten zuerst einen Überblick (z. B. Gesamtzahl der Straftaten), können anschließend durch Filter und Tabs fokussieren und bei Bedarf Details (z. B. Altersstruktur in einem Jahr oder per Hover) einsehen.
 
 - **Einheitliche Seitenhierarchie**  
