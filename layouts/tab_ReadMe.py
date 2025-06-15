@@ -38,7 +38,7 @@ Ein interaktives Dashboard zur Visualisierung und Analyse der Entwicklung von H�
 #### Ziel des Dashboards
 
 Das Dashboard soll es der Schweizer Bevölkerung, Behörden und Beratungsstellen dabei ermöglichen, die Entwicklung Häusliche Gewalt zu analysieren, zu erkennen, wer die Betroffenen (Täter:innen und Opfer) sind und in welcher Beziehung sie zueinander stehen.  
-**Ziel:** Bewusstsein und Sichtbarkeit für Häusliche Gewalt erhöhen.
+**Ziel:** Bewusstsein und Sichtbarkeit für Häusliche Gewalt erhöhen
 
 .
 #### Datenquelle
