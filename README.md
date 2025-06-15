@@ -35,7 +35,7 @@ Folgende Attribute werden für die Jahre von 2009 bis 2024, für Täter:innen un
 #### Disclaimer
 
 Die Dunkelziffer bei Häusliche Gewalt wird sehr hoch geschätzt.  
-Bei Tätlichkeiten und Körperverletzungen werden z. B. 28,9 %, bei sexueller Gewalt 10,5 % der Fälle angezeigt.
+Bei Tätlichkeiten und Körperverletzungen werden z.B. 28,9%, bei sexueller Gewalt 10,5 % der Fälle angezeigt.
 
 Quelle: https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die-dunkelziffer-der-haeusli-chen-gewalt-aus/, Universität St. Gallen, 26.10.2023, zuletzt abgerufen: 09.06.2025
 .
@@ -52,7 +52,7 @@ Quelle: https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die
 Das Bundesamt für Statistik wendet strenge Datenschutzrichtlinien an, um die Anonymität der Betroffenen zu gewährleisten:
 
 - Statistische Geheimhaltung: Alle Daten werden vollständig anonymisiert veröffentlicht – keine Rückschlüsse auf Einzelpersonen möglich  
-- Schwellenwertregelung: Bei Totalwerten zwischen 1–3 Personen werden Detailinformationen (Alter, Beziehungsart) aus Datenschutzgründen nicht ausgewiesen  
+- Schwellenwertregelung: Bei Totalwerten zwischen 1–3 Personen werden Detailinformationen aus Datenschutzgründen nicht ausgewiesen  
 - Geografische Anonymisierung: Keine kleinräumigen geografischen Zuordnungen unter kantonaler Ebene  
 - Zeitliche Aggregation: Daten werden nur in Jahreszyklen veröffentlicht, nie tagesaktuell  
 
