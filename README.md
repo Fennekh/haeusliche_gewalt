@@ -37,11 +37,11 @@ Quelle: https://www.unisg.ch/de/newsdetail/news/hsg-strafrechtlerin-leuchtet-die
 .
 #### Metadaten im Dashboard
 
-  - **Aktualisierungsdatum** der Daten im Fussbereich (z. B. „Letzte Aktualisierung: 22. April 2025")
-  - **Datenquelle** im Fussbereich und Impressum („Bundesamt für Statistik – Polizeistatistik 2009–2024")
+  - **Aktualisierungsdatum** der Daten im Fussnotenbereich (z. B. „Letzte Aktualisierung: 22. April 2025")
+  - **Datenquelle** im Fussnotenbereich und Read Me („Bundesamt für Statistik – Polizeistatistik 2009–2024")
   - **Hinweise zu Dateninterpretation und Begrifflichkeiten** (z. B. Tooltip bei Hover über Info-Icon neben der Seitenüberschrift, oder Hinweise zu Delikt-Umbenennungen (Tab 1)) 
   - **Hinweise auf fehlende Werte Datenschutz** (z. B. Hinweis unter Tabelle)
-  - **Haftungsausschluss** im Fussbereich
+  - **Haftungsausschluss** im Fussnotenbereich
 .
 #### Datenschutz und Datenanonymisierung – Datenschutzmassnahmen des BFS
 
