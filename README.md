@@ -7,7 +7,7 @@ Ein interaktives Dashboard zur Visualisierung und Analyse der Entwicklung von H�
 Das Dashboard soll es der Schweizer Bevölkerung, Behörden und Beratungsstellen dabei ermöglichen, die Entwicklung Häusliche Gewalt zu analysieren, zu erkennen, wer die Betroffenen (Täter:innen und Opfer) sind und in welcher Beziehung sie zueinander stehen.  
 **Ziel:** Bewusstsein und Sichtbarkeit für Häusliche Gewalt erhöhen
 
-#### InstallationsHinweise
+#### Installationshinweise
 Klone das Repository und installiere alle Abhängigkeiten mit Python 3.12 
 über pip install -r requirements.txt. Starte anschließend die App lokal 
 per python app.py – Desktop Ansicht empfohlen.
