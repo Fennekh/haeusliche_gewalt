@@ -8,8 +8,8 @@ from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import pandas as pd
 import plotly.io as pio
-
-# --- Plotly-Schriftart definieren ---
+# --- Variabeln ---
+# Schrift
 plotly_font = dict(
     family="Arimo, sans-serif",
     size=14,
@@ -18,16 +18,13 @@ plotly_font = dict(
 pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
 pio.templates.default = "arimo"
 
-# --- Farben und Klassen ---
+# Farben und Klassen
 dark_border_class = "toggle-btn active"  # CSS-Klasse für aktiven Button
 default_class = "toggle-btn"  # CSS-Klasse für inaktiven Button
 color_women = "#cb4d1d"
 color_men = "#4992b2"
 color_all = "black"
 
-# Optional: Roboto als alternative Schrift
-pio.templates["roboto"] = go.layout.Template(layout=dict(font=dict(family="roboto", size=14, color="black")))
-pio.templates.default = "roboto"
 
 # --- Daten laden ---
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
@@ -46,7 +43,7 @@ taeter_maenlich = taeter[taeter["Geschlecht"] == "männlich"]
 taeter_weiblich = taeter[taeter["Geschlecht"] == "weiblich"]
 taeter_total = taeter[taeter["Geschlecht"] == "Total"]
 
-# --- Layout der Seite ---
+# --- Layout ---
 layout = html.Div([
     html.H2("Wie hat sich das Geschlechterverhältnis verändert?",
             style={'textAlign': 'left', 'marginLeft': 40, 'marginTop': 48,  'fontWeight': 600 }),
@@ -96,7 +93,7 @@ def register_callbacks(app):
         df['% männlich'] = df['männlich'] / df['total'] * 100
         df['% weiblich'] = df['weiblich'] / df['total'] * 100
 
-        # Gestapeltes Balkendiagramm
+        # Balkendiagramm
         fig = go.Figure()
         fig.add_bar(x=df['Jahr'], y=df['% männlich'], name='Männliche Täter', marker_color=color_men,
                     hovertemplate='%{y:.1f}%<br>Täter<br>%{x}<extra></extra>')

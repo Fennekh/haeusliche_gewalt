@@ -11,8 +11,11 @@ import pandas as pd
 from plotly.validators.scatter.marker import SymbolValidator
 from dash import dash_table
 import matplotlib.pyplot as plt
+from dash import ctx  # ctx erkennt, welcher Button ausgelöst wurde
 
-# --- Plotly-Schriftart definieren ---
+#--- Variabeln ---
+
+# Schrift
 import plotly.io as pio
 plotly_font = dict(
     family="Arimo, sans-serif",
@@ -22,7 +25,7 @@ plotly_font = dict(
 pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
 pio.templates.default = "arimo"
 
-# --- Farbdefinitionen ---
+# --- Farben ---
 color_women = "#811616"
 color_men = "#0a0a35"
 color_all = "black"
@@ -31,29 +34,9 @@ color_all = "black"
 opfer = pd.read_csv("data/geschaedigte_tidy.csv")
 taeter = pd.read_csv("data/beschuldigte_tidy.csv")
 
-# --- Datenaufbereitung: Tabelle (Trenddarstellung) ---
 
-# Filter: nur Beziehungsart = Alle & Geschlecht = Total
-taeter_filtered = taeter[(taeter["Beziehungsart"] == "Alle") & (taeter["Geschlecht"] == "Total")]
 
-# Gruppieren nach Delikt und Jahr
-taeter_grouped = taeter_filtered.groupby(['Delikt', 'Jahr'])['Anzahl_beschuldigter_Personen_Total'].sum().reset_index()
-
-# Pivot: Delikte in Zeilen, Jahre in Spalten
-trend_pivot = taeter_grouped.pivot(index='Delikt', columns='Jahr', values='Anzahl_beschuldigter_Personen_Total')
-
-# Fehlende Werte mit 0 auffüllen
-trend_pivot = trend_pivot.fillna(0)
-
-# Spalten: aktuelle Zahl, Trendverlauf, prozentuale Veränderung seit 2009
-trend_pivot['Anzahl'] = trend_pivot[2024]
-trend_pivot['Trend'] = trend_pivot.apply(lambda row: row.loc[2009:2024].tolist(), axis=1)
-trend_pivot['Veränderung (%)'] = ((trend_pivot[2024] - trend_pivot[2009]) / trend_pivot[2009].replace(0, 1)) * 100
-
-# Sortierung nach aktueller Zahl (2024)
-trend_pivot_sorted = trend_pivot.sort_values(by='Anzahl', ascending=False).reset_index()
-
-# --- Datenaufbereitung: Grafiken (Zeitverlauf gesamt) ---
+# --- Datenaufbereitung: Grafiken  ---
 
 # Nur Gesamtdelikte: "Total Häusliche Gewalt"
 taeter = taeter[taeter["Delikt"] == "Total Häusliche Gewalt"]
@@ -86,7 +69,7 @@ layout = html.Div([
 
     dbc.Row([
         dbc.Col([
-            # Button-Group für Umschaltung
+            # Button-Group für Umschalten der View
             dbc.ButtonGroup([
                 dbc.Button("Straftaten", id="btn-straftaten", n_clicks=0, className="toggle-btn active"),
                 dbc.Button("Betroffene Personen", id="btn-betroffene", n_clicks=0, className="toggle-btn"),
@@ -114,10 +97,11 @@ layout = html.Div([
     ])
 ])
 
-# --- Callbacks: Interaktive Steuerung von Button & Graph ---
-from dash import ctx  # ctx erkennt, welcher Button ausgelöst wurde
+# --- Callbacks für Tab ---
+
 
 def register_callbacks(app):
+    #viewToggle
     @app.callback(
         Output("btn-straftaten", "className"),
         Output("btn-betroffene", "className"),
@@ -133,12 +117,13 @@ def register_callbacks(app):
             return "toggle-btn", "toggle-btn active", "betroffene"
         else:
             return "toggle-btn active", "toggle-btn", "straftaten"
-
+    #Text und Grafik anzeigen
     @app.callback(
         Output("zeitliche-entwicklung-gesamt", "figure"),
         Output("infotext-block", "children"),
         Input("toggle-view-state", "data")
     )
+
     def update_grafik_und_text(view_mode):
         if view_mode == "straftaten":
             # --- Diagramm: Straftaten (Balken) ---
@@ -205,6 +190,7 @@ def register_callbacks(app):
                     ", wenn die gleiche Person derselben Täterschaft zu mehreren Zeitpunkten auf die gleiche Art wiederholt geschädigt wird."
                 ]),
             ], style={'marginTop': 95, 'marginRight': 40})
+            
         else:
             # --- Diagramm: Betroffene (Linie) ---
             opfer_gefiltert = opfer_total[(opfer_total['Jahr'] >= 2009) & (opfer_total['Jahr'] <= 2024)]
@@ -215,7 +201,7 @@ def register_callbacks(app):
                 x=opfer_gefiltert['Jahr'],
                 y=opfer_gefiltert['Anzahl_geschaedigter_Personen_Total'],
                 mode='lines+markers',
-                name='Geschädigte gesamt',
+                name='Opfer gesamt',
                 marker=dict(size=9),
                 line=dict(width=1.5, color=color_all, dash='dot')
             ))
@@ -223,7 +209,7 @@ def register_callbacks(app):
                 x=taeter_gefiltert['Jahr'],
                 y=taeter_gefiltert['Anzahl_beschuldigter_Personen_Total'],
                 mode='lines+markers',
-                name='Beschuldigte gesamt',
+                name='Täter:innen gesamt',
                 marker=dict(symbol='star-diamond', size=10),
                 line=dict(width=1.5, color=color_all)
             ))

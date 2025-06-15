@@ -11,6 +11,9 @@ import matplotlib.pyplot as plt
 import io
 import plotly.io as pio
 
+# ----- Variabeln -----
+
+#Schrift
 plotly_font = dict(
     family="Arimo, sans-serif",
     size=14,
@@ -20,7 +23,6 @@ pio.templates["arimo"] = go.layout.Template(layout=dict(font=plotly_font))
 pio.templates.default = "arimo"
 
 
-#------ Variabeln überall gleich
 
 #Variabeln
 color_women = "#811616"
@@ -28,7 +30,6 @@ color_men = "#0a0a35"
 color_all = "black"
 
 
-#----
 
 text = """
 #### Dashboard zu Häusliche Gewalt in der Schweiz 2009–2024
@@ -241,12 +242,14 @@ Ein stratifiziertes Layout:
 - Filter optimiert und entfernt wo nicht relevant.
 
 """
-
+#---Layout---
 layout = html.Div([dbc.Container([html.H2("Über das Projekt", style={'textAlign': 'left', 'marginLeft': 0, 'paddingBottom': 28, 'marginTop': 48,  'fontWeight': 600 }),
-    dcc.Markdown(text, style={"whiteSpace": "pre-wrap", 'maxWidth':900})
+    dcc.Markdown(text, className="markdown-body", style={"whiteSpace": "pre-wrap", 'maxWidth': 900})
+
 ], style={'margin': 40}, fluid=True)])
 
-
+#---Callbacks----
+#Damit wird der Inhalt von app.py aufgerufen
 def register_callbacks(app):
     @app.callback(
         Output('impressum', 'figure'),

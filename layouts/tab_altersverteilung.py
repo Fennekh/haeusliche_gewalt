@@ -38,7 +38,7 @@ age_order = ['<10 Jahre', '10 - 19 Jahre', '20 - 29 Jahre', '30 - 39 Jahre',
 for df in [opfer, taeter]:
     for col in age_order:
         if col in df.columns:
-            df[col] = pd.to_numeric(df[col], errors='coerce')
+            df[col] = pd.to_numeric(df[col], errors='coerce') #Umwandlung Zahlenwerte
 
 # --- Layout ---
 layout = html.Div([
@@ -57,6 +57,7 @@ layout = html.Div([
         dbc.Row([
             dbc.Col([
                 html.Div([
+                    #Filter
                     dcc.Dropdown(
                         id='gender-selector-trend',
                         options=[
@@ -77,6 +78,8 @@ layout = html.Div([
                         labelStyle={'display': 'inline-block', 'marginLeft': '20px'}
                     ),
                 ], style={'display': 'flex', 'gap': '10px', 'marginTop': '8px', 'marginBottom': '16px', 'marginLeft': '40px'}),
+
+                #Diagramme
                 dcc.Graph(id='altersgruppen-trend', style={'height': '65vh', 'marginLeft': '0px', 'marginTop': '16px', }),
             ], width=8),
 
@@ -85,6 +88,8 @@ layout = html.Div([
             ], width=4)
         ], style={'marginTop': '36px'})
     ]),
+
+    #Footer
     html.Div([
         html.Hr(),
        html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025 ",
@@ -102,12 +107,14 @@ def register_callbacks(app):
         [Input('trend-selector', 'value'),
          Input('gender-selector-trend', 'value')]
     )
+    #liniendiagramm
     def update_altersgruppen_trend(perspektive, geschlecht):
         jahr_start = 2009
         jahr_ende = 2024
-        df = opfer if perspektive == 'opfer' else taeter
-        df['Jahr'] = pd.to_numeric(df['Jahr'], errors='coerce')
+        df = opfer if perspektive == 'opfer' else taeter #Möglichkeit Täter:innen Opfer Perspektive anzuwenden
+        df['Jahr'] = pd.to_numeric(df['Jahr'], errors='coerce') #in Zahlenweerte umwandeln
 
+        #Filter
         df_filtered = df[
             (df['Geschlecht'] == geschlecht) &
             (df['Jahr'] >= jahr_start) &
@@ -123,7 +130,7 @@ def register_callbacks(app):
             linienfarbe = color_all
 
         fig = go.Figure()
-
+        #Pro altersklasse eine Linie
         for altersklasse in age_order:
             if altersklasse in df_filtered.columns:
                 x_vals = df_filtered['Jahr']
@@ -137,7 +144,7 @@ def register_callbacks(app):
                     line=dict(color=linienfarbe),
                     showlegend=False,  # keine Legende
                     hoverlabel=dict(font=dict(size=12)),
-                    hovertemplate=f'%{{y:.0f}} Personen<br>{altersklasse}<br>%{{x}}<extra></extra>'
+                    hovertemplate=f'%{{y:.0f}} Personen<br>{altersklasse}<br>%{{x}}<extra></extra>' #weglassen der voreingefüllten Werte
                 ))
 
                 # Letzten Punkt beschriften
@@ -177,8 +184,9 @@ def register_callbacks(app):
          Input('trend-selector', 'value'),
         Input('gender-selector-trend', 'value')]
     )
+    #Pyramide
     def update_alterspyramide(clickData, perspektive,geschlecht):
-        if clickData is None:
+        if clickData is None: #kein Datenpunkt angeklickt
             return go.Figure(layout=go.Layout(
                 xaxis={"visible": False},
                 yaxis={"visible": False},
@@ -186,7 +194,7 @@ def register_callbacks(app):
                     type="path",
                     path=("M 0.02 1.0 L 0.98 1.0 Q 1.0 1.0 1.0 0.98 L 1.0 0.12 "
                           "Q 1.0 0.1 0.98 0.1 L 0.02 0.1 Q 0.0 0.1 0.0 0.12 "
-                          "L 0.0 0.98 Q 0.0 1.0 0.02 1.0 Z"),
+                          "L 0.0 0.98 Q 0.0 1.0 0.02 1.0 Z"), #Ecken Abgerundet
                     xref="paper", yref="paper",
                     line=dict(color="lightgrey", width=1),
                     fillcolor="white", layer="below"
@@ -204,13 +212,14 @@ def register_callbacks(app):
         try:
             jahr = int(clickData['points'][0]['x'])
         except Exception:
-            raise PreventUpdate
+            raise PreventUpdate #Kein Update wenn nicht auf Punkt geklickt wird, kein Fehler
 
+        #Filter
         df = opfer if perspektive == 'opfer' else taeter
         df_year = df[df['Jahr'] == jahr]
 
         fig = go.Figure()
-
+       #weibliche Traces
         if geschlecht in ['weiblich', 'Total']:
             df_weiblich = df_year[df_year['Geschlecht'] == 'weiblich']
             x_women = [-df_weiblich[g].values[0] if g in df_weiblich else 0 for g in age_order]
@@ -221,7 +230,7 @@ def register_callbacks(app):
                 name='Weiblich',
                 marker_color=color_women
             ))
-
+        # männliche Traces
         if geschlecht in ['männlich', 'Total']:
             df_maennlich = df_year[df_year['Geschlecht'] == 'männlich']
             x_men = [df_maennlich[g].values[0] if g in df_maennlich else 0 for g in age_order]
@@ -253,7 +262,7 @@ def register_callbacks(app):
                 y=0.98,
                 xanchor='right',
                 yanchor='top',
-                bgcolor='rgba(255,255,255,0.5)',  # halbtransparenter Hintergrund
+                bgcolor='rgba(255,255,255,0.5)',
                 bordercolor='lightgrey',
                 borderwidth=1,
                 font=dict(color='black',family='Arimo', ),

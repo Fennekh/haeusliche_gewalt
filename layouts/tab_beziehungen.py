@@ -11,7 +11,7 @@ import plotly.io as pio  # Für Theme-Konfiguration
 
 # --- Design- und Darstellungs-Variablen ---
 
-# Einheitliches Schriftbild für Plotly-Diagramme definieren
+# Schrift
 plotly_font = dict(
     family="Arimo, sans-serif",
     size=14,
@@ -36,7 +36,7 @@ taeter = taeter[(taeter["Delikt"] == "Total Häusliche Gewalt") & (taeter["Bezie
 
 # --- Daten für Beziehungsarten vorbereiten ---
 
-# Daten nochmal neu laden für differenzierte Analyse nach Beziehungsart
+# Daten nochmal neu laden für genauere Analyse nach Beziehungsart
 df = pd.read_csv("data/geschaedigte_tidy.csv")
 df_be = pd.read_csv("data/beschuldigte_tidy.csv")
 
@@ -74,7 +74,7 @@ df_be = df_be[["Jahr", "Geschlecht", "Beziehungsart", "Anzahl_beschuldigter_Pers
 df_be["Anzahl_beschuldigter_Personen_Total"] = df_be["Anzahl_beschuldigter_Personen_Total"].astype(float)
 df_be["Jahr"] = df_be["Jahr"].astype(int)
 
-# --- Layout für die Dash-Komponente ---
+# --- Layout ---
 layout = html.Div([
     html.Div([
         html.H2([
@@ -87,7 +87,7 @@ layout = html.Div([
             'fontWeight': 600
         }),
 
-        # Tooltip mit erklärendem Text
+        # Tooltip neben Titel
         dbc.Tooltip(
             "Die Zahlen bei Täter:innen und Opfern können sich unterscheiden, da Täter:innen mehrere Opfer haben können und umgekehrt. "
             "Wird eine Person beispielsweise von der Mutter und dem Bruder bedroht, so zählt dies je einmal in den Kategorien Eltern-Kind-Beziehung "
@@ -116,7 +116,7 @@ layout = html.Div([
         ], style={"marginLeft": "30px"})
     ]),
 
-    # Zwei nebeneinanderstehende Diagramme (Täter:innen / Opfer)
+    # Zwei Diagramme (Täter:innen / Opfer)
     dbc.Row([
         dbc.Col(dcc.Graph(id='graph-beziehung-taeter', style={
             'height': '65vh',
@@ -131,7 +131,7 @@ layout = html.Div([
         }), width=6),
     ]),
 
-    # Fußzeile mit Quellenangabe
+    # Fußzeile
     html.Div([
         html.Hr(),
         html.P("Quelle: BFS – Polizeiliche Kriminalstatistik (PKS), Datenstand: 14.02.2025",
